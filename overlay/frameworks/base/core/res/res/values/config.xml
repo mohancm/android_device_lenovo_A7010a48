@@ -352,7 +352,7 @@
     <bool name="config_useSystemClockforRotationSensor">true</bool>
 
     <!-- Show battery fully charged notification -->
-    <bool name="config_showBatteryFullyChargedNotification">true</bool>
+    <add-resource type="bool" name="config_showBatteryFullyChargedNotification">true</add-resource>
 
     <!-- Set to true if the wifi display supports compositing content stored
          in gralloc protected buffers.  For this to be true, there must exist
