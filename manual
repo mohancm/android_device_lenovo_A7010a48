@@ -1,0 +1,27 @@
+#How to Build the CM13 From Source:
+
+##
+ *Download vendor tree and device tree from my git".
+
+ *Create directories lenovo/A7010a48 and place them in working_dir/device and in working_dir/vendor
+
+ *After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
+  
+ *Open terminal and write:
+     *cd Working_dir
+
+	 After apply patches:
+
+	 sh device/lenovo/A7010a48/patches/install.sh
+
+	 
+#Write Below commands in Terminal(alt+ctr+T)
+
+   * .build/envsetup.sh && Select lunch Combo
+   lunch A7010a48
+
+   And
+
+   mka bacon
+
+   compiling get started ! Take some Rest! your build is ready on output directory.
