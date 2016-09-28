@@ -52,3 +52,6 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := A7010a48
