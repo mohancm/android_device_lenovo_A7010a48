@@ -16,7 +16,7 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.mt6735
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
-#If tou get Error as TW_Theme() not found
+#If you get Error as TW_Theme() not found
 # comment lines below #Recovery and uncomment these lines
 #TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 #DEVICE_RESOLUTION := 1080x1920
