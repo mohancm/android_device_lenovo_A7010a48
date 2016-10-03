@@ -2,7 +2,7 @@
 # system.prop for A7010a48
 #
 
-rild.libpath=mtk-ril.so
+rild.libpath=/system/lib64/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
 # MTK, Infinity, 20090720 {
@@ -195,11 +195,3 @@ ro.mtk_deinterlace_support=1
 persist.mtk.datashaping.support=1
 persist.datashaping.alarmgroup=1
 ro.mtk_modem_monitor_support=1
-
-# Hardware Info
-ro.device.chipset= MediaTek MT6753
-ro.device.cpu= Octa-core 1.3 GHz
-ro.device.gpu=ARM Mali-T720MP3
-ro.device.rear_cam=13 MP
-ro.device.front_cam=5 MP
-ro.device.screen_res=1080X1920
