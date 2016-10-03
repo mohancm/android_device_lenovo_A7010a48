@@ -6,9 +6,9 @@ dirs="frameworks/av frameworks/base frameworks/opt/telephony frameworks/opt/net/
 
 for dir in $dirs ; do
 	cd $rootdirectory
-	#cd $dir
+	cd $dir
 	echo "Reverting $dir patches..."
-	#git apply --reverse $rootdirectory/device/lenovo/A7010a48/patches/$dir/*.patch
+	git apply --reverse $rootdirectory/device/lenovo/A7010a48/patches/$dir/*.patch
 	repo sync $dir
 	echo " "
 done
