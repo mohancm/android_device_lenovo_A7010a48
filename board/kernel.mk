@@ -6,3 +6,6 @@ BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --board 1465391499 --r
 
 # Kernel properties
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
+
+# Hack for building without kernel sources
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
