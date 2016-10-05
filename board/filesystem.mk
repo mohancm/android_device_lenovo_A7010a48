@@ -19,8 +19,8 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 #If you get Error as TW_Theme() not found
 # comment lines below #Recovery and uncomment these lines
 #TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
-#DEVICE_RESOLUTION := 1080x720
-#DEVICE_SCREEN_WIDTH := 1080
+#DEVICE_RESOLUTION := 1280x720
+#DEVICE_SCREEN_WIDTH := 1280
 #DEVICE_SCREEN_HEIGHT := 720
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 #TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
