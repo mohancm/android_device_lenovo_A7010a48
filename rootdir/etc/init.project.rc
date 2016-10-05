@@ -234,6 +234,17 @@ on post-fs-data
 # Connectivity related device nodes & configuration (end)
 #
 
+
+#LYCONFIG_FINGERPRINT_SUPPORT start
+    chmod 0666 /dev/madev0
+    chown system system /dev/madev0
+    chmod 0666 /dev/esfp0
+    chown system system /dev/esfp0
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+#LYCONFIG_FINGERPRINT_SUPPORT start
+
+
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
     # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
