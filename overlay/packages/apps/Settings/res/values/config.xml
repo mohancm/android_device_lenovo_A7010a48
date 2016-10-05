@@ -18,4 +18,12 @@
  <!-- Using this on MSIM devices leads to weird states that break telephony's
  internal state machine. All MSIM devices should probably set this to "true"-->
  <bool name="config_disablePreferredNetworkSwitch" translatable="false">true</bool>
+
+ <!-- Defines the location of the fingerprint sensor on the device
+       0 = back
+       1 = front
+       2 = left side
+       3 = right side
+  -->
+<integer name="config_fingerprintSensorLocation">0</integer>
 </resources>
