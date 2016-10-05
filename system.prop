@@ -195,3 +195,6 @@ ro.mtk_deinterlace_support=1
 persist.mtk.datashaping.support=1
 persist.datashaping.alarmgroup=1
 ro.mtk_modem_monitor_support=1
+
+# Radio
+persist.data.iwlan.enable=true
