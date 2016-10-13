@@ -1,5 +1,6 @@
-This is patch directory:
+<h2>This is patch directory:</h2>
 
+<h3>Way to Apply the patches:</h3><br>
 cd WORKING_DIR
 sh device/lenovo/A7010a48/patches/apply-patches.sh
 sh device/lenovo/A7010a48/patches/revert-patches.sh
