@@ -1,0 +1,299 @@
+# MTK project .rc configure
+
+import init.mt6735.usb.rc
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+    mkdir /preload
+
+on post-fs-data
+
+#autok 
+       chown root system /sys/autok/debug 
+       chown root system /sys/autok/param_count 
+       chown root system /sys/autok/ready 
+       chown root system /sys/autok/ss_corner 
+       chown root system /sys/autok/suggest_vol 
+       chown root system /sys/autok/stage1/2/DONE 
+       chown root system /sys/autok/stage1/2/PARAMS 
+       chown root system /sys/autok/stage1/2/VOLTAGE 
+       chown root system /sys/autok/stage1/2/LOG 
+       chown root system /sys/autok/stage2/2
+#
+# Connectivity related device nodes & configuration (begin)
+#
+
+#/dev/ttyMT2 for Connectivity BT/FM/GPS usage
+    chmod 0660 /dev/ttyMT2
+    chown system system /dev/ttyMT2
+
+
+# STP, WMT, GPS, FM and BT Driver
+#   insmod /system/lib/modules/mtk_hif_sdio.ko
+#   insmod /system/lib/modules/mtk_stp_wmt.ko
+#   insmod /system/lib/modules/mtk_stp_uart.ko
+#   insmod /system/lib/modules/mtk_stp_gps.ko
+#   insmod /system/lib/modules/mtk_stp_bt.ko
+#   insmod /system/lib/modules/mtk_fm_drv.ko
+#   insmod /system/lib/modules/mtk_wmt_wifi.ko
+
+
+# Create char device file for WMT, GPS, BT, FM, WIFI
+#    mknod /dev/stpwmt c 190 0;
+#    mknod /dev/stpgps c 191 0;
+#    mknod /dev/stpbt  c 192 0;
+
+#    chmod 0660 /dev/stpwmt
+#    chown system system /dev/stpwmt
+
+#    chmod 0660 /dev/wmtdetect
+#    chown system system /dev/wmtdetect
+
+    mknod /dev/wmtWifi c 153 0
+    chmod 0660 /dev/wmtWifi
+    chown system system /dev/wmtWifi
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+   
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+#lenovo-sw wuyt3 add 20150526 begin
+    chmod 0660 /dev/S5K3M2_CAM_CAL_DRV
+    chown system camera /dev/S5K3M2_CAM_CAL_DRV 
+#lenovo-sw wuyt3 add 20150526 end 
+    
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
+    
+	chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+# BT
+#    chmod 0660 /dev/stpbt
+#    chown bluetooth radio /dev/stpbt
+
+# GPS
+#    chown gps gps /dev/stpgps
+    chown gps gps /sys/class/gpsdrv/gps/pwrctl
+    chown gps gps /sys/class/gpsdrv/gps/suspend
+    chown gps gps /sys/class/gpsdrv/gps/state
+    chown gps gps /sys/class/gpsdrv/gps/pwrsave
+    chown gps gps /sys/class/gpsdrv/gps/status
+#    chmod 0660 /dev/stpgps
+
+# WiFi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0 
+    chown system /dev/ttyGS0 
+    chmod 660 /dev/ttyGS1 
+    chown system /dev/ttyGS1
+
+#Disable for one Single loader
+# Load WiFi Driver
+#   insmod /system/lib/modules/wlan_mt.ko
+
+# Char device for BT 3.0 HS
+    mknod /dev/ampc0 c 151 0
+    chown bluetooth bluetooth /dev/ampc0
+    chmod 0660 /dev/ampc0
+    
+#lenovo-sw wuwl10 add 20160226 begin
+    chown system system /sys/lenovo_tp_gestures/tpd_suspend_status
+    chown system system /sys/lenovo_tp_gestures/tpd_glove_status
+#lenovo-sw wuwl10 add 20160226 end
+
+# lenovo-sw, chenzz3, TEEI-P2, begin
+	mkdir /data/thh/tee_05/data 0777 system system
+	mkdir /data/thh/tee_05/data/fpc 0777 system system
+	mkdir /data/system/users 0777 system system
+	mkdir /data/system/users/0 0777 system system
+	mkdir /data/system/users/0/fpdata 0777 system system
+	mkdir /data/thh/tee_05/data 0777 system system
+	mkdir /data/thh/tee_05/data/fpc 0777 system system
+	chmod 0777 /data/system/users
+	chmod 0777 /data/system/users/0
+	chmod 0777 /data/system/users/0/fpdata
+	chmod 0777 /data/thh/tee_05
+	chmod 0777 /data/thh/tee_05/data/fpc
+	chown system system /dev/teei_fp
+	chown system system /dev/teei_client
+	chown system system /dev/teei_config
+	chown system system /sys/bus/spi/devices/spi0.1/pinctl_set
+	chown system system /sys/bus/spi/devices/spi0.1/spi_owner
+	chown system system /sys/bus/spi/devices/spi0.1/spi_prepare
+	chown system system /sys/bus/spi/devices/spi0.1/fabric_vote
+	chown system system /sys/bus/spi/devices/spi0.1/regulator_enable
+	chown system system /sys/bus/spi/devices/spi0.1/bus_lock
+	chown system system /sys/bus/spi/devices/spi0.1/hw_reset
+	chown system system /sys/bus/spi/devices/spi0.1/wakeup_enable
+	chown system system /sys/bus/spi/devices/spi0.1/clk_enable
+	chown system system /sys/bus/spi/devices/spi0.1/irq
+    chown system system /sys/bus/spi/devices/spi0.1/navigation_event
+	chmod 0664 /dev/teei_fp
+	chmod 0664 /dev/teei_client
+	chmod 0664 /dev/teei_config
+	chmod 0664 /sys/bus/spi/devices/spi0.1/pinctl_set
+	chmod 0664 /sys/bus/spi/devices/spi0.1/spi_owner
+	chmod 0664 /sys/bus/spi/devices/spi0.1/spi_prepare
+	chmod 0664 /sys/bus/spi/devices/spi0.1/fabric_vote
+	chmod 0664 /sys/bus/spi/devices/spi0.1/regulator_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/bus_lock
+	chmod 0664 /sys/bus/spi/devices/spi0.1/hw_reset
+	chmod 0664 /sys/bus/spi/devices/spi0.1/wakeup_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/clk_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/irq
+    chmod 0664 /sys/bus/spi/devices/spi0.1/navigation_event
+# lenovo-sw, chenzz3, TEEI-P2, end
+	
+# lenovo-sw, chenzz3, configure permission for perftags device, begin
+    chown system system /dev/perftags
+    chmod 0664 /dev/perftags
+# lenovo-sw, chenzz3, configure permission for perftags device, end
+
+# Lenovo-sw weimh1 add 2016-2-2 begin:add for Sensor calibration
+    chown system system /persist/gsensor_cali_val_x
+    chown system system /persist/gsensor_cali_val_y
+    chown system system /persist/gsensor_cali_val_z
+    chmod 0664 /persist/gsensor_cali_val_x
+    chmod 0664 /persist/gsensor_cali_val_y
+    chmod 0664 /persist/gsensor_cali_val_z
+    restorecon /persist/gsensor_cali_val_x
+    restorecon /persist/gsensor_cali_val_y
+    restorecon /persist/gsensor_cali_val_z
+
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+# Lenovo-sw weimh1 add 2016-2-2 end
+
+# lenovo-sw, chenzz3, add permissions for sensor gyro-sensor calibration, begin
+    chown system system /persist/gyroscope_cali_val_x
+    chown system system /persist/gyroscope_cali_val_y
+    chown system system /persist/gyroscope_cali_val_z
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_x
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_y
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_z
+    chmod 0660 /persist/gyroscope_cali_val_x
+    chmod 0660 /persist/gyroscope_cali_val_y
+    chmod 0660 /persist/gyroscope_cali_val_z
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_x
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_y
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_z
+# lenovo-sw, chenzz3, add permissions for gyro-sensor calibration, end
+
+# lenovo-sw, chenzz3, add permissions for p-sensor calibration, begin
+    chown system system /persist/prox_threshold_hi
+    chown system system /persist/prox_threshold_lo
+    chown system system /sys/bus/platform/drivers/als_ps/cali_param_1
+    chown system system /sys/bus/platform/drivers/als_ps/cali_param_2
+    chmod 0660 /persist/prox_threshold_hi
+    chmod 0660 /persist/prox_threshold_lo
+    chmod 0660 /sys/bus/platform/drivers/als_ps/cali_param_1
+    chmod 0660 /sys/bus/platform/drivers/als_ps/cali_param_2
+# lenovo-sw, chenzz3, add permissions for p-sensor calibration, end
+
+#
+# Connectivity related device nodes & configuration (end)
+#
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#
+# Connectivity related services (Begin)
+#
+
+service atci_service /system/bin/atci_service 
+	socket atci-service stream 660 radio system 
+	socket atci-serv-fw stream 660 radio system 
+	user root 
+        disabled
+	group radio system  
+	
+service atcid-daemon-u /system/bin/atcid
+	user system
+	group radio system media
+	disabled
+	oneshot
+
+service atcid-daemon-e /system/bin/atcid
+	user root
+	group radio system
+	disabled
+	oneshot
+
+on early_property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 media system
+    user media
+    group nvram media system sdcard_rw
+    disabled
+    oneshot
+    
+service wmtLoader /system/bin/wmt_loader
+    class core
+    user root
+    group root
+    oneshot
+
+
+#lenovo_sw chengx2 modify for wcn
+service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
+    user system
+    group system
+    class core
+
+
+#
+# Connectivity related services (End)
+#
+
+#For WiFi High Speed calibration 
+       service autokd /system/bin/autokd 
+       class core 
+       user system 
+       group system
+

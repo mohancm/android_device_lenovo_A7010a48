@@ -1,0 +1,101 @@
+import meta_init.c2k.rc
+
+on post-fs
+#
+# Connectivity related modules and character device nodes (Begin)
+#
+    #for 662x_launcher
+    chmod 0660 /dev/ttyMT2
+    chown system system /dev/ttyMT2
+
+    # STP, SDIO, WMT, GPS, FM and BT Driver
+#   insmod /system/lib/modules/mtk_hif_sdio.ko
+#   insmod /system/lib/modules/mtk_stp_wmt.ko
+#   insmod /system/lib/modules/mtk_stp_uart.ko
+#   insmod /system/lib/modules/mtk_stp_gps.ko
+#   insmod /system/lib/modules/mtk_stp_bt.ko
+#   insmod /system/lib/modules/mtk_fm_drv.ko
+#   insmod /system/lib/modules/mtk_fm_priv.ko
+#   insmod /system/lib/modules/mtk_wmt_wifi.ko
+
+    insmod /system/lib/modules/mtk_wmt_detect.ko
+    
+    # Create char device file for WMT, GPS, BT, FM, WIFI
+    mknod /dev/stpwmt c 190 0;
+    mknod /dev/stpgps c 191 0;
+    mknod /dev/stpbt  c 192 0;
+    mknod /dev/fm     c 193 0;
+    chmod 0660 /dev/stpwmt
+    chown system system /dev/stpwmt
+    chmod 0660 /dev/wmtdetect
+ 		chown system system /dev/wmtdetect
+ 		
+    # FM Radio device, FIXME: this is not a proper way to set permissions
+    chmod 0666 /dev/fm
+ 
+    mknod /dev/wmtWifi c 153 0
+    chmod 0666 /dev/wmtWifi
+    chmod 0660 /dev/stpgps
+    chmod 0660 /dev/stpbt
+    chown bluetooth radio /dev/stpbt
+    
+    # Load WiFi Driver
+    #insmod /system/lib/modules/wlan.ko
+
+#
+# Connectivity related modules and character device nodes (Ends)
+#
+
+on boot
+
+
+#
+# Connectivity related services (Begin)
+#
+
+service wmtLoader /system/bin/wmt_loader
+    user root
+    group root
+    oneshot
+    
+#lenovo_sw chengx2 modify for wcn
+service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
+    user system
+    group system
+
+#Begin, lenovo-sw lumy1 add for SP META
+# For WiFi High Speed calibration
+service autokd /system/bin/autokd
+ class core
+ user system
+ group system
+
+on post-fs-data 
+
+    #autok
+    chown root system /sys/autok/debug
+    chown root system /sys/autok/param_count
+    chown root system /sys/autok/ready
+    chown root system /sys/autok/ss_corner
+    chown root system /sys/autok/suggest_vol
+    chown root system /sys/autok/stage1/2/DONE
+    chown root system /sys/autok/stage1/2/PARAMS
+    chown root system /sys/autok/stage1/2/VOLTAGE
+    chown root system /sys/autok/stage1/2/LOG
+    chown root system /sys/autok/stage2/2
+#End, lenovo-sw lumy1 add for SP META
+
+#
+# Connectivity related services (End)
+#
+
+#lenovo-sw sunyue5 add for check wifi nvram begin
+service override_nvram /system/bin/override_nvram
+    user root
+    group system
+    disabled
+    oneshot
+
+on property:service.nvram_init=Ready
+    start override_nvram
+#lenovo-sw sunyue5 add for check wifi nvram end
