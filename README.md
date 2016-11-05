@@ -33,8 +33,9 @@ CyanogenMod team and many other Developers
 # device_lenovo_A7010a48
 
 ## Credits
-JonnyXDA
-visi0nary
-Mohancm
-Kishan
-Venkat
+<@deeplex> [for sources]
+<@JonnyXDA>
+<@visi0nary>
+<@Mohancm100>
+<@Kishanpatel>
+<@Venkatpinnamani>
