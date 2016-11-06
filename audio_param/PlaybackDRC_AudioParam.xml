@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AudioParam>
+	<ParamTree>
+		<Param path="Ring" param_id="0"/>
+		<Param path="Ring,Speaker" param_id="0"/>
+		<Param path="Ring,Headset+Speaker" param_id="0"/>
+		<Param path="Music" param_id="1"/>
+		<Param path="Music,Speaker" param_id="1"/>
+		<Param path="Music,Headset+Speaker" param_id="1"/>
+		<Param path="Speaker" param_id="1"/>
+		<Param path="Headset+Speaker" param_id="1"/>
+		<Param path="" param_id="2"/>
+	</ParamTree>
+	<ParamUnitPool>
+		<ParamUnit param_id="0">
+		<Param name="ui_visible" value="1"/>
+		<Param name="bes_loudness_L_hpf_fc" value="0"/>
+		<Param name="bes_loudness_L_hpf_order" value="0"/>
+		<Param name="bes_loudness_L_lpf_fc" value="0"/>
+		<Param name="bes_loudness_L_lpf_order" value="0"/>
+		<Param name="bes_loudness_L_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_hpf_fc" value="0"/>
+		<Param name="bes_loudness_R_hpf_order" value="0"/>
+		<Param name="bes_loudness_R_lpf_fc" value="0"/>
+		<Param name="bes_loudness_R_lpf_order" value="0"/>
+		<Param name="bes_loudness_R_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		
+		<Param name="bes_loudness_Sep_LR_Filter" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Max" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Min" value="0"/>
+		<Param name="bes_loudness_Filter_First" value="0"/>
+		<Param name="bes_loudness_Num_Bands" value="5"/>
+		<Param name="bes_loudness_Flt_Bank_Order" value="0"/>
+		<Param name="bes_loudness_Cross_Freq" value="110,440,1760,8000,0,0,0"/>
+		
+		<Param name="DRC_Th" value="-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0"/>
+		<Param name="DRC_Gn" value="6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0"/>
+		<Param name="SB_Gn" value="-10240,-5120,0,1024,0,0,0,0"/>
+		
+		<Param name="SB_Mode" value="1,1,0,0,0,0,0,0"/>
+		<Param name="DRC_Delay" value="0"/>
+		<Param name="Att_Time" value="164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164"/>
+		<Param name="Rel_Time" value="16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400"/>
+		<Param name="Hyst_Th" value="256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256"/>
+		
+		<Param name="Lim_Th" value="0x7fff"/>
+		<Param name="Lim_Gn" value="0x7fff"/>
+		<Param name="Lim_Const" value="4"/>
+		<Param name="Lim_Delay" value="0"/>
+		<Param name="SWIPRev" value="0x0520"/>
+		</ParamUnit>
+		<ParamUnit param_id="1">
+		<Param name="ui_visible" value="1"/>
+		<Param name="bes_loudness_L_hpf_fc" value="0"/>
+		<Param name="bes_loudness_L_hpf_order" value="0"/>
+		<Param name="bes_loudness_L_lpf_fc" value="0"/>
+		<Param name="bes_loudness_L_lpf_order" value="0"/>
+		<Param name="bes_loudness_L_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_hpf_fc" value="0"/>
+		<Param name="bes_loudness_R_hpf_order" value="0"/>
+		<Param name="bes_loudness_R_lpf_fc" value="0"/>
+		<Param name="bes_loudness_R_lpf_order" value="0"/>
+		<Param name="bes_loudness_R_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		
+		<Param name="bes_loudness_Sep_LR_Filter" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Max" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Min" value="0"/>
+		<Param name="bes_loudness_Filter_First" value="0"/>
+		<Param name="bes_loudness_Num_Bands" value="8"/>
+		<Param name="bes_loudness_Flt_Bank_Order" value="0"/>
+		<Param name="bes_loudness_Cross_Freq" value="300,500,1000,2000,4000,8000,16000"/>
+		
+		<Param name="DRC_Th" value="-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0,-15360,-12800,-10240,-7680,0"/>
+		<Param name="DRC_Gn" value="6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0,6144,6144,6144,6144,0"/>
+		<Param name="SB_Gn" value="-10240,-7680,-5120,-768,-768,0,0,0"/>
+		
+		<Param name="SB_Mode" value="0,0,0,0,0,0,0,0"/>
+		<Param name="DRC_Delay" value="0"/>
+		<Param name="Att_Time" value="64,64,64,64,64,64,64,64,64,64,64,64,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164,164"/>
+		<Param name="Rel_Time" value="6400,6400,6400,6400,6400,6400,6400,6400,6400,6400,6400,6400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400,16400"/>
+		
+		<Param name="Hyst_Th" value="256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256,256"/>
+		
+		<Param name="Lim_Th" value="0x7fff"/>
+		<Param name="Lim_Gn" value="0x7fff"/>
+		<Param name="Lim_Const" value="4"/>
+		<Param name="Lim_Delay" value="0"/>
+		<Param name="SWIPRev" value="0x0520"/>
+		</ParamUnit>
+		<ParamUnit param_id="2">
+		<Param name="ui_visible" value="0"/>
+		<Param name="bes_loudness_L_hpf_fc" value="0"/>
+		<Param name="bes_loudness_L_hpf_order" value="0"/>
+		<Param name="bes_loudness_L_lpf_fc" value="0"/>
+		<Param name="bes_loudness_L_lpf_order" value="0"/>
+		<Param name="bes_loudness_L_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_L_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_hpf_fc" value="0"/>
+		<Param name="bes_loudness_R_hpf_order" value="0"/>
+		<Param name="bes_loudness_R_lpf_fc" value="0"/>
+		<Param name="bes_loudness_R_lpf_order" value="0"/>
+		<Param name="bes_loudness_R_bpf_fc" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_bw" value="0,0,0,0,0,0,0,0"/>
+		<Param name="bes_loudness_R_bpf_gain" value="0,0,0,0,0,0,0,0"/>
+		
+		<Param name="bes_loudness_Sep_LR_Filter" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Max" value="0"/>
+		<Param name="bes_loudness_WS_Gain_Min" value="0"/>
+		<Param name="bes_loudness_Filter_First" value="0"/>
+		<Param name="bes_loudness_Num_Bands" value="0"/>
+		<Param name="bes_loudness_Flt_Bank_Order" value="0"/>
+		<Param name="bes_loudness_Cross_Freq" value="0,0,0,0,0,0,0"/>
+		
+		<Param name="DRC_Th" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		<Param name="DRC_Gn" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		<Param name="SB_Gn" value="0,0,0,0,0,0,0,0"/>
+		
+		<Param name="SB_Mode" value="0,0,0,0,0,0,0,0"/>
+		<Param name="DRC_Delay" value="0"/>
+		<Param name="Att_Time" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		<Param name="Rel_Time" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		
+		<Param name="Hyst_Th" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+		
+		<Param name="Lim_Th" value="0"/>
+		<Param name="Lim_Gn" value="0"/>
+		<Param name="Lim_Const" value="0"/>
+		<Param name="Lim_Delay" value="0"/>
+		<Param name="SWIPRev" value="0x0520"/>
+		</ParamUnit>
+	</ParamUnitPool>
+</AudioParam>

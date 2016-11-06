@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AudioParam>
+	<ParamTree>
+		<Param path="Ring_Alarm,SPK" param_id="0"/>
+		<Param path="Ring_Alarm,HSSPK" param_id="1"/>
+
+		<Param path="Others,HS" param_id="3"/>
+		<Param path="Others,SPK" param_id="4"/>
+		<Param path="Others,HS5POLE" param_id="5"/>
+
+		<Param path="Notification,HS" param_id="6"/>
+		<Param path="Notification,SPK" param_id="7"/>
+		<Param path="Notification,HSSPK" param_id="8"/>
+		<Param path="Notification,HS5POLE" param_id="9"/>
+	</ParamTree>
+	<ParamUnitPool>
+
+		<ParamUnit param_id="0">
+			<Param name="headset_pga" value="-1"/><!-- -1 means not available -->
+			<Param name="speaker_pga" value="10"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+		<ParamUnit param_id="1">
+			<Param name="headset_pga" value="12"/>
+			<Param name="speaker_pga" value="10"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+
+		<ParamUnit param_id="3">
+			<Param name="headset_pga" value="9"/>
+			<Param name="speaker_pga" value="-1"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+		<ParamUnit param_id="4">
+			<Param name="headset_pga" value="-1"/>
+			<Param name="speaker_pga" value="10"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+
+		<ParamUnit param_id="5">
+			<Param name="headset_pga" value="9"/>
+			<Param name="speaker_pga" value="-1"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+
+		<ParamUnit param_id="6">
+			<Param name="headset_pga" value="9"/>
+			<Param name="speaker_pga" value="-1"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+		<ParamUnit param_id="7">
+			<Param name="headset_pga" value="-1"/>
+			<Param name="speaker_pga" value="10"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+		<ParamUnit param_id="8">
+			<Param name="headset_pga" value="12"/>
+			<Param name="speaker_pga" value="10"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+		<ParamUnit param_id="9">
+			<Param name="headset_pga" value="9"/>
+			<Param name="speaker_pga" value="-1"/>
+			<Param name="amp" value="0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0"/>
+		</ParamUnit>
+	</ParamUnitPool>
+</AudioParam>
