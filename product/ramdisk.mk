@@ -5,11 +5,14 @@ PRODUCT_PACKAGES += \
     factory_init.rc \
     fstab.mt6735 \
     init.rc \
-    init.aee.rc \
+    init.volte.rc \
+	init.mal.rc \
+	init.common_svc.rc \
+	init.microtrust.rc \
+	init.aee.rc \
     init.modem.rc \
     init.mt6735.rc \
     init.mt6735.usb.rc \
-    init.nvdata.rc \
     init.project.rc \
     init.recovery.mt6735.rc \
     init.xlog.rc \
