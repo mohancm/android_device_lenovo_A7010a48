@@ -67,7 +67,9 @@ ro.kernel.zio=38,108,105,16
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
 
-#ro.sf.lcd_density=480
+#screen density
+ro.sf.lcd_density=480
+
 # performance
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_fast_start_win=1
@@ -90,7 +92,7 @@ persist.radio.default.sim=0
 persist.radio.multisim.config=dsds
 persist.gemini.sim_num=2
 ro.gemini.smart_sim_switch=false
-ril.specific.sm_cause=0
+ril.specific.sim_cause=0
 bgw.current3gband=0
 ril.external.md=0
 ro.mtk_cam_lomo_support=1
@@ -230,4 +232,4 @@ ro.device.cpu= Octa-core 1.3 GHz
 ro.device.gpu=ARM Mali-T720
 ro.device.rear_cam=13 MP
 ro.device.front_cam=8 MP
-ro.device.screen_res=720X1280
+ro.device.screen_res=1080x1920
