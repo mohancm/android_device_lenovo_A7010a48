@@ -46,6 +46,13 @@ on init
 
     chmod 0666 /dev/kmsg
 
+#add by silead [AGOLD][Fengjun][2015.08.11]
+    mkdir /mnt/silead/ 0777 shell shell
+    mkdir /mnt/silead/tmp 0777 shell shell
+    mount tmpfs tmpfs /mnt/silead/tmp mode=0777,gid = 1000
+    write /mnt/silead/tmp/stub.txt ready
+    chmod 777 /mnt/silead/tmp/stub.txt
+#add by silead end [AGOLD]End
     mkdir /mnt/cd-rom 0000 system system
     	
 # Change ION driver permission
@@ -541,6 +548,7 @@ chmod 0660 /sys/class/misc/m_mag_misc/magactive
     chown system camera /dev/FM50AF
     chown system camera /dev/CAM_CAL_DRV
 
+
     #MATV
     chmod 0660 /dev/MATV
     chown system media /dev/MATV
@@ -873,6 +881,7 @@ service audio-daemon /system/bin/audiocmdservice_atci
     oneshot
 
 
+
 # Wireless subsystem services
 
 service p2p_supplicant /system/bin/wpa_supplicant \
@@ -938,6 +947,7 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
+
 service DMAgent /system/bin/dm_agent_binder
     class main
     user system
@@ -980,6 +990,7 @@ service mnld /system/xbin/mnld
 
 
 
+
 # Sensors
 service msensord /system/bin/msensord
     class main
@@ -1008,6 +1019,7 @@ service memsicd3416x /system/bin/memsicd3416x
 	 user system
     group system
     class main
+
 
 service akmd8975 /system/bin/akmd8975
     disabled
@@ -1147,10 +1159,12 @@ service pq /system/bin/pq
     user system
     group system graphics
 
+
 service aal /system/bin/aal
     class main
     user system
     group system graphics
+
 
 
 service MtkCodecService /system/bin/MtkCodecService
@@ -1173,6 +1187,24 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
+#[AGOLD][Fengjun][2015.04.14]For silead fingerprint
+# @ 2015 silead
+service fpsvcd /system/bin/fpsvcd 
+    user root
+    oneshot
+    disabled   
+
+on property:sys.silead.fpsvcd=start
+    start fpsvcd
+# @ 2015 silead
+
+#[AGOLD][GUOTUO][2016.02.01] add For fingerprint
+chmod 666 /dev/esfp0
+chmod 777 /system/bin/etsd
+
+service etsd /system/bin/etsd
+    class late_start
+    user system
 
 #lenovo-sw, chenzz3, TEEI-P2, begin
 service fingerprintd /system/bin/fingerprintd
