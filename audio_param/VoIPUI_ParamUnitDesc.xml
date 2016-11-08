@@ -10,6 +10,7 @@
 				<Category name="3-pole headset"/>
 				<Category name="4-pole headset"/>
 				<Category name="5-pole headset"/>
+				<Category name="5-pole headset+ANC"/>
 			</CategoryGroup>
 			<CategoryGroup name="Hands-free">
 				<Category name="Hands-free 1mic NR" wording="Hands-free(1-mic NR)" feature_option="VIR_VOIP_HANDSFREE_DMNR_SUPPORT"/>

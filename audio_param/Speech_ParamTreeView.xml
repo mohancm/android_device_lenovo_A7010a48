@@ -2,7 +2,7 @@
 <ParamTreeView version="1.0">
 	<TreeRoot name="TX_DRC+DG">
 		<Sheet/>
-		
+
 		<Feature name="TX DRC">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="UL Limiter TH"/>
@@ -16,7 +16,7 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="TX Digital Gain">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="UL Digital Gain"/>
@@ -25,11 +25,11 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 	</TreeRoot>
 	<TreeRoot name="NREC">
 		<Sheet/>
-		
+
 		<Feature name="MagiAEC">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="Switch"/>
@@ -75,26 +75,26 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="MagiNR(TX)">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="TX NR Switch"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="NR Quick learning"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="NR for high frequency"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="NR suppression strength"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="Adaptive gain control"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="mute 1s"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="Ambient noise calibration"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="Handfree Tone Detection"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="expander switch"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="expander suppression gain"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="NR Noise Adaption Rate"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX NR Quick learning"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX NR for high frequency"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX NR suppression strength"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX Adaptive gain control"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX mute 1s"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX Ambient noise calibration"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX Handfree Tone Detection"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX expander switch"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX expander suppression gain"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="TX NR Noise Adaption Rate"/>
 			</FieldList>
 			<CategoryPathList>
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="MagiTDNC">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="TDNC switch"/>
@@ -103,7 +103,7 @@
 				<Category path="NB"/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="MagiNR(dual)">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="MagiNRDual switch"/>
@@ -124,11 +124,11 @@
 				<Category path="Handset"/>
 			</CategoryPathList>
 		</Feature>
-		
+
 	</TreeRoot>
 	<TreeRoot name="RX_DRC+DG">
 		<Sheet/>
-		
+
 		<Feature name="RX DRC">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="RX expander mode"/>
@@ -147,7 +147,7 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="RX Digital Gain">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="DL Digital Gain"/>
@@ -156,7 +156,7 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 		<Feature name="MagiLoudness/MagiClarity">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="MagiClarity DM/SM"/>
@@ -164,7 +164,7 @@
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity Shape filter triggered by babble noise"/>
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity Shape filter triggered by LF noise"/>
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity on/off"/>
-                
+
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity Thd1"/>
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity Thd2"/>
                 <Field audio_type="Speech" param="speech_mode_para" name="MagiClarity release rate"/>
@@ -178,23 +178,24 @@
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 	</TreeRoot>
 	<TreeRoot name="NR">
 		<Sheet/>
-		
+
 		<Feature name="MagiNR(RX)">
 			<FieldList>
 				<Field audio_type="Speech" param="speech_mode_para" name="RX NR Switch"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="NR Strength"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="expander switch"/>
-				<Field audio_type="Speech" param="speech_mode_para" name="expander suppression gain"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="RX NR Strength"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="RX expander switch"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="RX expander suppression gain"/>
+				<Field audio_type="Speech" param="speech_mode_para" name="RX Comfort Noise"/>
 			</FieldList>
 			<CategoryPathList>
 				<Category path=""/>
 			</CategoryPathList>
 		</Feature>
-		
+
 	</TreeRoot>
 	<!-- TreeRoot2 -->
 	<!-- TreeRoot3... -->

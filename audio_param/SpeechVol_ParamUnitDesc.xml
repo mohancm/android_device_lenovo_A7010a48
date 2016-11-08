@@ -8,9 +8,11 @@
 		<CategoryType name="Profile">
 			<Category name="RCV" wording="Receiver" alias="Normal,Handset,Lpbk_Handset"/>
 			<Category name="HAC"/>
-			<Category name="HS" wording="Headset" alias="Headset,4_pole_Headset,Lpbk_Headset"/>
+			<Category name="HS" wording="Headset" alias="Headset,3_pole_Headset,4_pole_Headset,Lpbk_Headset"/>
 			<Category name="SPK" wording="Speaker" alias="Hands-free,1-mic NR,2-mic NR,Handsfree,MagiConference,Lpbk_Handsfree"/>
 			<Category name="HS5POLE" wording="Headset(5-pole)" alias="5_pole_Headset,5-pole headset"/>
+			<Category name="HS5POLE_ANC" wording="Headset(5-pole+ANC)" alias="5_pole_Headset+ANC"/>
+			<Category name="TTY"/>
 		</CategoryType>
 	</CategoryTypeList>
 	<ParamUnit>

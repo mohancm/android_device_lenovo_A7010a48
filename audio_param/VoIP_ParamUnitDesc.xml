@@ -9,7 +9,8 @@
 			<CategoryGroup name="Headset">
 				<Category name="3-pole headset"/>
 				<Category name="4-pole headset"/>
-				<Category name="5-pole headset" feature_option="5_POLE_HS_SUPPORT"/>
+				<Category name="5-pole headset" wording="5-pole headset(ANC OFF)" feature_option="5_POLE_HS_SUPPORT"/>
+				<Category name="5-pole headset+ANC" wording="5-pole headset(ANC ON)" feature_option="MTK_HEADSET_ACTIVE_NOISE_CANCELLATION_SUPPORT"/>
 			</CategoryGroup>
 			<CategoryGroup name="Hands-free">
 				<Category name="Hands-free 1mic NR" wording="Hands-free(1-mic NR)" feature_option="VIR_VOIP_HANDSFREE_DMNR_SUPPORT"/>
@@ -25,7 +26,7 @@
 
 			<!-- New TX DRC -->
 			<Field name="TX Graphical_UI_DRC Switch"  array_index="32" bit="0,0" check_list="0,off,1,on"/>
-			<Field name="TX RMS_TAV_Count"            array_index="32" bit="1,3" check_list="0,off,1,1,2,1,3,3,4,4,5,5,6,5,7,5"/>
+			<Field name="TX RMS_TAV_Count"            array_index="32" bit="1,3" check_list="0,20,1,20,2,40,3,60,4,80,5,100,6,100,7,100"/>
 			<Field name="TX DRC-Delay"                array_index="32" bit="4,5" check_list="0,0ms,1,5ms,2,10ms,3,15ms"/>
 			<Field name="TX DRC Min-Gain"             array_index="32" bit="6,7" check_list="0,-6dB,1,-9dB,2,-12dB,3,-18dB"/>
 			<Field name="TX-1 Gain Attack_Rate"       array_index="33" bit="0,2" check_list="0,0.5ms,1,1ms,2,2ms,3,4ms,4,8ms,5,16ms,6,32ms,7,64ms"/>
@@ -56,7 +57,7 @@
 
 			<!-- New RX DRC -->
 			<Field name="RX Graphical_UI_DRC Switch"  array_index="32" bit="8,8"   check_list="0,off,1,on"/>
-			<Field name="RX RMS_TAV_Count"            array_index="32" bit="9,11"  check_list="0,off,1,1,2,1,3,3,4,4,5,5,6,5,7,5"/>
+			<Field name="RX RMS_TAV_Count"            array_index="32" bit="9,11"  check_list="0,20,1,20,2,40,3,60,4,80,5,100,6,100,7,100"/>
 			<Field name="RX DRC-Delay"                array_index="32" bit="12,13" check_list="0,0ms,1,5ms,2,10ms,3,15ms"/>
 			<Field name="RX DRC Min-Gain"             array_index="32" bit="14,15" check_list="0,-6dB,1,-9dB,2,-12dB,3,-18dB"/>
 			<Field name="RX-1 Gain Attack_Rate"       array_index="33" bit="8,10"  check_list="0,0.5ms,1,1ms,2,2ms,3,4ms,4,8ms,5,16ms,6,32ms,7,64ms"/>
@@ -79,7 +80,7 @@
 			<Field name="RX DSP_Compression_ratio_2"  array_index="40" bit="8,15"/>
 			<Field name="RX DSP_Compression_ratio_3"  array_index="41" bit="8,15"/>
 			<Field name="RX DSP_Compression_ratio_4"  array_index="42" bit="8,15"/>
-			<Field name="RX DSP_Threshold_Y0"         array_index="43" bit="4,7 "/>
+			<Field name="RX DSP_Threshold_Y0"         array_index="43" bit="4,11 "/>
 			<Field name="RX DSP_Threshold_X1"         array_index="44" bit="8,15"/>
 			<Field name="RX DSP_Threshold_X2"         array_index="45" bit="8,15"/>
 			<Field name="RX DSP_Threshold_X3"         array_index="46" bit="8,15"/>

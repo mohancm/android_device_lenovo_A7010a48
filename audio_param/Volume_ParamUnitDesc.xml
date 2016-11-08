@@ -55,5 +55,10 @@
 		<Param name="ul_hw_pga_max_idx" type="int"/>
 
 		<Param name="stf_gain_map" type="short_array"/>
+
+		<Param name="hp_impedance_enable" type="int"/>
+		<Param name="hp_impedance_default_idx" type="int"/>
+		<Param name="hp_impedance_threshold_list" type="short_array"/>
+		<Param name="hp_impedance_compensate_list" type="short_array"/>
 	</ParamUnit>
 </ParamUnitDesc>

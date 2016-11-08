@@ -5,11 +5,6 @@
 			<Category name="Ring"/>
 			<Category name="Music" alias="System,Alarm,Notification,Bluetooth_sco,Enforced_Audible,DTMF,TTS,Boot,VIBSPK,Accessibility"/>
 	</CategoryType>
-		<CategoryType name="Profile">
-			<Category name="Headset" alias="3-pole headset,4-pole headset,5-pole headset"/>
-			<Category name="Speaker" alias="Hands-free 1mic NR,Hands-free no 1mic NR"/>
-			<Category name="Headset+Speaker"/>
-		</CategoryType>
 	</CategoryTypeList>
 	<ParamUnit>
 		<Param name="ui_visible" type="int"/>

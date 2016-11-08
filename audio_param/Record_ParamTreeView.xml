@@ -38,7 +38,7 @@
 	</TreeRoot>
 	<TreeRoot name="NREC">
 		<Sheet/>
-		<Feature name="NR" switch_audio_type="Record" switch_param="record_mode_para" switch_field="UL NR switch">
+		<Feature name="NR">
 			<FieldList>
 				<Field audio_type="Record" param="record_mode_para" name="Thermal NR"/>
 				<Field audio_type="Record" param="record_mode_para" name="UL NR switch"/>

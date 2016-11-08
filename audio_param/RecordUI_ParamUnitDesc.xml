@@ -20,7 +20,8 @@
 			<Category name="Handset"/>
 			<CategoryGroup name="Headset">
 				<Category name="4-pole HS" wording="4-pole headset"/>
-				<Category name="5-pole HS" wording="5-pole headset"/>
+				<Category name="5-pole HS" wording="5-pole headset(ANC OFF)"/>
+				<Category name="5-pole HS+ANC" wording="5-pole headset(ANC ON)"/>
 			</CategoryGroup>
 			<Category name="BT earphone" wording="Bluetooth"/>
 		</CategoryType>
@@ -36,5 +37,6 @@
 		<Param name="UL NLP visibility" type="int"/>
 		<Param name="UL ES LB visibility" type="int"/>
 		<Param name="UL AES LB visibility" type="int"/>
+		<Param name="UL Sample Rate" type="int"/>
 	</ParamUnit>
 </ParamUnitDesc>

@@ -10,7 +10,12 @@
 				<Category name="Normal" wording="Handset"/>
 				<Category name="HAC"/>
 			</CategoryGroup>
-			<Category name="4_pole_Headset" wording="Headset"/>
+			<CategoryGroup name="Headset">
+				<Category name="3_pole_Headset"/>
+				<Category name="4_pole_Headset"/>
+				<Category name="5_pole_Headset" wording="5-pole headset(ANC OFF)" feature_option="5_POLE_HS_SUPPORT"/>
+				<Category name="5_pole_Headset+ANC" wording="5-pole headset(ANC ON)" feature_option="MTK_HEADSET_ACTIVE_NOISE_CANCELLATION_SUPPORT"/>
+            </CategoryGroup>
 			<CategoryGroup name="Hands-free">
 				<Category name="Handsfree" wording="Hands-free(1-mic NR)"/>
 				<Category name="MagiConference" wording="Hands-free(2-mic NR)"/>

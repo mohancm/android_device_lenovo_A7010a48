@@ -17,10 +17,12 @@
 			<!--<Category name="MATV" feature_option="MATV_AUDIO_SUPPORT"/>-->
 		</CategoryType>
 		<CategoryType name="Profile">
+			<Category name="RCV"/>
 			<Category name="HS" alias="Headset,3/4-pole Headset"/>
 			<Category name="SPK" alias="Speaker"/>
 			<Category name="HSSPK" alias="Headset+Speaker"/>
 			<Category name="HS5POLE" alias="5-pole Headset"/>
+			<Category name="HS5POLE_ANC" alias="5-pole headset+ANC"/>
 		</CategoryType>
 	</CategoryTypeList>
 	<ParamUnit>
