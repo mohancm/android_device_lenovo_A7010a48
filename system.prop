@@ -5,13 +5,15 @@
 # system.prop for generic sdk
 #
 
-rild.libpath=/system/lib64/mtk-ril.so
+rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-
+ril.specific.sm_cause=0
+ril.external.md
 ro.telephony.ril_class=MT6753
 ro.telephony.ril.config=fakeiccid
 persist.call_recording.enabled=true
 persist.call_recording.src=1
+ro.telephony.default_network=9
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -30,7 +32,7 @@ mediatek.wlan.ctia=0
 
 
 #
-wifi.tethering.interface=ap0
+wifi.tethering.interface=ap
 wifi.direct.interface=p2p0
 #
 
@@ -233,3 +235,15 @@ ro.device.gpu=ARM Mali-T720
 ro.device.rear_cam=13 MP
 ro.device.front_cam=8 MP
 ro.device.screen_res=1080x1920
+
+# Memory trim
+ro.sys.fw.use_trim_settings=true
+ro.sys.fw.empty_app_percent=50
+ro.sys.fw.trim_empty_percent=100
+ro.sys.fw.trim_cache_percent=100
+ro.sys.fw.trim_enable_memory=1073741824
+
+ro.config.max_starting_bg=3
+
+# Use 3 threads max for dex2oat
+ro.sys.fw.dex2oat_thread_count=3
