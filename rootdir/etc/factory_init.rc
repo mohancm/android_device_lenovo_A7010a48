@@ -16,6 +16,8 @@ on early-init
 
     write /proc/bootprof "INIT: usr/eng build setting"
 
+on init
+
 sysclktz 0
 
 loglevel 5
@@ -24,6 +26,9 @@ loglevel 5
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
     
+	
+	
+	
 
        
 
@@ -122,6 +127,13 @@ loglevel 5
     trigger early-boot
     trigger boot
 
+    #agold shipeilong add for persdata start[20151217] 
+    mkdir /persdata 0750 system system 
+    mkdir /persdata/fingerprint 0750 system system
+
+    # if SE linux is enabled, this command is also required 
+    # restorecon_recursive /persdata/fingerprint
+	#agold shipeilong add end
 on fs
 #INTERNAL_START
     write /proc/bootprof "INIT:Mount_START"
@@ -180,6 +192,13 @@ on post-fs
     chmod 0770 /protect_s
 #INTERNAL_END
 
+    #agold shipeilong add for persdata start[20151217] 
+    chown system system /persdata/fingerprint
+    chmod 0750 /persdata/fingerprint
+
+    # if SE linux is enabled, this command is also required 
+    restorecon_recursive /persdata/fingerprint
+	#agold shipeilong add end
 on post-fs-data
 
  # We chown/chmod /data again so because mount is run as root + defaults
@@ -201,6 +220,7 @@ on post-fs-data
     
     chown root system /proc/sysrq-trigger
     chmod 0220 /proc/sysrq-trigger
+
 
 
 # create basic filesystem structure

@@ -109,6 +109,13 @@ loglevel 5
     mkdir /mnt/cd-rom 0000 system system
 #INTERNAL_END
 
+    #agold shipeilong add for persdata start[20151217] 
+    mkdir /persdata 0750 system system 
+    mkdir /persdata/fingerprint 0750 system system
+
+    # if SE linux is enabled, this command is also required 
+    # restorecon_recursive /persdata/fingerprint
+	#agold shipeilong add end
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
@@ -190,6 +197,13 @@ on post-fs
     chmod 0770 /custom
 #INTERNAL_END
     
+    #agold shipeilong add for persdata start[20151217] 
+    chown system system /persdata/fingerprint
+    chmod 0750 /persdata/fingerprint
+
+    # if SE linux is enabled, this command is also required 
+    restorecon_recursive /persdata/fingerprint
+	#agold shipeilong add end
 
 on post-fs-data
     # We chown/chmod /data again so because mount is run as root + defaults
