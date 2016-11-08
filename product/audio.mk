@@ -5,6 +5,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio_policy.default \
     libaudio-resampler \
+    libaudiopolicymanagerdefault \
     libtinycompress \
     libtinyxml
 

@@ -13,17 +13,12 @@
     <EccEntry Ecc="911" Category="0" Condition="1" />
     <EccEntry Ecc="000" Category="0" Condition="0" />
     <EccEntry Ecc="08" Category="0" Condition="0" />
+    <EccEntry Ecc="110" Category="0" Condition="0" />
     <EccEntry Ecc="118" Category="0" Condition="0" />
-<!--#ifdef VENDOR_EDIT
-    ying.zhang@Prd.CommApp.Phone, 2015/12/15, Modify for Emergency call -->
-<!--
-    < EccEntry Ecc="110" Category="0" Condition="0" / >
-    < EccEntry Ecc="119" Category="0" Condition="0" / >
--->
-    <EccEntry Ecc="110" Category="0" Condition="2" />
-    <EccEntry Ecc="119" Category="0" Condition="2" />
-    <EccEntry Ecc="120" Category="0" Condition="2" />
-    <EccEntry Ecc="122" Category="0" Condition="2" />
-<!--#endif VENDOR_EDIT-->
-    <EccEntry Ecc="999" Category="0" Condition="0" />
+    <EccEntry Ecc="119" Category="0" Condition="0" />
+    <EccEntry Ecc="999" Category="0" Condition="1" />
+	<EccEntry Ecc="998" Category="0" Condition="1" />
+    <EccEntry Ecc="997" Category="0" Condition="1" /> 
+    <EccEntry Ecc="986" Category="0" Condition="1" />
+	
 </EccTable>

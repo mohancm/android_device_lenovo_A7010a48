@@ -103,7 +103,7 @@ Only the three quirks included above are recognized at this point:
             <Quirk name="supports-multiple-frames-per-input-buffer" />
         </MediaCodec>
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ALAC" type="audio/alac" />
-  
+
         <!-- DOLBY_UDC -->
         <MediaCodec name="OMX.dolby.ac3.decoder" >
             <Type name="audio/ac3" />
@@ -119,7 +119,7 @@ Only the three quirks included above are recognized at this point:
     </Decoders>
 
     <Encoders>
-        <MediaCodec name="OMX.MTK.AUDIO.ENCODER.VORBIS" type="audio/vorbis" />
+         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.VORBIS" type="audio/vorbis" />
         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.ADPCM.MS" type="audio/x-adpcm-ms" />
         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.ADPCM.DVI" type="audio/x-adpcm-dvi-ima" />
     </Encoders>

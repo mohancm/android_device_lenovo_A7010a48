@@ -401,14 +401,6 @@
         enable/disable the OTDOA capability
         available value: true, false (default)
 
-    autonomous_enable:
-        enable/disable the Autonomous capability
-        available value: true (default), false
-
-    aflt_enable:
-        enable/disable the AFLT capability
-        available value: true, false (default)
-
     udp_port_enable:
         enable/disable the UDP 7275 port by default, if you enable it, you may cause Android/CTS failure for checking netstat
         available value: true, false (default)
@@ -446,10 +438,6 @@
     sync_to_slp:
         sync the AGPS setting (ex: SUPL profile, SUPL version, TLS version) from AGPSD to SLPD in runtime
         available value: true, false (default)
-
-    imsi_enable:
-        enable/disable the valid IMSI in SUPL messages
-        available value: true (default), false
   -->
   <up_setting
     ca_enable="false"
@@ -465,8 +453,6 @@
     msb_enable="true"
     ecid_enable="true"
     otdoa_enable="false"
-    autonomous_enable="true"
-    aflt_enable="false"
     qop_hacc="22"
     qop_vacc="0"
     qop_loc_age="0"
@@ -480,7 +466,6 @@
     ut2="11"
     ut3="10"
     sync_to_slp="false"
-    imsi_enable="true"
   />
 
 </mtk_agps_profiles>
