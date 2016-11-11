@@ -41,8 +41,6 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 # Mediatek support
 BOARD_USES_MTK_HARDWARE := true
 
-
-
 # Flags
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
@@ -60,3 +58,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := sys/class/android_usb/android0/f_mass_storage
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := A7010a48
+
+# Block based ota
+# see http://review.cyanogenmod.org/#/c/78849/1/core/Makefile
+BLOCK_BASED_OTA := false
