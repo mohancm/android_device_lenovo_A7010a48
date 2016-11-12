@@ -1,6 +1,8 @@
 # RIL
-BOARD_CONNECTIVITY_VENDOR := MediaTek
+BOARD_RIL_ClASS := ../../../device/lenovo/A7010a48/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 
-SIM_COUNT := 2
-PRODUCT_PROPERTY_OVERRIDES += ro.telephony.sim.count=$(SIM_COUNT)
+#Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
