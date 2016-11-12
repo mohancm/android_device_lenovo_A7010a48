@@ -1,9 +1,12 @@
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
-    ro.telephony.ril_class=MT6753 \
-    ro.telephony.ril.config=fakeiccid
-
+    ro.telephony.ril.config=fakeiccid  \
+    persist.call_recording.enabled=true \
+    persist.call_recording.src=1 \
+    persist.debug.wfd.enable=1
+	
+	
 # RIL Proprietary
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/RIL/bin/gsm0710muxd:system/bin/gsm0710muxd \
@@ -22,3 +25,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/RIL/lib64/librilmtkmd2.so:system/lib64/librilmtkmd2.so \
     $(LOCAL_PATH)/prebuilts/RIL/lib64/mtk-ril.so:system/lib64/mtk-ril.so \
     $(LOCAL_PATH)/prebuilts/RIL/lib64/mtk-rilmd2.so:system/lib64/mtk-rilmd2.so
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \

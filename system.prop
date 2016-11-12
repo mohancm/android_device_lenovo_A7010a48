@@ -5,15 +5,11 @@
 # system.prop for generic sdk
 #
 
-rild.libpath=mtk-ril.so
+rild.libpath=/system/lib64/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-ril.specific.sm_cause=0
-ril.external.md
-ro.telephony.ril_class=MT6753
-ro.telephony.ril.config=fakeiccid
 persist.call_recording.enabled=true
 persist.call_recording.src=1
-ro.telephony.default_network=9
+ro.telephony.default_network=
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
