@@ -38,9 +38,6 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
-# Mediatek support
-BOARD_USES_MTK_HARDWARE := true
-
 # Block based ota
 # see http://review.cyanogenmod.org/#/c/78849/1/core/Makefile
 BLOCK_BASED_OTA := false
