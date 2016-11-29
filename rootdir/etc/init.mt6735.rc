@@ -21,6 +21,9 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    #SHIM
+    export LD_SHIM_LIBS /system/lib/libui.so|libgui_shim.so:/system/lib64/libui.so|libgui_shim.so
+    
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
    
