@@ -5,7 +5,7 @@
 #
 
 # RIL
-rild.libpath=mtk-ril.so
+rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 ril.specific.sm_cause=0
 ril.external.md
@@ -21,7 +21,7 @@ persist.radio.fd.counter=15
 persist.radio.fd.off.counter=5
 persist.radio.fd.r8.counter=15
 persist.radio.fd.off.r8.counter=5
-
+ro.telephony.ril_class=MT6753
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -66,6 +66,7 @@ ro.sys.usb.charging.only=yes
 # audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
+persist.audio.dirac.speaker=true
 
 #Kernel
 ro.kernel.zio=38,108,105,16
@@ -80,7 +81,7 @@ ro.kernel.zio=38,108,105,16
 debug.hwui.render_dirty_regions=false
 
 #screen density
-ro.sf.lcd_density=480
+ro.sf.lcd_density=420
 
 # performance
 ro.mtk_perf_simple_start_win=1
