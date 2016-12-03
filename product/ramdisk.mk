@@ -16,7 +16,4 @@ PRODUCT_PACKAGES += \
     init.project.rc \
     init.recovery.mt6735.rc \
     init.xlog.rc \
-    meta_init.modem.rc \
-    meta_init.project.rc \
-    meta_init.rc \
     ueventd.mt6735.rc

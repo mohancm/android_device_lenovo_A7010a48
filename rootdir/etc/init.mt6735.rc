@@ -21,9 +21,6 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
-    #SHIM
-    export LD_SHIM_LIBS /system/lib/libui.so|libgui_shim.so:/system/lib64/libui.so|libgui_shim.so
-    
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
    
@@ -49,13 +46,6 @@ on init
 
     chmod 0666 /dev/kmsg
 
-#add by silead [AGOLD][Fengjun][2015.08.11]
-    mkdir /mnt/silead/ 0777 shell shell
-    mkdir /mnt/silead/tmp 0777 shell shell
-    mount tmpfs tmpfs /mnt/silead/tmp mode=0777,gid = 1000
-    write /mnt/silead/tmp/stub.txt ready
-    chmod 777 /mnt/silead/tmp/stub.txt
-#add by silead end [AGOLD]End
     mkdir /mnt/cd-rom 0000 system system
     	
 # Change ION driver permission
@@ -188,6 +178,9 @@ on post-fs-data
     #chown system graphics /dev/mali
 
 
+    #smart audio (add by qianzhibin start)
+    chmod 666 /dev/i2c_smartpa
+    #smart audio (add by qianzhibin end)
 
     # Touch Panel
     # chmod 0664 /dev/touch
@@ -760,7 +753,18 @@ on boot
 # BT relayer mode USB VCOM
  
     chmod 0660 /dev/ttyMT2
+# FINGERPRINT 
+# Add by LingYang xiehaifei for fingerprint drivers 
+    chmod 0666 /dev/madev0
+    chown system system /dev/madev0
+    chmod 0666 /dev/esfp0
+    chown system system /dev/esfp0
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+
+# End of adding by LingYang xiehaifei Fingerprint drivers
     chown system system /dev/ttyMT2
+
 
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
@@ -885,6 +889,8 @@ service audio-daemon /system/bin/audiocmdservice_atci
 
 
 
+
+
 # Wireless subsystem services
 
 service p2p_supplicant /system/bin/wpa_supplicant \
@@ -951,6 +957,7 @@ service iprenew_p2p /system/bin/dhcpcd -n
     oneshot
 
 
+
 service DMAgent /system/bin/dm_agent_binder
     class main
     user system
@@ -965,6 +972,7 @@ service swapoff_action /system/bin/sh /disableswap.sh
     class main
     disabled
     oneshot
+
 
 # Location
 service agpsd /system/bin/mtk_agpsd
@@ -990,6 +998,8 @@ service mnld /system/xbin/mnld
     user gps
     group gps inet misc sdcard_rw sdcard_r media_rw system
     socket mnld stream 660 gps system
+
+
 
 
 
@@ -1163,10 +1173,13 @@ service pq /system/bin/pq
     group system graphics
 
 
+
 service aal /system/bin/aal
     class main
     user system
     group system graphics
+
+
 
 
 
@@ -1190,38 +1203,40 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
-#[AGOLD][Fengjun][2015.04.14]For silead fingerprint
-# @ 2015 silead
-service fpsvcd /system/bin/fpsvcd 
+#add by jxring start 2015.03.04  
+service smart_audio /system/bin/smart_audio.sh 
     user root
+    group root
     oneshot
-    disabled   
 
-on property:sys.silead.fpsvcd=start
-    start fpsvcd
-# @ 2015 silead
+on property:persist.radio.change.speaker=1
+    start smart_audio
+#add by jxring end! 2015.03.04
 
-#[AGOLD][GUOTUO][2016.02.01] add For fingerprint
-chmod 666 /dev/esfp0
-chmod 777 /system/bin/etsd
 
-service etsd /system/bin/etsd
+# FINGERPRINT 
+# Add by LingYang xiehaifei for fingerprint service 
+#ET310 etsd
+service etsd  /system/bin/etsd 
     class late_start
-    user system
+    user root
+    group root sdcard_r sdcard_rw 
+    
 
-#lenovo-sw, chenzz3, TEEI-P2, begin
 service fingerprintd /system/bin/fingerprintd
-    class main
-    user system
-    group system
-#lenovo-sw, chenzz3, TEEI-P2, end    
+    class late_start
+    user root
+    group root sdcard_r sdcard_rw 
 
-service vtservice /system/bin/vtservice
-    class main
-    socket soc_vt_tcv dgram 660 radio system
-    socket soc_vt_stk dgram 660 radio system
-    socket soc_vt_svc dgram 660 radio system
-    socket volte_vt stream 660 root system
-    user system
-    group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
-    ioprio rt 4
+#GFX1XM
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user root
+    group root system sdcard_r sdcard_rw
+#end by LingYang xiehaifei for fingerprint service 
+#lenovo-sw, chenzz3, TEEI-P2, begin
+#service fingerprintd /system/bin/fingerprintd
+#    class main
+#    user system
+#    group system
+#lenovo-sw, chenzz3, TEEI-P2, end

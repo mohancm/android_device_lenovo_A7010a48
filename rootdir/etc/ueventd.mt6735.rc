@@ -110,7 +110,3 @@
 
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
-
-#agold_guotuo_add for fingerprint
-/dev/madev0	0666	root	root
-/dev/esfp0	0666	root	root

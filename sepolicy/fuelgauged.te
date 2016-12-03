@@ -5,9 +5,9 @@
 # ==============================================
 # Type Declaration
 # ==============================================
-
-type fuelgauged_exec , exec_type, file_type;
 type fuelgauged ,domain;
+type fuelgauged_exec , exec_type, file_type;
+
 
 # ==============================================
 # Android Policy Rule
@@ -21,8 +21,8 @@ type fuelgauged ,domain;
 # MTK Policy Rule
 # ==============================================
 
-#permissive fuelgauged;
 init_daemon_domain(fuelgauged)
+#permissive fuelgauged;
 #unconfined_domain(fuelgauged)
 #write_klog(fuelgauged)
 
@@ -44,4 +44,5 @@ allow fuelgauged input_device:file { open read };
 #allow fuelgauged fuelgauged_access_file1:file { open read write };
 #allow fuelgauged fuelgauged_access_file2:file { open read write};
 # Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
-allow fuelgauged system_data_file:dir { write add_name create setattr };
+#allow fuelgauged system_data_file:dir { write add_name create setattr };
+#allow fuelgauged system_data_file:file { open write read create setattr};
