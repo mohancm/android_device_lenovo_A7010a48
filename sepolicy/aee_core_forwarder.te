@@ -29,10 +29,10 @@ allow aee_core_forwarder aee_core_data_file:dir create_dir_perms;
 allow aee_core_forwarder aee_core_data_file:file create_file_perms;
 allow aee_core_forwarder system_data_file:dir { write relabelfrom create add_name };
 
-#mkdir /sdcard/mtklog/aee_exp£¬and write /sdcard/mtklog/aee_exp/zcorexxx.zip
+#mkdir /sdcard/mtklog/aee_exp and write /sdcard/mtklog/aee_exp/zcorexxx.zip
 allow aee_core_forwarder fuse:dir create_dir_perms;
 allow aee_core_forwarder fuse:file create_file_perms;
-allow aee_core_forwarder tmpfs:lnk_file read;
+#allow aee_core_forwarder tmpfs:lnk_file read;
 allow aee_core_forwarder self:capability fsetid;
 allow aee_core_forwarder aee_exp_data_file:dir create_dir_perms;
 allow aee_core_forwarder aee_exp_data_file:file create_file_perms;
@@ -50,3 +50,15 @@ allow aee_core_forwarder domain:file r_file_perms;
 #read 
 allow aee_core_forwarder sysfs_wake_lock:file { read write open };
 
+# Date : 2015/07/11
+# Operation : Migration
+# Purpose : for mtk debug mechanism
+allow aee_core_forwarder self:capability2 block_suspend;
+
+# Date : 2015/07/21
+# Operation : Migration
+# Purpose : for generating core dump on sdcard
+allow aee_core_forwarder mnt_user_file:dir search;
+allow aee_core_forwarder mnt_user_file:lnk_file read;
+#allow aee_core_forwarder storage_file:dir search;
+allow aee_core_forwarder storage_file:lnk_file read;
