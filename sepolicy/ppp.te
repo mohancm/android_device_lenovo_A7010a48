@@ -6,7 +6,7 @@
 
 # Date : WK14.34
 # Operation : Migration
-# Purpose: for VPN
+# Purpose: for VPN 
 
 allow ppp init:unix_stream_socket connectto;
 allow ppp property_socket:sock_file write;

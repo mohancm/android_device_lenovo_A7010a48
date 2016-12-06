@@ -16,7 +16,6 @@ on early-init
 
     write /proc/bootprof "INIT: usr/eng build setting"
 
-	
 sysclktz 0
 
 loglevel 5
@@ -24,6 +23,7 @@ loglevel 5
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
+    
 
        
 
@@ -121,9 +121,7 @@ loglevel 5
 
     trigger early-boot
     trigger boot
-	
 
-	
 on fs
 #INTERNAL_START
     write /proc/bootprof "INIT:Mount_START"
@@ -205,8 +203,6 @@ on post-fs-data
     chmod 0220 /proc/sysrq-trigger
 
 
-
-	
 # create basic filesystem structure
     #mkdir /data/nvram 2770 root system
     # We chown/chmod /nvdata again so because mount is run as root + defaults

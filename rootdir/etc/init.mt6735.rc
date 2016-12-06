@@ -178,9 +178,6 @@ on post-fs-data
     #chown system graphics /dev/mali
 
 
-    #smart audio (add by qianzhibin start)
-    chmod 666 /dev/i2c_smartpa
-    #smart audio (add by qianzhibin end)
 
     # Touch Panel
     # chmod 0664 /dev/touch
@@ -544,7 +541,6 @@ chmod 0660 /sys/class/misc/m_mag_misc/magactive
     chown system camera /dev/FM50AF
     chown system camera /dev/CAM_CAL_DRV
 
-
     #MATV
     chmod 0660 /dev/MATV
     chown system media /dev/MATV
@@ -753,18 +749,7 @@ on boot
 # BT relayer mode USB VCOM
  
     chmod 0660 /dev/ttyMT2
-# FINGERPRINT 
-# Add by LingYang xiehaifei for fingerprint drivers 
-    chmod 0666 /dev/madev0
-    chown system system /dev/madev0
-    chmod 0666 /dev/esfp0
-    chown system system /dev/esfp0
-    chmod 0666 /dev/goodix_fp
-    chown system system /dev/goodix_fp
-
-# End of adding by LingYang xiehaifei Fingerprint drivers
     chown system system /dev/ttyMT2
-
 
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
@@ -888,9 +873,6 @@ service audio-daemon /system/bin/audiocmdservice_atci
     oneshot
 
 
-
-
-
 # Wireless subsystem services
 
 service p2p_supplicant /system/bin/wpa_supplicant \
@@ -956,8 +938,6 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-
-
 service DMAgent /system/bin/dm_agent_binder
     class main
     user system
@@ -972,7 +952,6 @@ service swapoff_action /system/bin/sh /disableswap.sh
     class main
     disabled
     oneshot
-
 
 # Location
 service agpsd /system/bin/mtk_agpsd
@@ -998,9 +977,6 @@ service mnld /system/xbin/mnld
     user gps
     group gps inet misc sdcard_rw sdcard_r media_rw system
     socket mnld stream 660 gps system
-
-
-
 
 
 
@@ -1032,7 +1008,6 @@ service memsicd3416x /system/bin/memsicd3416x
 	 user system
     group system
     class main
-
 
 service akmd8975 /system/bin/akmd8975
     disabled
@@ -1172,15 +1147,10 @@ service pq /system/bin/pq
     user system
     group system graphics
 
-
-
 service aal /system/bin/aal
     class main
     user system
     group system graphics
-
-
-
 
 
 service MtkCodecService /system/bin/MtkCodecService
@@ -1203,40 +1173,11 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
-#add by jxring start 2015.03.04  
-service smart_audio /system/bin/smart_audio.sh 
-    user root
-    group root
-    oneshot
 
-on property:persist.radio.change.speaker=1
-    start smart_audio
-#add by jxring end! 2015.03.04
-
-
-# FINGERPRINT 
-# Add by LingYang xiehaifei for fingerprint service 
-#ET310 etsd
-service etsd  /system/bin/etsd 
-    class late_start
-    user root
-    group root sdcard_r sdcard_rw 
-    
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user root
-    group root sdcard_r sdcard_rw 
-
-#GFX1XM
-service gx_fpd /system/bin/gx_fpd
-    class late_start
-    user root
-    group root system sdcard_r sdcard_rw
-#end by LingYang xiehaifei for fingerprint service 
 #lenovo-sw, chenzz3, TEEI-P2, begin
-#service fingerprintd /system/bin/fingerprintd
-#    class main
-#    user system
-#    group system
-#lenovo-sw, chenzz3, TEEI-P2, end
+service fingerprintd /system/bin/fingerprintd
+    class main
+    user system
+    group system
+#lenovo-sw, chenzz3, TEEI-P2, end    
+
