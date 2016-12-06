@@ -5,22 +5,9 @@
 #
 
 # RIL
-rild.libpath=mtk-ril.so
+rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-ril.specific.sm_cause=0
-ril.external.md
-ril.current.share_modem=2
-ril.flightmode.poweroffMD=1
-ril.telephony.mode=0
-ril.radiooff.poweroffMD=0
-ro.mtk_enable_md1=1
-ro.telephony.default_network=9
-persist.radio.default.sim=0
-persist.radio.multisim.config=dsds
-persist.radio.fd.counter=15
-persist.radio.fd.off.counter=5
-persist.radio.fd.r8.counter=15
-persist.radio.fd.off.r8.counter=5
+ro.telephony.ril_class=MT6735
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -37,15 +24,14 @@ ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 # MTK, mtk03034 20101213}
 
-
-#WIFI
-wifi.interface=wlan0
-wifi.tethering.interface=ap
+#WiFI
+wifi.tethering.interface=ap0
 wifi.direct.interface=p2p0
 
 #Graphics
 ro.opengles.version=196608
 
+wifi.direct.interface=p2p0
 dalvik.vm.heapgrowthlimit=256m
 dalvik.vm.heapsize=512m
 
@@ -55,21 +41,20 @@ ro.sys.usb.mtp.whql.enable=0
 # Power off opt in IPO
 sys.ipo.pwrdncap=2
 
+#MTP
 ro.sys.usb.storage.type=mtp,mass_storage
 
 # USB BICR function
 ro.sys.usb.bicr=yes
 
 # USB Charge only function
-ro.sys.usb.charging.only=yes
+ro.sys.usb.charging.only=no
 
-# audio
+# Audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
 persist.audio.dirac.speaker=true
 
-#Kernel
-ro.kernel.zio=38,108,105,16
 ro.zygote.preload.enable=0
 
 # temporary enables NAV bar (soft keys)
@@ -78,91 +63,90 @@ qemu.hw.mainkeys=1
 ro.kernel.zio=38,108,105,16
 
 # Disable dirty region for Mali
-debug.hwui.render_dirty_regions=false
+debug.hwui.render_dirty_regions=true
 
-#screen density
 ro.sf.lcd_density=420
 
-# performance
-ro.mtk_perf_simple_start_win=1
-ro.mtk_perf_fast_start_win=1
-ro.mtk_perf_response_time=1
+# button jack mode & switch
+persist.sys.button_jack_profile=volume
+persist.sys.button_jack_switch=0
 
-#
-# ADDITIONAL_BUILD_PROPERTIES
-#
-ro.config.ringtone=Ring_Synth_04.ogg
-ro.config.notification_sound=pixiedust.ogg
-ro.carrier=unknown
-ro.config.alarm_alert=Alarm_Classic.ogg
-dalvik.vm.heapgrowthlimit=256m
-dalvik.vm.heapsize=512m
+persist.tone_relative_volume=100
 ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=alps-mp-m0.mp1-V2.39.1_A7010a48_P16
 ro.mediatek.platform=MT6753
+ro.telephony.sim.count=2
+ro.telephony.ril_class=MediaTekRIL
+ro.telephony.ril.config=fakeiccid
+persist.radio.default.sim=0
+persist.radio.multisim.config=dsds
+#ro.telephony.default_network=0,1
+ro.telephony.default_network=9
+#persist.md.perm.checked=to_upgrade
+persist.gemini.sim_num=2
+ro.gemini.smart_sim_switch=false
+ril.specific.sm_cause=0
+bgw.current3gband=0
+ril.external.md=0
 ro.mtk_cam_lomo_support=1
+ro.btstack=blueangel
 ro.sf.hwrotation=0
-curlockscreen=0
+ril.current.share_modem=2
+curlockscreen=1
 ro.mediatek.gemini_support=true
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
+persist.mtk.wcn.combo.chipid=-1
+persist.mtk.combo.coredump=no
 drm.service.enabled=true
 fmradio.driver.enable=1
+ro.mtk_fm_short_antenna_support=1
 ril.first.md=1
 ril.flightmode.poweroffMD=1
 ril.telephony.mode=0
-dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
-mediatek.wlan.chip=CONSYS_MT6735
-mediatek.wlan.module.postfix=_consys_mt6735
+mediatek.wlan.chip=CONSYS_MT6753
+mediatek.wlan.module.postfix=_consys_mt6753
+ril.read.imsi=1
+ril.radiooff.poweroffMD=0
 ro.frp.pst=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/frp
-ro.sys.usb.storage.type=mtp,mass_storage
 ro.mediatek.version.branch=alps-mp-m0.mp1
 ro.mediatek.version.sdk=4
-ro.setupwizard.mode=OPTIONAL
-ro.com.google.gmsversion=6.0_r2
-ro.com.google.clientidbase=alps-full_lenovo6753_65t_m0-{country}
-ro.com.google.clientidbase.ms=alps-full_lenovo6753_65t_m0-{country}
-ro.com.google.clientidbase.yt=alps-full_lenovo6753_65t_m0-{country}
-ro.com.google.clientidbase.am=alps-full_lenovo6753_65t_m0-{country}
-ro.com.google.clientidbase.gmm=alps-full_lenovo6753_65t_m0-{country}
 ro.mtk_gemini_support=1
-ro.mtk_audio_profiles=1
-ro.mtk_audenh_support=1
-ro.mtk_besloudness_support=1
+ro.mtk_lossless_bt_audio=1
 ro.mtk_bessurround_support=1
+ro.mtk_gemini_enhancement=1
 ro.mtk_wapi_support=1
 ro.mtk_bt_support=1
 ro.mtk_wappush_support=1
 ro.mtk_agps_app=1
-ro.mtk_voice_ui_support=1
 ro.mtk_voice_unlock_support=1
 ro.mtk_voice_contact_support=1
-ro.mtk_audio_tuning_tool_ver=V1
+ro.mtk_matv_analog_support=1
 ro.mtk_wlan_support=1
 ro.mtk_gps_support=1
 ro.mtk_omacp_support=1
+ro.mtk_bt_fm_over_bt=1
 ro.mtk_search_db_support=1
 ro.mtk_dialer_search_support=1
 ro.mtk_dhcpv6c_wifi=1
 ro.have_aacencode_feature=1
-ro.mtk_fd_support=1
 ro.mtk_oma_drm_support=1
-ro.mtk_cta_drm_support=1
-ro.mtk_widevine_drm_l3_support=1
+ro.mtk_widevine_drm_support=1
 ro.mtk_eap_sim_aka=1
 ro.mtk_fm_recording_support=1
 ro.mtk_audio_ape_support=1
 ro.mtk_flv_playback_support=1
-ro.mtk_wmv_playback_support=1
 ro.mtk_send_rr_support=1
 ro.mtk_emmc_support=1
 ro.mtk_tetheringipv6_support=1
+ro.mtk_phone_number_geo=1
 ro.mtk_shared_sdcard=1
-ro.mtk_2sdcard_swap=1
 ro.mtk_enable_md1=1
-ro.mtk_afw_support=1
 ro.mtk_flight_mode_power_off_md=1
-ro.mtk_pq_support=2
-ro.mtk_miravision_support=1
-ro.mtk_miravision_image_dc=1
+ro.mtk_aal_support=1
+ro.mtk_ultra_dimming_support=1
 ro.mtk_wfd_support=1
 ro.mtk_wfd_sink_support=1
 ro.mtk_wfd_sink_uibc_support=1
@@ -170,59 +154,34 @@ ro.mtk_wifi_mcc_support=1
 ro.mtk_sim_hot_swap=1
 ro.mtk_thumbnail_play_support=1
 ro.mtk_bip_scws=1
-ro.mtk_world_phone_policy=0
+ro.mtk_RRcc_ft_precheck_support=1
+ro.mtk_world_phone=1
 ro.mtk_perfservice_support=1
-ro.mtk_sim_hot_swap_common_slot=1
 ro.mtk_cta_set=1
-ro.mtk_mobile_management=1
 ro.mtk_antibricking_level=2
 ro.mtk_zsdhdr_support=1
-ro.mtk_cam_mfb_support=3
-ro.mtk_slow_motion_support=1
 ro.mtk_lte_support=1
-ro.mtk_cam_vfb=1
+ro.mtk_umts_tdd128_mode=1
 ro.mtk_rild_read_imsi=1
 ro.sim_refresh_reset_by_modem=1
-ro.mtk_passpoint_r1_support=1
-ro.mtk_privacy_protection_lock=1
 ro.mtk_bg_power_saving_support=1
 ro.mtk_bg_power_saving_ui=1
 ro.have_aee_feature=1
 ro.sim_me_lock_mode=0
-ro.mtk_dual_mic_support=0
-ro.mtk_is_tablet=0
 ro.mtk_voice_extension_support=1
 wfd.dummy.enable=1
-ro.mediatek.project.path=device/lenovo/A7010a48
-persist.mtk.wcn.combo.chipid=-1
-service.wcn.driver.ready=no
-service.wcn.coredump.mode=2
-ro.com.android.mobiledata=false
-persist.radio.mobile.data=0,0
-persist.meta.dumpdata=0
-ro.mtk_hetcomm_support=1
-ro.mtk_deinterlace_support=1
-ro.mtk_md_sbp_custom_value=18
-persist.mtk.datashaping.support=1
-persist.datashaping.alarmgroup=1
-mul_lang_support=true
-persist.sys.usb.config=mtp
-shly_tpgestures_support=true
-ro.shly.magnetometer_support=true
-ro.shly.dualmic_support=false
-ro.support.foreign.callerid=1
-persist.sys.dalvik.vm.lib.2=libart
-dalvik.vm.isa.arm64.variant=cortex-a53
-dalvik.vm.isa.arm64.features=default
-dalvik.vm.isa.arm.variant=cortex-a53
-dalvik.vm.isa.arm.features=default
-ro.lovelyfonts_support=1
-net.bt.name=Android
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
+persist.power.useautobrightadj=true
+keyguard.no_require_sim=true
+persist.sys.isUsbOtgEnabled=true
+persist.debug.wfd.enable=1
+camera.disable_zsl_mode=0
+ro.mtk_cam_mfb_support=1
+ro.mtk_cam_mav_support=0
+ro.mtk_cam_vfb=0
+ro.mtk_live_photo_support=0
+ro.mtk_slidevideo_support=0
 
-#Radio
-persist.data.iwlan.enable=true
- 
+
 # Hardware Info
 ro.device.chipset= MediaTek MT6753
 ro.device.cpu= Octa-core 1.3 GHz
@@ -242,3 +201,28 @@ ro.config.max_starting_bg=3
 
 # Use 3 threads max for dex2oat
 ro.sys.fw.dex2oat_thread_count=3
+
+keyguard.no_require_sim=true
+ro.carrier=unknown
+ro.kernel.android.checkjni=0
+persist.call_recording.enabled=true
+persist.call_recording.src=1
+persist.debug.wfd.enable=1
+dalvik.vm.heapstartsize=16m
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+ro.hwui.texture_cache_size=72
+ro.hwui.layer_cache_size=48
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.path_cache_size=32
+ro.hwui.gradient_cache_size=1
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+service.adb.root=1
