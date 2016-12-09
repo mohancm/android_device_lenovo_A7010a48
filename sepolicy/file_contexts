@@ -50,15 +50,14 @@
 /data/md3(/.*)? u:object_r:c2k_file:s0
 /nvdata(/.*)? u:object_r:nvdata_file:s0
 /data/SF_dump(./*)? u:object_r:sf_bqdump_data_file:s0
-/data/ipsec(/.*)? u:object_r:wod_ipsec_conf_file:s0
-/data/ipsec/wo(/.*)? u:object_r:wod_apn_conf_file:s0
+/data/ipsec(./*)? u:object_r:wod_ipsec_conf_file:s0
+/data/ipsec/wo(./*)? u:object_r:wod_apn_conf_file:s0
 /data/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/tmp_mnt/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/setkey.conf        u:object_r:ims_ipsec_data_file:s0
 /data/setkey_bak.conf    u:object_r:ims_ipsec_data_file:s0
 /data/setkey_latest.conf u:object_r:ims_ipsec_data_file:s0
 /data/key_provisioning(/.*)?         u:object_r:key_install_data_file:s0
-/data/thh(/.*)? u:object_r:teei_data_file:s0
 
 ##########################
 # Devices
@@ -78,6 +77,10 @@
 /dev/BOOT(/.*)? u:object_r:BOOT_device:s0
 /dev/btif(/.*)? u:object_r:btif_device:s0
 /dev/btn(/.*)? u:object_r:btn_device:s0
+# Vanzo:yinjun on: Mon, 13 Apr 2015 16:39:08 +0800
+# add remoteir
+/dev/remote_ctrl_dev u:object_r:remote_ctrl_dev_device:s0
+# End of Vanzo: yinjun
 /dev/BU6429AF(/.*)? u:object_r:BU6429AF_device:s0
 /dev/BU64745GWZAF(/.*)? u:object_r:BU64745GWZAF_device:s0
 /dev/MAINAF(/.*)? u:object_r:MAINAF_device:s0
@@ -94,14 +97,12 @@
 /dev/cpu_dma_latency(/.*)? u:object_r:cpu_dma_latency_device:s0
 /dev/devmap(/.*)? u:object_r:devmap_device:s0
 /dev/dummy_cam_cal(/.*)? u:object_r:dummy_cam_cal_device:s0
-/dev/DW9763AF(/.*)? u:object_r:DW9763AF_device:s0
 /dev/DW9714AF(/.*)? u:object_r:DW9714AF_device:s0
 /dev/DW9814AF(/.*)? u:object_r:DW9814AF_device:s0
 /dev/AK7345AF(/.*)? u:object_r:AK7345AF_device:s0
 /dev/DW9714A(/.*)? u:object_r:DW9714A_device:s0
 /dev/DW9718AF(/.*)? u:object_r:DW9718AF_device:s0
 /dev/WV511AAF(/.*)? u:object_r:lens_device:s0
-/dev/S5K3M2_CAM_CAL_DRV(/.*)? u:object_r:S5K3M2_CAM_CAL_DRV_device:s0
 /dev/ebc(/.*)? u:object_r:ebc_device:s0
 /dev/ebr[0-9]+ u:object_r:ebr_device:s0
 /dev/eemcs.* u:object_r:eemcs_device:s0
@@ -219,36 +220,40 @@
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
 /dev/socket/netd(/.*)? u:object_r:netd_socket:s0
 /dev/socket/racoon(/.*)? u:object_r:racoon_socket:s0
-/dev/socket/rild2-md2(/.*)? u:object_r:rild2_md2_socket:s0
+
+#### RIL #######
+/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
+/dev/socket/rild-md2(/.*)? u:object_r:rild_md2_socket:s0
 /dev/socket/rild2(/.*)? u:object_r:rild2_socket:s0
+/dev/socket/rild2-md2(/.*)? u:object_r:rild2_md2_socket:s0
 /dev/socket/rild3(/.*)? u:object_r:rild3_socket:s0
 /dev/socket/rild4(/.*)? u:object_r:rild4_socket:s0
+/dev/socket/rild-ims(/.*)? u:object_r:rild_ims_socket:s0
+/dev/socket/rild-debug-md2(/.*)? u:object_r:rild_debug_md2_socket:s0
+/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
+/dev/socket/rild-oem-md2(/.*)? u:object_r:rild_oem_md2_socket:s0
+/dev/socket/rild-oem(/.*)? u:object_r:rild_oem_socket:s0
+/dev/socket/rild-mtk-ut-md2(/.*)? u:object_r:rild_mtk_ut_md2_socket:s0
+/dev/socket/rild-mtk-ut(/.*)? u:object_r:rild_mtk_ut_socket:s0
+/dev/socket/rild-mtk-ut-2-md2(/.*)? u:object_r:rild_mtk_ut_2_md2_socket:s0
+/dev/socket/rild-mtk-ut-2(/.*)? u:object_r:rild_mtk_ut_2_socket:s0
+/dev/socket/rild-mtk-modem-md2(/.*)? u:object_r:rild_mtk_modem_md2_socket:s0
+/dev/socket/rild-mtk-modem(/.*)? u:object_r:rild_mtk_modem_socket:s0
+/dev/socket/rild-atci-md2(/.*)? u:object_r:rild_atci_md2_socket:s0
+/dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-mal(/.*)? u:object_r:rild_mal_socket:s0
 /dev/socket/rild-mal-at(/.*)? u:object_r:rild_mal_at_socket:s0
 /dev/socket/rild-mal-md2(/.*)? u:object_r:rild_mal_md2_socket:s0
 /dev/socket/rild-mal-at-md2(/.*)? u:object_r:rild_mal_at_md2_socket:s0
-/dev/socket/rild-ims(/.*)? u:object_r:rild_ims_socket:s0
-/dev/socket/volte_imsm(/.*)? u:object_r:rild_imsm_socket:s0
-/dev/socket/rild-atci-md2(/.*)? u:object_r:rild_atci_md2_socket:s0
-/dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-vsim(/.*)? u:object_r:rild_vsim_socket:s0
 /dev/socket/rild-vsim-md2(/.*)? u:object_r:rild_vsim_md2_socket:s0
+/dev/socket/volte_imsm(/.*)? u:object_r:rild_imsm_socket:s0
 /dev/socket/rild-ctclient u:object_r:rild_ctclient_socket:s0
-/dev/socket/rild-debug-md2(/.*)? u:object_r:rild_debug_md2_socket:s0
-/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
 /dev/socket/rild-dongle(/.*)? u:object_r:rild-dongle_socket:s0
-/dev/socket/rild-md2(/.*)? u:object_r:rild_md2_socket:s0
-/dev/socket/rild-mtk-modem-md2(/.*)? u:object_r:rild_mtk_modem_md2_socket:s0
-/dev/socket/rild-mtk-modem(/.*)? u:object_r:rild_mtk_modem_socket:s0
-/dev/socket/rild-mtk-ut-2-md2(/.*)? u:object_r:rild_mtk_ut_2_md2_socket:s0
-/dev/socket/rild-mtk-ut-2(/.*)? u:object_r:rild_mtk_ut_2_socket:s0
-/dev/socket/rild-mtk-ut-md2(/.*)? u:object_r:rild_mtk_ut_md2_socket:s0
-/dev/socket/rild-mtk-ut(/.*)? u:object_r:rild_mtk_ut_socket:s0
-/dev/socket/rild-oem-md2(/.*)? u:object_r:rild_oem_md2_socket:s0
-/dev/socket/rild-oem(/.*)? u:object_r:rild_oem_socket:s0
-/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
 /dev/socket/rild-via u:object_r:rild_via_socket:s0
 /dev/socket/rild-atci-c2k(/.*)? u:object_r:rild_atci_c2k_socket:s0
+
+######
 /dev/socket/mal-mfi(/.*)? u:object_r:mal_mfi_socket:s0
 /dev/socket/rpc u:object_r:rpc_socket:s0
 /dev/socket/soc_vt_stk(/.*)? u:object_r:soc_vt_stk_socket:s0
@@ -262,7 +267,6 @@
 /dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
 /dev/socket/volte_imsa1(/.*)? u:object_r:volte_imsa1_socket:s0
 /dev/socket/volte_imsvt1(/.*)? u:object_r:volte_imsvt1_socket:s0
-/dev/socket/volte_vt(/.*)? u:object_r:volte_vt_socket:s0
 /dev/socket/wpa_wlan0(/.*)? u:object_r:wpa_wlan0_socket:s0
 /dev/socket/zygote(/.*)? u:object_r:zygote_socket:s0
 /dev/socket/wod_action(/.*)? u:object_r:wod_action_socket:s0
@@ -307,7 +311,6 @@
 /dev/xlog u:object_r:xlog_device:s0
 /dev/offloadservice(/.*)? u:object_r:offloadservice_device:s0
 /dev/irtx u:object_r:irtx_device:s0
-/dev/ir-learning u:object_r:irrx_device:s0
 /dev/spm(/.*)? u:object_r:spm_device:s0
 
 /dev/xt_qtaguid(/.*)? u:object_r:xt_qtaguid_device:s0
@@ -333,28 +336,6 @@
 /dev/block/mmcblk0 u:object_r:mmcblk0_block_device:s0
 /dev/block/mmcblk1 u:object_r:mmcblk1_block_device:s0
 /dev/block/mmcblk1p1 u:object_r:mmcblk1p1_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/proinfo		u:object_r:nvram_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/nvram		u:object_r:nvram_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/nvdata		u:object_r:nvdata_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/frp		u:object_r:frp_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/expdb		u:object_r:expdb_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/misc2		u:object_r:misc2_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/logo		u:object_r:logo_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/para		u:object_r:para_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/tee1		u:object_r:tee_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/tee2		u:object_r:tee_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/seccfg		u:object_r:seccfg_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/secro		u:object_r:secro_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/userdata		u:object_r:userdata_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/cache		u:object_r:cache_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/recovery		u:object_r:recovery_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/protect1		u:object_r:protect1_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/protect2		u:object_r:protect2_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/keystore		u:object_r:keystore_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/oemkeystore	u:object_r:oemkeystore_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/boot	        u:object_r:boot_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/persist           u:object_r:persist_block_device:s0
-/dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/system            u:object_r:system_block_device:s0
 
 /protect_f(/.*)?         u:object_r:protect_f_data_file:s0
 /protect_s(/.*)?         u:object_r:protect_s_data_file:s0
@@ -362,12 +343,6 @@
 /dev/ttyACM0        u:object_r:ttyACM_device:s0
 /dev/hrm       u:object_r:hrm_device:s0
 /dev/trusty-ipc-dev0 u:object_r:tee_device:s0
-/dev/teei_config u:object_r:teei_config_device:s0
-/dev/teei_client u:object_r:teei_client_device:s0
-/dev/tz_vfs u:object_r:teei_vfs_device:s0
-/dev/emmcrpmb0 u:object_r:teei_rpmb_device:s0
-/dev/teei_fp u:object_r:teei_fp_device:s0
-/dev/i2c_smartpa u:object_r:tfa9890_device:s0
 
 #############################
 # sysfs files
@@ -382,7 +357,6 @@
 /sys/devices/platform/msensor/driver(/.*)?	u:object_r:sysfs_msensor_file:s0
 /sys/bus/platform/drivers/mtk-kpd(/.*)?	u:object_r:sysfs_keypad_file:s0
 /sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
-/sys/devices/virtual/misc/md32(/.*)?  u:object_r:sysfs_md32:s0
 /sys/devices/virtual/misc/scp(/.*)?  u:object_r:sysfs_scp:s0
 
 
@@ -396,9 +370,6 @@
 /system/bin/aee_core_forwarder u:object_r:aee_core_forwarder_exec:s0
 /system/bin/akmd09911 u:object_r:akmd09911_exec:s0
 /system/bin/qmc6983d u:object_r:qmc6983d_exec:s0
-#ly_zhangtao add for mag sensor start
-/system/bin/mxg2320d u:object_r:mxg2320d_exec:s0
-#ly_zhangtao add for mag sensor end
 /system/bin/akmd09912 u:object_r:akmd09912_exec:s0
 /system/bin/akmd8963 u:object_r:akmd8963_exec:s0
 /system/bin/akmd8975 u:object_r:akmd8975_exec:s0
@@ -424,8 +395,6 @@
 /system/bin/emdlogger[0-9]+ u:object_r:emdlogger_exec:s0
 /system/bin/em_svr u:object_r:em_svr_exec:s0
 /system/bin/factory u:object_r:factory_exec:s0
-/system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
-/system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
 /system/bin/flashlessd u:object_r:flashlessd_exec:s0
 /system/bin/fuelgauged u:object_r:fuelgauged_exec:s0
 /system/bin/ged_srv u:object_r:ged_srv_exec:s0
@@ -446,7 +415,6 @@
 /system/bin/mcDriverDaemon u:object_r:mobicore_exec:s0
 /system/bin/mdlogger u:object_r:mdlogger_exec:s0
 /system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
-/system/bin/memsicp u:object_r:memsicp_exec:s0
 /system/bin/memsicd u:object_r:memsicd_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
  
@@ -519,73 +487,9 @@
 /system/bin/spm_loader u:object_r:spm_loader_exec:s0
 /system/bin/vtservice u:object_r:vtservice_exec:s0
 /system/bin/hotknot_native_service u:object_r:hotknot_native_exec:s0
-/system/bin/teei_daemon u:object_r:teei_daemon_exec:s0
-/system/bin/init_thh u:object_r:init_thh_service_exec:s0
-/system/bin/md_monitor u:object_r:md_monitor_exec:s0
 
 # Wallpaper file for smartbook
 /data/system/users/[0-9]+/smartbook_wallpaper	u:object_r:wallpaper_file:s0
 
-#lockscreen wallpaper add by Tauren
-/data/system/users/[0-9]+/lockscreen   u:object_r:wallpaper_file:s0
-
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
-
-#lenovo-sw weimh1 add 2016-2-2 begin:add for sensor calibration
-/persist/gsensor_cali_val_x        u:object_r:persist_data_file:s0
-/persist/gsensor_cali_val_y        u:object_r:persist_data_file:s0
-/persist/gsensor_cali_val_z        u:object_r:persist_data_file:s0
-/sys/bus/platform/drivers/gsensor/gsensor_cali_val_x        u:object_r:sensor_sysfs:s0
-/sys/bus/platform/drivers/gsensor/gsensor_cali_val_y        u:object_r:sensor_sysfs:s0
-/sys/bus/platform/drivers/gsensor/gsensor_cali_val_z        u:object_r:sensor_sysfs:s0
-#lenovo-sw weimh1 add 2016-2-2 end
-
-#lenovo-sw, chenzz3, add permissions for gyro-sensor calibration, begin
-/persist/gyroscope_cali_val_x	u:object_r:persist_data_file:s0
-/persist/gyroscope_cali_val_y	u:object_r:persist_data_file:s0
-/persist/gyroscope_cali_val_z	u:object_r:persist_data_file:s0
-/sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_x	u:object_r:sensor_sysfs:s0
-/sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_y	u:object_r:sensor_sysfs:s0
-/sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_z	u:object_r:sensor_sysfs:s0
-#lenovo-sw, chenzz3, add permissions for gyro-sensor calibration, end
-
-#lenovo-sw, chenzz3, add permissions for p-sensor calibration, begin
-/persist/prox_threshold_hi	u:object_r:persist_data_file:s0
-/persist/prox_threshold_lo	u:object_r:persist_data_file:s0
-/sys/bus/platform/drivers/als_ps/cali_param_1	u:object_r:sensor_sysfs:s0
-/sys/bus/platform/drivers/als_ps/cali_param_2	u:object_r:sensor_sysfs:s0
-#lenovo-sw, chenzz3, add permissions for p-sensor calibration, end
-
-#lenovo-sw zhongling1 20160203
-/sys/devices/soc/11012000.spi/spi_master/spi1/spi1.0(/.*)?    u:object_r:system_file:s0
-#lenovo-sw zhonlging1 20160203
-#line 1 "vendor/cm/sepolicy/file_contexts"
-/cache/dalvik-cache(/.*)? u:object_r:dalvikcache_data_file:s0
-
-/cache/recovery(/.*)?     u:object_r:recovery_cache_file:s0
-
-# Auditd is a logging daemon. Put it into logd's context
-/system/bin/auditd        u:object_r:logd_exec:s0
-/data/misc/audit(/.*)?    u:object_r:auditd_log:s0
-
-# Themes
-/data/system/theme(/.*)?  u:object_r:themeservice_app_data_file:s0
-
-/system/bin/sysinit       u:object_r:sysinit_exec:s0
-
-/system/etc/init.d/90userinit           u:object_r:userinit_exec:s0
-/data/local/userinit.sh                 u:object_r:userinit_data_exec:s0
-
-# For EXFAT/F2FS/NTFS partitions marked "formattable"
-/system/bin/mkfs\.exfat   u:object_r:mkfs_exec:s0
-/system/bin/mkfs\.f2fs    u:object_r:mkfs_exec:s0
-/system/bin/mkfs\.ntfs    u:object_r:mkfs_exec:s0
-
-# For minivold in recovery
-/sbin/minivold            u:object_r:vold_exec:s0
-#smart audio pa 
-/system/bin/smart_audio.sh  u:object_r:smart_audio_exec:s0
-
-# Fingerprint data
-/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:fingerprintd_data_file:s0
