@@ -1181,3 +1181,12 @@ service fingerprintd /system/bin/fingerprintd
     group system
 #lenovo-sw, chenzz3, TEEI-P2, end    
 
+service vtservice /system/bin/vtservice
+    class main
+    socket soc_vt_tcv dgram 660 radio system
+    socket soc_vt_stk dgram 660 radio system
+    socket soc_vt_svc dgram 660 radio system
+    socket volte_vt stream 660 root system
+    user system
+    group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
+    ioprio rt 4
