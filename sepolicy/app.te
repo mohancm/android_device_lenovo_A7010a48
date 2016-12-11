@@ -11,15 +11,3 @@
 allow appdomain custom_file:dir { search getattr open read };
 allow appdomain custom_file:file { read open getattr};
 
-# Vanzo:qingzhan on:  2016 2/26
-# added for goodix fp
-# Load Goodix public libraries
-allow appdomain gx_fpd_lib_file:file rx_file_perms;
-allow appdomain gx_fp_lib_file:file rx_file_perms;
-allow appdomain gx_fpd_data_file:file { create rw_file_perms};
-# End of Vanzo: qingzhan
-# Date : 2015/06/12
-# Operation: TEEI integration
-# Purpose: access for fp device and client device of TEEI
-allow appdomain teei_fp_device:chr_file rw_file_perms;
-allow appdomain teei_client_device:chr_file rw_file_perms;

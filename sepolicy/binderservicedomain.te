@@ -1,1 +1,0 @@
-allow binderservicedomain gx_fpd_data_file:file { create open getattr write };
