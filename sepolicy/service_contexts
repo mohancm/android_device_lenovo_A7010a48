@@ -45,10 +45,20 @@ GuiExtService       u:object_r:guiext-server_service:s0
 mtk.codecservice	u:object_r:mtk_codec_service_service:s0
 PPLAgent                   u:object_r:ppl_agent_service:s0
 media.mmsdk         u:object_r:mediaserver_service:s0
+consumer_ir_extra 	u:object_r:mtk_consumerir_service:s0
 program_binary      u:object_r:program_binary_service:s0
 media.VTS           u:object_r:vtservice_service:s0
 GpuAppSpectatorService  u:object_r:gas_srv_service:s0
 hotknotnativeservice    u:object_r:hotknot_native_service:s0
 wfo                 u:object_r:radio_service:s0
+# Vanzo:hanshengpeng on: Mon, 18 Jan 2016 11:39:44 +0800
+# DTV
+com.wrg.JellyService                      u:object_r:dtv_service:s0
+# End of Vanzo:hanshengpeng
+data_shaping        u:object_r:mtk_data_shaping_service:s0
 multiwindow     u:object_r:mtk_multiwindow_service:s0
 mw_blacklist   u:object_r:mtk_mwblacklist_service:s0
+# Vanzo:qingzhan on:  2016 2/26
+# added for goodix fp
+goodix.fp                                 u:object_r:gx_fpd_service:s0
+# End of Vanzo: qingzhan

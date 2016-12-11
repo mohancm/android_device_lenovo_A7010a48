@@ -13,6 +13,7 @@ type ppl_agent_service,      		service_manager_type;
 type vtservice_service,             service_manager_type;
 type mtk_hotknot_service,           service_manager_type;
 type hotknot_native_service,        service_manager_type;
+type mtk_consumerir_service,        service_manager_type;
 type mtk_mwblacklist_service, service_manager_type;
 
 # mtk service manager type
@@ -30,3 +31,13 @@ type mtk_multiwindow_service, app_api_service, system_server_service, service_ma
 # added for nvram backup
 type nvram_backup_service,     service_manager_type;
 # End of Vanzo: yucheng
+# Vanzo:hanshengpeng on: Tue, 27 Jan 2015 23:31:00 +0800
+#DTV
+type dtv_service, system_server_service, system_api_service, app_api_service, service_manager_type;
+# End of Vanzo: hanshengpeng
+# Vanzo:qingzhan on:  2016 2/26
+# added for goodix fp
+type gx_fpd_service, app_api_service, system_server_service, service_manager_type;
+#type fingerprint_service, app_api_service, system_server_service, service_manager_type;
+# End of Vanzo: qingzhan
+type mtk_data_shaping_service, app_api_service, system_server_service, service_manager_type;

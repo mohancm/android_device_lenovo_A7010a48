@@ -217,7 +217,7 @@ etc/wifi/wpa_supplicant_overlay.conf
 lib64/egl/libGLES_mali.so
 lib64/hw/audio.primary.mt6753.so
 lib64/hw/camera.mt6753.so
-lib64/hw/fingerprint.default.so
+lib64/hw/fingerprint.mt6753.so
 lib64/hw/gps.mt6753.so
 lib64/hw/gralloc.mt6753.so
 lib64/hw/hwcomposer.mt6753.so

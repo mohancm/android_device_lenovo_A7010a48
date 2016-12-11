@@ -50,3 +50,7 @@ allow guiext-server permission_service:service_manager find;
 
 # allow guiext-server to read/write fifo
 allow guiext-server surfaceflinger:fifo_file {read write};
+# vanzo: wuzhiyong on Sat Apr 9 14:38:00 +0800
+# dtv fc8081
+allow guiext-server aee_dumpsys_data_file:file write;
+# End of vanzo:wuzhiyong

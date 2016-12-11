@@ -82,6 +82,24 @@ allow system_app devmap_device:chr_file { read ioctl open };
 allow system_app graphics_device:chr_file { read write ioctl open };
 allow system_app graphics_device:dir search;
 
+# Date: W1602
+# Operation: IR-Learning Feature
+# Purpose: [IR-Learning][ConsumerIrHostService will use irtx_device device node]
+# Package: com.mediatek.hardware.consumerir
+allow system_app irtx_device:chr_file { read write ioctl open };
+
+# Date: W1602
+# Operation: IR-Learning Feature
+# Purpose: [IR-Learning][ConsumerIrHostService will use irrx_device device node]
+# Package: com.mediatek.hardware.consumerir
+allow system_app irrx_device:chr_file { read write ioctl open };
+
+# Date: W1602
+# Operation: IR-Learning Feature
+# Purpose: [IR-Learning][ConsumerIrHostService will need to add service]
+# Package: com.mediatek.hardware.consumerir
+allow system_app mtk_consumerir_service:service_manager add;
+
 # Data : 2014/09/09
 # Operation : Migration
 # Purpose : [Privacy protection lock][com.mediatek.ppl need to bind ppl_agent service to read/write nvram file]
@@ -197,3 +215,20 @@ allow system_app hotknot_prop:property_service set;
 # Package: com.mediatek.multiwindow.service
 allow system_app mtk_mwblacklist_service:service_manager add;
 allow system_app mtk_mwblacklist_service:service_manager find;
+# Vanzo:tanglei on: Fri, 11 Mar 2016 21:30:45 +0800
+allow system_app sysfs_tp_gesture:file {open getattr read write create};
+allow system_app sysfs_brightness:file {open getattr read write create};
+allow system_app sysfs_vkey:file {open getattr read write create};
+allow system_app sysfs_breathlight:file {open getattr read write create};
+# End of Vanzo:tanglei
+
+# Date : 2015/06/12
+# Operation: TEEI integration
+# Purpose: access for fp device and client device of TEEI
+# Package: teei
+allow system_app teei_fp_device:chr_file rw_file_perms;
+allow system_app teei_client_device:chr_file r_file_perms;
+# Vanzo:wuzhiyong on: Mon, 14 Mar 2016 15:04:07 +0800
+# DTV fc8180  /dev/isdbt
+allow system_app isdbt_device:chr_file {ioctl open read write setattr create};
+# End of Vanzo:wuzhiyong

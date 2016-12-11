@@ -47,3 +47,8 @@ allow gas_srv           mtk_perf_service:service_manager    find;
 allow surfaceflinger    gas_srv_service:service_manager     find;
 allow untrusted_app     gas_srv_service:service_manager     find;
 allow platform_app      gas_srv_service:service_manager     find;
+# Vanzo:zhangqingzhan on: Tue, 01 Mar 2016 11:16:47 +0800
+#for goodix fp
+allow gas_srv           system_app:dir                      {open write search read};
+allow gas_srv           system_app:file                     {open read write};
+# End of Vanzo: zhangqingzhan

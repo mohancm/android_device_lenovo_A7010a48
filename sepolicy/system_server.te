@@ -258,8 +258,20 @@ allow system_server dhcp6c:process signal;
 # Purpose : Allow P2P framework to read MAC via nvram_agent_service
 allow system_server nvram_agent_service:service_manager find;
 
+# Date : 2015/06/12
+# Operation: TEEI integration
+# Purpose: access for fp device 
+allow system_server teei_fp_device:chr_file rw_file_perms;
+allow system_server teei_client_device:chr_file r_file_perms;
+
 # Date : 2015/10/27
 # Operation : Feature Developing
 # Purpose : allow system_server to find mw_blacklist
 # Package: com.mediatek.multiwindow.service
 allow system_server mtk_mwblacklist_service:service_manager find;
+
+# Vanzo:tanglei on: Thu, 17 Mar 2016 10:45:44 +0800
+allow system_server sysfs_tp_gesture:file {open getattr read write create};
+allow system_server sysfs_brightness:file {open getattr read write create};
+allow system_server sysfs_breathlight:file {open getattr read write create};
+# End of Vanzo:tanglei

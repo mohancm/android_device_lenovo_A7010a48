@@ -160,6 +160,7 @@ type otp_device, dev_type;
 type qemu_pipe_device, dev_type;
 type icusb_device, dev_type;
 type irtx_device, dev_type;
+type irrx_device, dev_type;
 type pmic_ftm_device, dev_type;
 type shf_device, dev_type;
 type keyblock_device, dev_type;
@@ -188,3 +189,17 @@ type persist_block_device, dev_type;
 type md_block_device, dev_type;
 type dsp_block_device, dev_type;
 type ppl_block_device, dev_type;
+# Vanzo:hanshengpeng on: Mon, 18 Jan 2016 11:39:58 +0800
+# DTV
+type isdbt_device, dev_type;
+# End of Vanzo:hanshengpeng
+# Vanzo:qingzhan on:  2016 2/26
+# added for goodix fp
+#For Goodix fingerprint
+type gx_fpd_device, dev_type;
+# End of Vanzo: qingzhan
+type teei_fp_device, dev_type;
+type teei_client_device, dev_type;
+type teei_config_device, dev_type;
+type teei_vfs_device, dev_type;
+type teei_rpmb_device, dev_type;

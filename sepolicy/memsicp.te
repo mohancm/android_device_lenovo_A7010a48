@@ -1,0 +1,25 @@
+# ==============================================
+# Policy File of /system/binmemsicp Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type memsicp_exec , exec_type, file_type;
+type memsicp ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(memsicp)
+
+
+allow memsicp gsensor_device:chr_file { open read write ioctl };
+allow memsicp input_device:dir { search open read write };
+allow memsicp input_device:file { open read write ioctl };
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+file_type_auto_trans(memsicp, system_data_file, gsensor_data_file)
+allow memsicp system_data_file:dir { write add_name create setattr };
+allow memsicp gsensor_data_file:file { open write read create setattr};

@@ -50,14 +50,15 @@
 /data/md3(/.*)? u:object_r:c2k_file:s0
 /nvdata(/.*)? u:object_r:nvdata_file:s0
 /data/SF_dump(./*)? u:object_r:sf_bqdump_data_file:s0
-/data/ipsec(./*)? u:object_r:wod_ipsec_conf_file:s0
-/data/ipsec/wo(./*)? u:object_r:wod_apn_conf_file:s0
+/data/ipsec(/.*)? u:object_r:wod_ipsec_conf_file:s0
+/data/ipsec/wo(/.*)? u:object_r:wod_apn_conf_file:s0
 /data/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/tmp_mnt/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/setkey.conf        u:object_r:ims_ipsec_data_file:s0
 /data/setkey_bak.conf    u:object_r:ims_ipsec_data_file:s0
 /data/setkey_latest.conf u:object_r:ims_ipsec_data_file:s0
 /data/key_provisioning(/.*)?         u:object_r:key_install_data_file:s0
+/data/thh(/.*)? u:object_r:teei_data_file:s0
 
 ##########################
 # Devices
@@ -220,40 +221,36 @@
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
 /dev/socket/netd(/.*)? u:object_r:netd_socket:s0
 /dev/socket/racoon(/.*)? u:object_r:racoon_socket:s0
-
-#### RIL #######
-/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
-/dev/socket/rild-md2(/.*)? u:object_r:rild_md2_socket:s0
-/dev/socket/rild2(/.*)? u:object_r:rild2_socket:s0
 /dev/socket/rild2-md2(/.*)? u:object_r:rild2_md2_socket:s0
+/dev/socket/rild2(/.*)? u:object_r:rild2_socket:s0
 /dev/socket/rild3(/.*)? u:object_r:rild3_socket:s0
 /dev/socket/rild4(/.*)? u:object_r:rild4_socket:s0
-/dev/socket/rild-ims(/.*)? u:object_r:rild_ims_socket:s0
-/dev/socket/rild-debug-md2(/.*)? u:object_r:rild_debug_md2_socket:s0
-/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
-/dev/socket/rild-oem-md2(/.*)? u:object_r:rild_oem_md2_socket:s0
-/dev/socket/rild-oem(/.*)? u:object_r:rild_oem_socket:s0
-/dev/socket/rild-mtk-ut-md2(/.*)? u:object_r:rild_mtk_ut_md2_socket:s0
-/dev/socket/rild-mtk-ut(/.*)? u:object_r:rild_mtk_ut_socket:s0
-/dev/socket/rild-mtk-ut-2-md2(/.*)? u:object_r:rild_mtk_ut_2_md2_socket:s0
-/dev/socket/rild-mtk-ut-2(/.*)? u:object_r:rild_mtk_ut_2_socket:s0
-/dev/socket/rild-mtk-modem-md2(/.*)? u:object_r:rild_mtk_modem_md2_socket:s0
-/dev/socket/rild-mtk-modem(/.*)? u:object_r:rild_mtk_modem_socket:s0
-/dev/socket/rild-atci-md2(/.*)? u:object_r:rild_atci_md2_socket:s0
-/dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-mal(/.*)? u:object_r:rild_mal_socket:s0
 /dev/socket/rild-mal-at(/.*)? u:object_r:rild_mal_at_socket:s0
 /dev/socket/rild-mal-md2(/.*)? u:object_r:rild_mal_md2_socket:s0
 /dev/socket/rild-mal-at-md2(/.*)? u:object_r:rild_mal_at_md2_socket:s0
+/dev/socket/rild-ims(/.*)? u:object_r:rild_ims_socket:s0
+/dev/socket/volte_imsm(/.*)? u:object_r:rild_imsm_socket:s0
+/dev/socket/rild-atci-md2(/.*)? u:object_r:rild_atci_md2_socket:s0
+/dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-vsim(/.*)? u:object_r:rild_vsim_socket:s0
 /dev/socket/rild-vsim-md2(/.*)? u:object_r:rild_vsim_md2_socket:s0
-/dev/socket/volte_imsm(/.*)? u:object_r:rild_imsm_socket:s0
 /dev/socket/rild-ctclient u:object_r:rild_ctclient_socket:s0
+/dev/socket/rild-debug-md2(/.*)? u:object_r:rild_debug_md2_socket:s0
+/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
 /dev/socket/rild-dongle(/.*)? u:object_r:rild-dongle_socket:s0
+/dev/socket/rild-md2(/.*)? u:object_r:rild_md2_socket:s0
+/dev/socket/rild-mtk-modem-md2(/.*)? u:object_r:rild_mtk_modem_md2_socket:s0
+/dev/socket/rild-mtk-modem(/.*)? u:object_r:rild_mtk_modem_socket:s0
+/dev/socket/rild-mtk-ut-2-md2(/.*)? u:object_r:rild_mtk_ut_2_md2_socket:s0
+/dev/socket/rild-mtk-ut-2(/.*)? u:object_r:rild_mtk_ut_2_socket:s0
+/dev/socket/rild-mtk-ut-md2(/.*)? u:object_r:rild_mtk_ut_md2_socket:s0
+/dev/socket/rild-mtk-ut(/.*)? u:object_r:rild_mtk_ut_socket:s0
+/dev/socket/rild-oem-md2(/.*)? u:object_r:rild_oem_md2_socket:s0
+/dev/socket/rild-oem(/.*)? u:object_r:rild_oem_socket:s0
+/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
 /dev/socket/rild-via u:object_r:rild_via_socket:s0
 /dev/socket/rild-atci-c2k(/.*)? u:object_r:rild_atci_c2k_socket:s0
-
-######
 /dev/socket/mal-mfi(/.*)? u:object_r:mal_mfi_socket:s0
 /dev/socket/rpc u:object_r:rpc_socket:s0
 /dev/socket/soc_vt_stk(/.*)? u:object_r:soc_vt_stk_socket:s0
@@ -267,6 +264,7 @@
 /dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
 /dev/socket/volte_imsa1(/.*)? u:object_r:volte_imsa1_socket:s0
 /dev/socket/volte_imsvt1(/.*)? u:object_r:volte_imsvt1_socket:s0
+/dev/socket/volte_vt(/.*)? u:object_r:volte_vt_socket:s0
 /dev/socket/wpa_wlan0(/.*)? u:object_r:wpa_wlan0_socket:s0
 /dev/socket/zygote(/.*)? u:object_r:zygote_socket:s0
 /dev/socket/wod_action(/.*)? u:object_r:wod_action_socket:s0
@@ -311,6 +309,7 @@
 /dev/xlog u:object_r:xlog_device:s0
 /dev/offloadservice(/.*)? u:object_r:offloadservice_device:s0
 /dev/irtx u:object_r:irtx_device:s0
+/dev/ir-learning u:object_r:irrx_device:s0
 /dev/spm(/.*)? u:object_r:spm_device:s0
 
 /dev/xt_qtaguid(/.*)? u:object_r:xt_qtaguid_device:s0
@@ -343,6 +342,11 @@
 /dev/ttyACM0        u:object_r:ttyACM_device:s0
 /dev/hrm       u:object_r:hrm_device:s0
 /dev/trusty-ipc-dev0 u:object_r:tee_device:s0
+/dev/teei_config u:object_r:teei_config_device:s0
+/dev/teei_client u:object_r:teei_client_device:s0
+/dev/tz_vfs u:object_r:teei_vfs_device:s0
+/dev/emmcrpmb0 u:object_r:teei_rpmb_device:s0
+/dev/teei_fp u:object_r:teei_fp_device:s0
 
 #############################
 # sysfs files
@@ -357,6 +361,7 @@
 /sys/devices/platform/msensor/driver(/.*)?	u:object_r:sysfs_msensor_file:s0
 /sys/bus/platform/drivers/mtk-kpd(/.*)?	u:object_r:sysfs_keypad_file:s0
 /sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
+/sys/devices/virtual/misc/md32(/.*)?  u:object_r:sysfs_md32:s0
 /sys/devices/virtual/misc/scp(/.*)?  u:object_r:sysfs_scp:s0
 
 
@@ -415,6 +420,7 @@
 /system/bin/mcDriverDaemon u:object_r:mobicore_exec:s0
 /system/bin/mdlogger u:object_r:mdlogger_exec:s0
 /system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
+/system/bin/memsicp u:object_r:memsicp_exec:s0
 /system/bin/memsicd u:object_r:memsicd_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
  
@@ -487,9 +493,69 @@
 /system/bin/spm_loader u:object_r:spm_loader_exec:s0
 /system/bin/vtservice u:object_r:vtservice_exec:s0
 /system/bin/hotknot_native_service u:object_r:hotknot_native_exec:s0
+/system/bin/teei_daemon u:object_r:teei_daemon_exec:s0
+/system/bin/init_thh u:object_r:init_thh_service_exec:s0
+/system/bin/md_monitor u:object_r:md_monitor_exec:s0
 
 # Wallpaper file for smartbook
 /data/system/users/[0-9]+/smartbook_wallpaper	u:object_r:wallpaper_file:s0
 
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
+# Vanzo:qingzhan on:  2016 2/26
+# added for goodix fp
+##########################
+# Devices
+#
+
+#For Goodix fingerprint
+/dev/gf66xx-spi     u:object_r:gx_fpd_device:s0
+/dev/ttyACM[0-9]*   u:object_r:gx_fpd_device:s0
+/dev/goodix_fp*     u:object_r:gx_fpd_device:s0
+
+#############################
+# System files
+#
+
+#For Goodix fingerprint
+/system/bin/gx_fpd       u:object_r:gx_fpd_exec:s0
+
+
+#############################
+# Data files
+#
+# NOTE: When modifying existing label rules, changes may also need to
+# propagate to the "Expanded data files" section.
+#
+
+
+# Goodix Fingerprint data
+/data/system/fingerprint(/.*)?    u:object_r:gx_fpd_data_file:s0
+/persist/data/gxfp(/.*)?		  u:object_r:gx_fpd_data_file:s0
+
+# Goodix Fingerprint libs
+/system/lib/libfpservice.so       u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfpalgorithm.so     u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfp_client.so       u:object_r:gx_fp_lib_file:s0
+/system/lib/libfphal.so           u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfpnav.so           u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpservice.so     u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpalgorithm.so   u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfp_client.so     u:object_r:gx_fp_lib_file:s0
+/system/lib64/libfphal.so         u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpnav.so         u:object_r:gx_fpd_lib_file:s0
+# End of Vanzo: qingzhan
+# Vanzo:hanshengpeng on: Mon, 18 Jan 2016 11:42:51 +0800
+# DTV
+/dev/isdbt(/.*)?            u:object_r:isdbt_device:s0
+/system/bin/jellyservice    u:object_r:jellyservice_exec:s0
+# End of Vanzo:hanshengpeng
+# Vanzo:tanglei on: Fri, 11 Mar 2016 21:30:45 +0800
+/sys/devices/bus/11008000.i2c/i2c-1/1-005d/gesture u:object_r:sysfs_tp_gesture:s0
+/sys/devices/virtual/breathlightdrv/breathlight/open u:object_r:sysfs_breathlight:s0
+
+/sys/devices/platform/leds-mt65xx/leds/red/brightness   u:object_r:sysfs_brightness:s0
+/sys/devices/platform/leds-mt65xx/leds/green/brightness u:object_r:sysfs_brightness:s0
+/sys/devices/platform/leds-mt65xx/leds/blue/brightness  u:object_r:sysfs_brightness:s0
+/sys/devices/bus/bus:touch@/tpd_switch_vkey u:object_r:sysfs_vkey:s0
+# End of Vanzo:tanglei
