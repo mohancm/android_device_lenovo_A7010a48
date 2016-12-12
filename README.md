@@ -35,6 +35,7 @@ CyanogenMod team and many other Developers
 ## Credits
 <@deeplex> [for sources]
 <@JonnyXDA>
+<@leskal>
 <@visi0nary>
 <@Mohancm100>
 <@Kishanpatel>
