@@ -1,0 +1,2 @@
+PQ  u:object_r:pq_service:s0
+NvRAMAgent u:object_r:nvram_agent_service:s0
