@@ -1,6 +1,7 @@
 import init.mt6735.usb.rc
 import init.modem.rc
 
+
 on init
     export LD_PRELOAD "libmtk_symbols.so"
 
@@ -27,6 +28,8 @@ on charger
 on fs
     mount_all /fstab.mt6735
 
+
+
 on post-fs
     symlink /sdcard /storage/sdcard0
 
@@ -35,6 +38,7 @@ on post-fs
 
     chown system system /protect_s
     chmod 0770 /protect_s
+
 
     mkdir /nvdata/APCFG 0770 system camera
     mkdir /nvdata/APCFG/APRDCL 0770 system camera
@@ -118,6 +122,8 @@ on post-fs-data
     # Mali 3D GPU driver
     chmod 666 /dev/mali0
 
+
+
     # watch dog kicker
     write /proc/wdk "0 20 30"
 
@@ -145,6 +151,7 @@ on post-fs-data
     chmod 0660 /dev/als_ps
     chmod 0660 /dev/gyroscope
     chmod 0660 /dev/aal_als
+
 
     chown system system /dev/hwmsensor
     chown system system /dev/msensor
@@ -227,6 +234,7 @@ on post-fs-data
     chown system system /sys/class/misc/m_baro_misc/barodelay
     chown system system /sys/class/misc/m_baro_misc/barobatch
     chown system system /sys/class/misc/m_baro_misc/baroflush
+
 
     # msensor
     chmod 0444 /sys/bus/platform/drivers/msensor/daemon
@@ -312,14 +320,17 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_hw
     chmod 0660 /dev/kd_camera_flashlight
     chmod 0660 /dev/kd_camera_hw_bus2
+    chmod 0660 /dev/FM50AF
     chmod 0660 /dev/CAM_CAL_DRV
-    chmod 0660 /dev/MAINAF
 
+    chown system camera /dev/camera-sysram
     chown system camera /dev/camera-isp
     chown system camera /dev/camera-fdvt
+    chown system camera /dev/camera-pipemgr 
     chown system camera /dev/kd_camera_hw
     chown system camera /dev/kd_camera_flashlight
     chown system camera /dev/kd_camera_hw_bus2
+    chown system camera /dev/FM50AF
     chown system camera /dev/CAM_CAL_DRV
     chown system camera /dev/MAINAF
 
@@ -384,9 +395,7 @@ on post-fs-data
     chmod 0660 /dev/ttyC2
     chown system gps /dev/ttyC2
 
-	# Fingerprint
-	chmod 0666 /dev/esfp0
-    chown system system /dev/esfp0
+
 
     # IO Scheduler
     chown system system /sys/block/mmcblk0/queue/scheduler
@@ -504,6 +513,8 @@ service start_modem /system/bin/md_ctrl 1
     disabled
     oneshot
 
+
+
 service nvram_daemon /system/bin/nvram_daemon
     class main
     user root
@@ -530,7 +541,7 @@ on property:wlan.driver.status=unloaded
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
+    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -g@android:wpa_wlan0
     #   we will start as root and wpa_supplicant will switch to user wifi
@@ -543,7 +554,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -g@android:wpa_wlan0
     #   we will start as root and wpa_supplicant will switch to user wifi
@@ -554,6 +565,8 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
+
+
 
 #
 # MTK Wi-Fi related services (End)
@@ -592,6 +605,9 @@ service mxg2320d /system/bin/mxg2320d
     user system
     group system
     class main
+
+
+
 
 #
 # sensor service (end)
@@ -636,11 +652,11 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 service kpoc_charger /system/bin/kpoc_charger
     class charger
 
-# Fingerprint
-service etsd /system/bin/etsd
-    class late_start
-    user root
+#lenovo-sw, chenzz3, TEEI-P2, begin
 
 service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user root
+    class main
+    user system
+    group system
+#lenovo-sw, chenzz3, TEEI-P2, end    
+

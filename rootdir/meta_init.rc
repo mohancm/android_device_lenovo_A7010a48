@@ -44,16 +44,16 @@ loglevel 5
     symlink /system/vendor /vendor
 
 # Temp Backward compatibility
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/boot /dev/bootimg
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/recovery /dev/recovery
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/secro  /dev/sec_ro
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/kb /dev/kb
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/dkb /dev/dkb
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/seccfg /dev/seccfg
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/proinfo /dev/pro_info
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/nvram /dev/nvram
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/para /dev/misc
-    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/11230000.msdc0/by-name/logo /dev/logo
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot /dev/bootimg
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/recovery /dev/recovery
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro  /dev/sec_ro
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/kb /dev/kb
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/dkb /dev/dkb
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg /dev/seccfg
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo /dev/pro_info
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram /dev/nvram
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para /dev/misc
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo /dev/logo
 # Create cgroup mount point for cpu accounting
     mkdir /acct
     mount cgroup none /acct cpuacct
@@ -82,6 +82,7 @@ loglevel 5
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
+
 
     # Directory for staging bindmounts
     mkdir /mnt/secure/staging 0700 root root
@@ -225,6 +226,7 @@ on post-fs-data
 
     # create the lost+found directories, so as to enforce our permissions
     mkdir /data/lost+found 0770
+
 
     # double check the perms, in case lost+found already exists, and set owner
     chown root root /data/lost+found
