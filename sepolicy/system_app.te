@@ -3,6 +3,7 @@
 # ==============================================
 
 # permissive system_app;
+typeattribute system_app mlstrustedsubject;
 
 
 # Date : 2014/07/31
@@ -10,6 +11,10 @@
 # Purpose :[CdsInfo][CdsInfo uses net shell commands to get network information and write WI-FI MAC address by NVRAM]
 # Package Name: com.mediatek.connectivity
 allow system_app nvram_agent_binder:binder call;
+# Vanzo:yucheng on: Tue, 27 Jan 2015 20:49:40 +0800
+# added for nvram backup
+allow system_app nvram_backup_binder:binder call;
+# End of Vanzo: yucheng
 
 # Date: 2014/08/01
 # Operation: BaseUT
@@ -51,6 +56,12 @@ allow system_app atci_service:unix_stream_socket connectto;
 # Purpose: [BatteryWarning][View update graphics]
 # Package Name: com.mediatek.batterywarning
 allow system_app guiext-server:binder { transfer call };
+
+# Date: 2015/07/24
+# Stage: BaseUT
+# Purpose: [HotKnot][HotKnot service will add into ServiceManager]
+# Package Name: com.mediatek.hotknot.service
+allow system_app mtk_hotknot_service:service_manager add;
 
 # Date: 2014/09/02
 # Operation: BaseUT
@@ -103,6 +114,18 @@ allow system_app asec_apk_file:file r_file_perms;
 # Purpose : for MTK Emulator HW GPU
 allow system_app qemu_pipe_device:chr_file rw_file_perms;
 
+# Date : WK14.46
+# Operation : Migration
+# Package: org.simalliance.openmobileapi.service
+# Purpose : ALPS01820916, for SmartcardService
+allow system_app system_app_data_file:file execute;
+
+# Date : 2014/11/17
+# Operation: SQC
+# Purpose : [Settings][Battery module will call batterystats API, and it will read /sys/kernel/debug/wakeup_sources]
+# Package: com.android.settings
+allow system_app debugfs:file r_file_perms;
+
 # Date : 2014/11/18
 # Operation : SQC
 # Purpose : for oma dm fota recovery update
@@ -118,7 +141,6 @@ allow system_app proc_secmem:file rw_file_perms;
 # Operation: SQC
 # Purpose: [Settings][Developer options module will communicate with all Services through binder call]
 # Package: com.android.settings
-binder_call(system_app, mtkbt)
 binder_call(system_app, MtkCodecService)
 
 # Date : 2014/11/26
@@ -139,9 +161,45 @@ dontaudit system_app isolated_app_tmpfs:file write;
 # Package: android.ui
 dontaudit system_app untrusted_app_tmpfs:file write;
 
+# Vanzo:songlixin on: Mon, 02 Feb 2015 16:04:07 +0800
+# for Settings to write:  /sys/devices/platform/mt-i2c.0/i2c-0/0-005d/gesture
+#allow system_app sysfs:file write;
+# End of Vanzo:songlixin
+
 # Date : 2015/01/27
 # Operation: SQC
 # Purpose: It's not normal behavior, that system_app want to access radio_file_data
 # Package: android.ui
 dontaudit system_app radio_data_file:dir search;
 
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow system_app system_app_service:service_manager add;
+allow system_app drmserver:drmservice openDecryptSession;
+
+# Date: 2015/07/24
+# Stage: Migration
+# Purpose: [MTKThermalManager][View thermal zones and coolers, and change thermal policies]
+# Package Name: com.mediatek.mtkthermalmanager
+allow system_app thermal_manager_data_file:file { open getattr read write create};
+allow system_app thermal_manager_data_file:file { open setattr lock };
+allow system_app thermal_manager_data_file:dir { search getattr open read write setattr add_name };
+
+# Date: 2015/09/10
+# Stage: Migration
+# Purpose: [HotKnot] Allow HotKnot service to start/stop hotknot_native_service
+allow system_app hotknot_prop:property_service set;
+
+# Date : 2015/10/27
+# Operation : Feature Developing
+# Purpose : allow system_app to find mw_blacklist
+# Package: com.mediatek.multiwindow.service
+allow system_app mtk_mwblacklist_service:service_manager add;
+allow system_app mtk_mwblacklist_service:service_manager find;
+
+# Date : 2015/12/9
+# Operation: Xiehaifei
+# Purpose: for et320 kernel uevent
+# Package: android.ui
+allow system_app self:netlink_kobject_uevent_socket { create ioctl read getattr setattr bind connect getopt setopt shutdown };

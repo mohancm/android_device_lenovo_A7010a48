@@ -20,13 +20,15 @@ type mobile_log_d ,domain;
 # ==============================================
 # MTK Policy Rule
 # ==============================================
-
+#permissive mobile_log_d;
 init_daemon_domain(mobile_log_d)
 
 # Date : WK14.31
 # Operation : Migration 
 # Purpose : for L early bring-up
 allow mobile_log_d kernel:system syslog_mod;
+allow mobile_log_d sdcard_internal:dir create_dir_perms;
+allow mobile_log_d sdcard_internal:file create_file_perms;
 allow mobile_log_d platform_app:fd use;
 allow mobile_log_d platform_app_tmpfs:file write;
 #allow mobile_log_d unlabeled:lnk_file read;
@@ -40,6 +42,10 @@ dontaudit mobile_log_d isolated_app:fd use;
 allow mobile_log_d sysfs:file write;
 allow mobile_log_d md32_device:chr_file { read open };
 
+#scp
+allow mobile_log_d sysfs_scp:file write;
+allow mobile_log_d scp_device:chr_file { read open };
+
 #debug.MB.running
 allow mobile_log_d debug_prop:property_service set;
 
@@ -48,11 +54,10 @@ allow mobile_log_d fuse:file create_file_perms;
 allow mobile_log_d init:unix_stream_socket connectto;
 allow mobile_log_d property_socket:sock_file write;
 allow mobile_log_d system_file:file x_file_perms;
-allow mobile_log_d tmpfs:lnk_file read;
+#allow mobile_log_d tmpfs:lnk_file read;
 
 allow mobile_log_d logd:unix_stream_socket connectto;
 allow mobile_log_d logdr_socket:sock_file write;
-allow mobile_log_d mtkbt:unix_stream_socket connectto;
 allow mobile_log_d self:capability { setuid setgid  };
 allow mobile_log_d self:capability2 syslog;
 allow mobile_log_d shell_exec:file rx_file_perms;
@@ -71,3 +76,13 @@ allow mobile_log_d logtemp_data_file:file create_file_perms;
 #data/data_tmpfs_log
 allow mobile_log_d data_tmpfs_log_file:dir create_dir_perms;
 allow mobile_log_d data_tmpfs_log_file:file create_file_perms;
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration
+allow mobile_log_d log_device:chr_file r_file_perms;
+allow mobile_log_d storage_file:dir create_dir_perms;
+allow mobile_log_d storage_file:file create_file_perms;
+allow mobile_log_d storage_file:lnk_file create_file_perms;
+allow mobile_log_d mnt_user_file:dir create_dir_perms;
+allow mobile_log_d mnt_user_file:lnk_file create_file_perms;

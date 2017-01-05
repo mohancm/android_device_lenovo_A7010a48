@@ -9,7 +9,8 @@ domain_auto_trans(debuggerd, dmlog_exec, dmlog)
 
 allow debuggerd aed_device:chr_file { read write ioctl open };
 allow debuggerd expdb_device:chr_file { read write ioctl open };
-allow debuggerd platformblk_device:blk_file { read write ioctl open };
+allow debuggerd expdb_block_device:blk_file { read write ioctl open };
+allow debuggerd mmcblk0_block_device:blk_file { read write ioctl open };
 allow debuggerd ccci_device:chr_file { read ioctl open };
 allow debuggerd etb_device:chr_file { read write ioctl open };
 allow debuggerd graphics_device:dir search;
@@ -19,8 +20,8 @@ allow debuggerd camera_isp_device:chr_file r_file_perms;
 
 # AED start: /dev/block/expdb
 allow debuggerd block_device:dir search;
-allow debuggerd platformblk_device:dir search;
 
+allow debuggerd userdata_block_device:blk_file create_file_perms;
 # NE flow: /dev/RT_Monitor
 allow debuggerd RT_Monitor_device:chr_file { read ioctl open };
 
@@ -32,6 +33,10 @@ allow debuggerd exm0_device:chr_file r_file_perms;
 
 allow debuggerd shell_exec:file { execute execute_no_trans };
 allow debuggerd dex2oat_exec:file { execute execute_no_trans };
+
+# aee db dir and db files
+allow debuggerd sdcard_internal:dir create_dir_perms;
+allow debuggerd sdcard_internal:file create_file_perms;
 
 #data/anr
 allow debuggerd anr_data_file:dir create_dir_perms;
@@ -53,6 +58,9 @@ allow debuggerd aee_core_data_file:file create_file_perms;
 allow debuggerd data_tmpfs_log_file:dir create_dir_perms;
 allow debuggerd data_tmpfs_log_file:file create_file_perms;
 
+allow debuggerd shell_data_file:dir search;
+allow debuggerd shell_data_file:file r_file_perms;
+
 #/data/anr/SF_RTT
 allow debuggerd sf_rtt_file:dir search;
 allow debuggerd sf_rtt_file:file r_file_perms;
@@ -60,6 +68,7 @@ allow debuggerd sf_rtt_file:file r_file_perms;
 allow debuggerd sysfs:file write;
 allow debuggerd proc:file write;
 allow debuggerd sysfs_lowmemorykiller:file { read open };
+allow debuggerd debugfs:file read;
 #allow debuggerd proc_security:file { write open };
 
 allow debuggerd self:capability { fsetid sys_nice sys_resource net_admin sys_module };
@@ -69,6 +78,9 @@ allow debuggerd domain:lnk_file getattr;
 
 #core-pattern
 allow debuggerd usermodehelper:file { read open };
+
+#file_type_auto_trans(debuggerd, system_data_file, debuggerd_data_file);
+#allow debuggerd debuggerd_data_file:file rw_file_perms;
 
 #suid_dumpable
 allow debuggerd proc_security:file { read open };
@@ -86,7 +98,7 @@ allow debuggerd property_socket:sock_file write;
 # dumpstate ION_MM_HEAP
 allow debuggerd debugfs:lnk_file read;
 
-allow debuggerd tmpfs:lnk_file read;
+#allow debuggerd tmpfs:lnk_file read;
 
 
 # aed set property
@@ -117,6 +129,9 @@ allow debuggerd proc_slogger:file { write read open };
 # MOTA upgrade from JB->L: aee_dumpstate(ps top df dmesg)
 # allow debuggerd unlabeled:lnk_file read;
 
+#allow debuggerd dalvikcache_data_file:dir { write add_name remove_name};
+#allow debuggerd dalvikcache_data_file:file { write create setattr };
+
 binder_use(debuggerd)
 allow debuggerd system_server:binder call;
 allow debuggerd surfaceflinger:binder call;
@@ -141,3 +156,40 @@ allow debuggerd custom_file:dir search;
 
 # avc:  denied  { read } for  pid=4503 comm="screencap" name="secmem0" dev="proc" 
 allow debuggerd proc_secmem:file r_file_perms;
+
+#add debuggerd policy
+allow debuggerd mnt_user_file:dir search;
+allow debuggerd mnt_user_file:lnk_file read;
+allow debuggerd procrank_exec:file { execute execute_no_trans };
+#allow debuggerd storage_file:dir search;
+allow debuggerd storage_file:lnk_file read;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow debuggerd log_device:chr_file read;
+
+# Date: W15.34
+# Operation: Migration
+# Purpose: For pagemap & pageflags information in NE DB
+userdebug_or_eng(`allow debuggerd self:capability sys_admin;')
+
+# Date: W15.35
+# Operation: Android M Daily Sanity
+# Purpose: Add rules for Violation
+allow debuggerd activity_service:service_manager find;
+allow debuggerd dbinfo_service:service_manager find;
+allow debuggerd meminfo_service:service_manager find;
+allow debuggerd self:capability sys_admin;
+allow debuggerd surfaceflinger_service:service_manager find;
+allow debuggerd window_service:service_manager find;
+
+# Date: W15.37
+# Operation: daily build violation on branch trunk-m0.tk
+# Purpose: Add rules for Violation
+allow debuggerd proc_lk_env:file { read write open };
+
+# Date: W15.39
+# Operation: daily build violation on branch trunk-m0.tk
+# Purpose: Allow debuggerd to find gfxinfo_service
+allow debuggerd gfxinfo_service:service_manager find;

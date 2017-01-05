@@ -26,4 +26,5 @@
 
     <!-- Opens front camera using openLegacy() -->
     <bool name="front_camera_open_legacy">true</bool>
+
 </resources>

@@ -40,6 +40,17 @@ allow nfc nfc_data_file:file { read getattr open rename write ioctl setattr crea
 # ==============================================
 # Date      : 2014/10/15  
 # Operation : Refine
+# Purpose   : Set NFC permission to access SD card for debug purpose.
+
+allow nfc sdcard_internal:dir { write remove_name search create add_name };
+allow nfc sdcard_internal:file { read write getattr open rename create };
+allow nfc sdcard_external:dir { write add_name search };
+allow nfc sdcard_external:file { read write getattr open create };
+
+
+# ==============================================
+# Date      : 2014/10/15  
+# Operation : Refine
 # Purpose   : Set NFC permission for update screen (activity,dialog,animation, ex: Nfc Beam)
 
 allow nfc guiext-server:binder call;
@@ -62,6 +73,14 @@ allow nfc surfaceflinger:file { read getattr open };
 allow nfc node:tcp_socket node_bind;
 allow nfc port:tcp_socket name_bind;
 allow nfc self:tcp_socket { setopt read bind create accept write getattr connect getopt listen };
+
+
+# ==============================================
+# Date      : 2014/10/15  
+# Operation : Refine
+# Purpose   : For Gallery3d
+
+#allow nfc init:binder { transfer };
 
 
 # ==============================================

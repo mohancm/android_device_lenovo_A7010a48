@@ -26,14 +26,13 @@ binder_service(ppl_agent)
 # Operation : QC
 # Purpose : [Privacy protection lock][ppl_agent call FileOp_BackupToBinRegionForDM to do nvram backup]
 # Package name : com.mediatek.ppl 
-allow ppl_agent mmcblk_device:blk_file rw_file_perms;
-allow ppl_agent platformblk_device:blk_file rw_file_perms;
+allow ppl_agent nvram_device:blk_file rw_file_perms;
+allow ppl_agent mmcblk0_block_device:blk_file rw_file_perms;
 
 # Date : 2014/10/24
 # Operation : Migration
 # Purpose : [Privacy protection lock][ppl_agent call FileOp_BackupToBinRegionForDM to do nvram backup]
 # Package name : com.mediatek.ppl 
-allow ppl_agent platformblk_device:dir search;
 allow ppl_agent block_device:dir search;
 
 # Data : 2014/10/24

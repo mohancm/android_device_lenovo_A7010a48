@@ -45,6 +45,7 @@
       <value>10</value> <!-- ~2mA -->
       <value>5</value> <!-- ~1mA -->
   </array>
+
   <!-- Different CPU speeds as reported in
        /sys/devices/system/cpu/cpufreq/all_time_in_state -->
   <array name="cpu.speeds">
@@ -64,10 +65,13 @@
       <value>1755000</value> <!-- 1755 MHz CPU speed -->
       <value>1950000</value> <!-- 1950 MHz CPU speed -->
   </array>
+
   <!-- Current when CPU is idle -->
   <item name="cpu.idle">6</item>
+
   <!-- Current when CPU is awake -->
   <item name="cpu.awake">34</item>
+
   <!-- Current at each CPU speed, as per 'cpu.speeds' -->
   <array name="cpu.active">
       <value>50.3</value> <!-- ~70mA -->
@@ -86,14 +90,15 @@
       <value>286.9</value> <!-- ~380mA -->
       <value>313.6</value> <!-- ~440mA -->
   </array>
+
   <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
-  <item name="battery.capacity">3300</item>
+  <item name="battery.capacity">3000</item>
 
   <array name="wifi.batchedscan"> <!-- mA -->
-      <value>.0002</value> <!-- 1-8/hr -->
-      <value>.002</value> <!-- 9-64/hr -->
-      <value>.02</value> <!-- 65-512/hr -->
-      <value>.2</value> <!-- 513-4,096/hr -->
-      <value>2</value> <!-- 4097-/hr -->
+      <value>.2</value> <!-- 1-8/hr -->
+      <value>2</value>  <!-- 9-64/hr -->
+      <value>20</value>   <!-- 65-512/hr -->
+      <value>200</value>    <!-- 513-4,096/hr -->
+      <value>500</value>    <!-- 4097-/hr -->
   </array>
 </device>
