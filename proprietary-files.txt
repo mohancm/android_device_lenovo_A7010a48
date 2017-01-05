@@ -1,4 +1,5 @@
 app/Nfc/Nfc.apk
+app/EngineerMode/EngineerMode
 bin/6620_launcher
 bin/6620_wmt_concurrency
 bin/6620_wmt_lpbk
@@ -7,7 +8,6 @@ bin/AcdApiDaemon
 bin/aee
 bin/aee_archive
 bin/aee_core_forwarder
-bin/agoldnvram
 bin/akmd09911
 bin/akmd8963
 bin/akmd8975
@@ -27,7 +27,6 @@ bin/dm_agent_binder
 bin/dmlog
 bin/emdlogger1
 bin/em_svr
-bin/etsd
 bin/fsck_msdos_mtk
 bin/fuelgauged
 bin/gas_srv
