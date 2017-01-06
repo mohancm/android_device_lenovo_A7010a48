@@ -197,9 +197,3 @@ allow system_app hotknot_prop:property_service set;
 # Package: com.mediatek.multiwindow.service
 allow system_app mtk_mwblacklist_service:service_manager add;
 allow system_app mtk_mwblacklist_service:service_manager find;
-
-# Date : 2015/12/9
-# Operation: Xiehaifei
-# Purpose: for et320 kernel uevent
-# Package: android.ui
-allow system_app self:netlink_kobject_uevent_socket { create ioctl read getattr setattr bind connect getopt setopt shutdown };

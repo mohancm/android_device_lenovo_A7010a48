@@ -53,5 +53,3 @@ wfo                 u:object_r:radio_service:s0
 multiwindow     u:object_r:mtk_multiwindow_service:s0
 mw_blacklist   u:object_r:mtk_mwblacklist_service:s0
 
-# Fingerprint
-egistec.ets.service.daemon u:object_r:etsd_service:s0

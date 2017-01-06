@@ -489,8 +489,3 @@
 
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
-
-# Fingerprint device
-/dev/esfp0(/.*)? u:object_r:esfp0_device:s0
-# Fingerprint: ET320 etsd
-/system/bin/etsd u:object_r:etsd_exec:s0

@@ -263,8 +263,3 @@ allow system_server nvram_agent_service:service_manager find;
 # Purpose : allow system_server to find mw_blacklist
 # Package: com.mediatek.multiwindow.service
 allow system_server mtk_mwblacklist_service:service_manager find;
-
-# Fingerprint: ET320 etsd
-binder_call(system_server,etsd)
-allow system_server etsd_service:service_manager find;
-allow fingerprintd etsd_service:service_manager find;
