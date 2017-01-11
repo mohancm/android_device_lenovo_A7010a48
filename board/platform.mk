@@ -1,0 +1,5 @@
+# Platform
+TARGET_BOOTLOADER_BOARD_NAME := mt6753
+
+# Images
+TARGET_NO_BOOTLOADER := true
