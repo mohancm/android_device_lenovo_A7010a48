@@ -7,7 +7,7 @@
 # RIL
 rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-ro.telephony.ril_class=MT6753
+ro.telephony.ril_class=MT6735
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -187,7 +187,7 @@ ro.device.chipset= MediaTek MT6753
 ro.device.cpu= Octa-core 1.3 GHz
 ro.device.gpu=ARM Mali-T720
 ro.device.rear_cam=13 MP
-ro.device.front_cam=8 MP
+ro.device.front_cam=5 MP
 ro.device.screen_res=1080x1920
 
 # Memory trim
