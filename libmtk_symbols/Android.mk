@@ -2,6 +2,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+    mtk_netd.cpp \
     mtk_cam.cpp \
 	mtk_xlog.cpp \
     mtk_gui.cpp \

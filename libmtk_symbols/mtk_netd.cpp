@@ -1,0 +1,1 @@
+extern "C" void android_getaddrinfofornetcontext() { }
