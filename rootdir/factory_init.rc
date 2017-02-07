@@ -330,11 +330,6 @@ on post-fs-data
     mkdir /data/nvram/md  0770 root system
     mkdir /data/nvram/md2 0770 root system
 
-#  Build-in Modified - S
-#    insmod /system/lib/modules/ccci_plat.ko
-#    insmod /system/lib/modules/ccci.ko
-#  Build-in Modified - E
-#   chown ccci ccci /sys/class/BOOT/BOOT/boot/md
     chown radio radio /sys/kernel/ccci/boot
     
     #set mlock limit to infinate (for m4u operation)

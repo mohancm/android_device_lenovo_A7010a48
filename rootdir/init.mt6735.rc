@@ -47,6 +47,7 @@ on init
 
 
 
+
 on charger
     mount ext4 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system /system ro wait
     chmod 0666 /dev/kmsg
@@ -62,8 +63,6 @@ on fs
     mount ext4 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/custom /custom ro wait
     exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata
     write /proc/bootprof "INIT:Mount_END"
-
-   #mount iso9660 loop@/system/etc/iAmCdRom.iso /mnt/cd-rom ro
 
 
 
@@ -120,7 +119,7 @@ on post-fs-data
 
     # We chown/chmod /nvdata again so because mount is run as root + defaults
     chown media system /nvdata
-    chmod 2770 /nvdata
+    chmod 0770 /nvdata
     symlink /nvdata /data/nvram
     mkdir /nvdata/media 0771 media audio
 
@@ -468,11 +467,9 @@ on post-fs-data
     # device info /proc interface
     mknod /dev/devmap c 196 0;
     chmod 0440 /dev/devmap
-    chown system camera /dev/devmap
+    chown root system /dev/devmap
 
-    # BT relayer mode used VCOM
-    chown bluetooth radio /dev/ttyGS2
-    chmod 0660 /dev/ttyGS2
+    
 
     # bluetooth
     mkdir /data/@btmtk 0770 bluetooth net_bt
@@ -538,10 +535,7 @@ on post-fs-data
 
     # SMI
     chmod 0660 /dev/MTK_SMI
-    chown system camera /dev/MTK_SMI
-    
-    chown system camera /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
-    chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chown media media /dev/MTK_SMI
 
    #change partition permission
 
@@ -569,6 +563,8 @@ on post-fs-data
     chmod 0660 /mtd@misc
     chown root system /mtd@misc
 
+    chmod 0664 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chown system media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     #mtk_sched
     chmod 0660 /dev/mtk_sched
     chown system media /dev/mtk_sched
@@ -1100,12 +1096,73 @@ service wifi2agps /system/bin/wifi2agps
     user wifi
     group gps inet
 
-service mnld /system/bin/mnld
+service mnld /system/xbin/mnld
     class main
     user gps
     group gps inet misc sdcard_rw sdcard_r media_rw system
     socket mnld stream 660 gps system
 
+service ipod /system/bin/ipod
+    user root
+    group root
+    disabled
+
+service extmdlogger /system/bin/extmdlogger
+    class main
+    user shell
+    group shell system radio sdcard_rw inet sdcard_r media_rw
+
+service GoogleOtaAgent /system/bin/GoogleOtaBinder
+    class main
+    user root
+    group root
+
+service mdlogger /system/bin/mdlogger
+    class main
+    user shell
+    group shell system radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service dualmdlogger /system/bin/dualmdlogger
+    class main
+    user shell
+    group shell system radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service emdlogger1 /system/bin/emdlogger1
+    class main
+    user shell
+    group system shell radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service emdlogger2 /system/bin/emdlogger2
+    class main
+    user shell
+    group system shell radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service emdlogger5 /system/bin/emdlogger5
+    class main
+    user shell
+    group system shell radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service emdlogger6 /system/bin/emdlogger6
+    class main
+    user shell
+    group system shell radio sdcard_rw inet sdcard_r media_rw
+    disabled
+    oneshot
+
+service md_monitor /system/bin/md_monitor
+    class main
+    user system
+    group system radio sdcard_rw inet sdcard_r media_rw
 #
 # sensor service (begin)
 #
@@ -1216,10 +1273,18 @@ service mc64xxd /system/bin/mc64xxd
 #
 # emsvr service (start)
 #
-service emsvr /system/bin/em_svr
-    class main
+on property:ro.build.type=userdebug
+    start emsvr_user
+
+service emsvr_user /system/bin/em_svr
+    disabled
     user system
-    group system radio diag
+    group system radio diag net_bt_stack
+
+service emsvr /system/bin/em_svr
+    disabled
+    user root
+    group net_bt_stack
 
 #
 # emsvr service (end)
@@ -1326,7 +1391,7 @@ setprop rild.mark_switchuser 0
 #end
 
 chmod 0644 /system/lib/libzteevdo-ril.so
-chmod 0644 /system/lib/zterilPara
+chomd 0644 /system/lib/zterilPara
 chown root /system/bin/pppd
 chmod 4755 /system/bin/pppd
 chown root /system/bin/chat

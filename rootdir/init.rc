@@ -60,6 +60,7 @@ on init
     chmod 0664 /dev/stune/tasks
     chmod 0664 /dev/stune/foreground/tasks
 
+
     # Mount staging areas for devices managed by vold
     # See storage config details at http://source.android.com/tech/storage/
     mount tmpfs tmpfs /mnt mode=0755,uid=0,gid=1000
@@ -117,7 +118,7 @@ on init
     write /proc/sys/kernel/kptr_restrict 2
     write /proc/sys/vm/mmap_min_addr 32768
     write /proc/sys/net/ipv4/ping_group_range "0 2147483647"
-    write /proc/sys/net/unix/max_dgram_qlen 600
+    write /proc/sys/net/unix/max_dgram_qlen 300
     write /proc/sys/kernel/sched_rt_runtime_us 950000
     write /proc/sys/kernel/sched_rt_period_us 1000000
 
@@ -330,7 +331,11 @@ on post-fs-data
     start debuggerd
     start debuggerd64
 
+	# Emulated internal storage area
+    mkdir /data/media 0770 media_rw media_rw
+
     # Make sure we have the device encryption key.
+    start logd
     start vold
     installkey /data
 
@@ -553,6 +558,11 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
+    #lenovo-sw limm3 added for led sys node
+    chmod 0664 /sys/class/power_supply/battery/charging_led_flag
+    chown system system /sys/class/power_supply/battery/charging_led_flag
+    restorecon /sys/class/power_supply/battery/charging_led_flag
+    #lenovo-sw limm3 added for led sys node
     # Define default initial receive window size in segments.
     setprop net.tcp.default_init_rwnd 60
 
@@ -642,7 +652,17 @@ on property:ro.debuggable=1
     chmod 0773 /data/misc/trace
     start console
 
+service netd /system/bin/netd
+    class main
+    socket netd stream 0660 root system
+    socket dnsproxyd stream 0660 root inet
+    socket mdns stream 0660 root system
+    socket fwmarkd stream 0660 root inet
 service flash_recovery /system/bin/install-recovery.sh
     class main
     oneshot
-    disabled
+# Lenovo-sw yangyang19 20160112 add for afm_server begin
+service afm_server /system/bin/afm_server
+    class main
+    user root
+# Lenovo-sw yangyang19 20160112 add for afm_server end

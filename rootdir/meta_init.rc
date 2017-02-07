@@ -4,13 +4,12 @@
 # This is a common source of Android security bugs.
 #
 import /init.environ.rc
-import init.fon.rc
-import init.aee.rc
 import init.trustonic.rc
 import meta_init.project.rc
 #Make sure meta_init.modem.rc is the last rc file.
 import meta_init.modem.rc
 import init.microtrust.rc
+
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -473,8 +472,11 @@ service mobile_log_d /system/bin/mobile_log_d
 on property:ro.boot.usbconfig=0
     write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/android0/enable 0
+
     write /sys/class/android_usb/android0/idVendor 0e8d
     write /sys/class/android_usb/android0/idProduct 2006
+
+
     write /sys/class/android_usb/android0/f_acm/instances 1
     write /sys/class/android_usb/android0/functions mass_storage,adb,acm
     write /sys/class/android_usb/android0/enable 1
@@ -490,4 +492,5 @@ on property:ro.boot.usbconfig=1
     write /sys/class/android_usb/android0/functions acm
     write /sys/class/android_usb/android0/bDeviceClass 02
     write /sys/class/android_usb/android0/enable 1
+
 #INTERNAL_END

@@ -33,14 +33,7 @@ on post-fs-data
     chown system system /dev/ttyMT2
 
 
-# STP, WMT, GPS, FM and BT Driver
-#   insmod /system/lib/modules/mtk_hif_sdio.ko
-#   insmod /system/lib/modules/mtk_stp_wmt.ko
-#   insmod /system/lib/modules/mtk_stp_uart.ko
-#   insmod /system/lib/modules/mtk_stp_gps.ko
-#   insmod /system/lib/modules/mtk_stp_bt.ko
-#   insmod /system/lib/modules/mtk_fm_drv.ko
-#   insmod /system/lib/modules/mtk_wmt_wifi.ko
+
 
 
 # Create char device file for WMT, GPS, BT, FM, WIFI

@@ -43,6 +43,13 @@ BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Audio Server
+TARGET_PROVIDES_AUDIOSERVER_RC := true
+
+# init
+TARGET_PROVIDES_INIT_RC := true
+
+
 # System.prop
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
