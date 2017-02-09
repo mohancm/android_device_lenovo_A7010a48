@@ -28,25 +28,18 @@ Front Camera | 5MP, Int. 5MP (OV)
 
 # Build Information
 
-### Testing
+### Working
  * Hardware acceleration
- * Wi-Fi
  * Vibration
  * Audio
  * Flashlight (statusbar and camera)
- * Bluetooth
  * Micro SD support
  * MTP and Mass Storage modes
- * Fingerprint scanner
  * RAM and ROM
  * Rotation
  * Camera rear/front (photographs only)
- * Wi-Fi tethering
- * GPS
  * All sensors
- * Fingerprint
  * Doze
- * Screenrecorder
  * Offline charging
  * RIL
  * Operator name
@@ -55,12 +48,17 @@ Front Camera | 5MP, Int. 5MP (OV)
 
 ## Broken/Bugs
  * Camera rear/front (video)
-
+ * Fingerprint scanner
+ * Wifi
+ * Bluetooth
+ * Hotspot
+ * Screen Recording
+ 
 ## To be checked
  * Audio over Bluetooth (music, calls .etc)
  * OTG
  * Enforcing SELinux
-
+ * GPS
 
 
 ### Thanks to:
@@ -72,3 +70,7 @@ Front Camera | 5MP, Int. 5MP (OV)
  * Team M.A.D
  * Lucky76
  * Mohancm100
+ * VisiOnary
+ * danielhk
+ * AdrianoMartins
+ > A.M.T
