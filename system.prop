@@ -2,7 +2,7 @@
 # system.prop for Lenovo K4 Note
 #
 
-rild.libpath=mtk-ril.so
+rild.libpath=/system/lib64/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
 
@@ -158,11 +158,6 @@ ro.have_aee_feature=1
 ro.sim_me_lock_mode=0
 ro.mtk_dual_mic_support=1
 ro.mtk_is_tablet=0
-ro.mtk_ims_support=1
-ro.mtk_volte_support=1
-persist.mtk.volte.enable=1
-persist.radio.mtk_dsbp_support=1
-persist.mtk_dynamic_ims_switch=1
 ro.mtk_nfc_gsma_support=1
 ro.nfc.port=I2C
 wfd.dummy.enable=1
