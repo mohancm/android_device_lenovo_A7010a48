@@ -1,0 +1,2 @@
+allow fingerprintd device:chr_file { write ioctl open getattr };
+allow fingerprintd sysfs:file write;
