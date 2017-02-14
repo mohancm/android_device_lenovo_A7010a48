@@ -8,3 +8,6 @@ allow audioserver fm_device:chr_file rw_file_perms;
 
 # PQ
 allow mediaserver pq_service:service_manager find;
+
+allow mediaserver device:chr_file { ioctl open read write };
+allow mediaserver system_server:unix_stream_socket { read write };

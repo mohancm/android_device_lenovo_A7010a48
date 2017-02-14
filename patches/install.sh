@@ -1,5 +1,5 @@
 echo $1
-rootdirectory="$PWD"
+rootdirectory="/home/techkid/rr14.1/"
 # ---------------------------------
 
 dirs="bionic frameworks/av frameworks/base frameworks/native hardware/libhardware packages/apps/Settings system/core system/netd"

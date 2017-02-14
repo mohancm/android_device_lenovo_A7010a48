@@ -21,3 +21,7 @@ allow system_server fast_charge_sysfs:file rw_file_perms;
 
 # Smart Wake
 allow system_server smartwake_sysfs:file rw_file_perms;
+
+allow system_server debugfs:dir { open read };
+allow system_server device:chr_file { ioctl read write };
+allow system_server unlabeled:file write;
