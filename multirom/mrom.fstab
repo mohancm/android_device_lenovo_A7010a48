@@ -1,0 +1,28 @@
+# Mount point           FStype          Device                                                                    
+
+/proinfo                emmc            /dev/block/mmcblk0p1             					  
+/nvram                  emmc            /dev/block/mmcblk0p2               				           
+/nvdata                 emmc            /dev/block/mmcblk0p20              				       
+/protect_f              ext4            /dev/block/mmcblk0p3                                                    
+/protect_s              ext4            /dev/block/mmcblk0p4                                                    
+/persist                ext4            /dev/block/mmcblk0p17                                                   
+/persistent             emmc            /dev/block/mmcblk0p19                                                    
+/tee1                   emmc            /dev/block/mmcblk0p15                                                      
+/tee2                   emmc            /dev/block/mmcblk0p16                                                   
+/logo                   emmc            /dev/block/mmcblk0p9                                                      
+/secro                  emmc            /dev/block/mmcblk0p13                                                 
+/seccfg                 emmc            /dev/block/mmcblk0p11
+/lk                     emmc            /dev/block/mmcblk0p5                                                      
+/para                   emmc            /dev/block/mmcblk0p6                                                 
+/expdb                  emmc            /dev/block/mmcblk0p10
+
+/boot                   emmc            /dev/block/mmcblk0p7                                                     
+/recovery               emmc            /dev/block/mmcblk0p8                                                      
+/system                 ext4            /dev/block/mmcblk0p23                                          
+/system_image           emmc            /dev/block/mmcblk0p23
+/cache                  ext4            /dev/block/mmcblk0p24                                      
+/data                   ext4            /dev/block/mmcblk0p25          
+
+# Removable storage
+/external_sd            vfat            /dev/block/mmcblk1p1    /dev/block/mmcblk1                                flags=display="Micro SDcard";backup=0;wipeingui;storage;removable;settingsstorage;encryptable=userdata
+/usb-otg                auto            /devices/platform/mt_usb*                                                 flags=display="USB-OTG";backup=0;wipeingui;storage;removable

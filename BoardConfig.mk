@@ -25,6 +25,9 @@ include $(LOCAL_PATH)/board/*.mk
 
 #######################################################################
 
+TARGET_BOARD_PLATFORM := mt6753
+#TARGET_LDPRELOAD += libxlog.so
+
 # Kernel
 TARGET_KMODULES := true
 BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
@@ -49,6 +52,7 @@ TARGET_PROVIDES_AUDIOSERVER_RC := true
 # init
 TARGET_PROVIDES_INIT_RC := true
 
+#USE_CLANG_PLATFORM_BUILD := false
 
 # System.prop
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
