@@ -25,6 +25,9 @@ include $(LOCAL_PATH)/board/*.mk
 
 #######################################################################
 
+TARGET_BOARD_PLATFORM := mt6753
+#TARGET_LDPRELOAD += libxlog.so
+
 # Kernel
 TARGET_KMODULES := true
 BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK

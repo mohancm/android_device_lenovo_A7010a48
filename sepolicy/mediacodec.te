@@ -14,3 +14,6 @@ allow mediacodec sysfs_devinfo:file { open read write };
 
 # M4U
 allow mediacodec M4U_device_device:chr_file rw_file_perms;
+
+allow mediacodec init:binder call;
+allow mediacodec sysfs:file { open read };
