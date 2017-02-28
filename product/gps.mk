@@ -7,6 +7,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # GPS library
 PRODUCT_PACKAGES += \
+    gps.mt6753 \
     libcurl
 
 PRODUCT_COPY_FILES += \
