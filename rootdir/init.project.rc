@@ -1,0 +1,128 @@
+
+#lenovo-sw wuwl10 add 20160226 begin
+    chown system system /sys/lenovo_tp_gestures/tpd_suspend_status
+    chown system system /sys/lenovo_tp_gestures/tpd_glove_status
+#lenovo-sw wuwl10 add 20160226 end
+
+# lenovo-sw, chenzz3, TEEI-P2, begin
+	mkdir /data/thh/tee_05/data 0777 system system
+	mkdir /data/thh/tee_05/data/fpc 0777 system system
+	mkdir /data/system/users 0777 system system
+	mkdir /data/system/users/0 0777 system system
+	mkdir /data/system/users/0/fpdata 0777 system system
+	mkdir /data/thh/tee_05/data 0777 system system
+	mkdir /data/thh/tee_05/data/fpc 0777 system system
+	chmod 0777 /data/system/users
+	chmod 0777 /data/system/users/0
+	chmod 0777 /data/system/users/0/fpdata
+	chmod 0777 /data/thh/tee_05
+	chmod 0777 /data/thh/tee_05/data/fpc
+	chown system system /dev/teei_fp
+	chown system system /dev/teei_client
+	chown system system /dev/teei_config
+	chown system system /sys/bus/spi/devices/spi0.1/pinctl_set
+	chown system system /sys/bus/spi/devices/spi0.1/spi_owner
+	chown system system /sys/bus/spi/devices/spi0.1/spi_prepare
+	chown system system /sys/bus/spi/devices/spi0.1/fabric_vote
+	chown system system /sys/bus/spi/devices/spi0.1/regulator_enable
+	chown system system /sys/bus/spi/devices/spi0.1/bus_lock
+	chown system system /sys/bus/spi/devices/spi0.1/hw_reset
+	chown system system /sys/bus/spi/devices/spi0.1/wakeup_enable
+	chown system system /sys/bus/spi/devices/spi0.1/clk_enable
+	chown system system /sys/bus/spi/devices/spi0.1/irq
+    chown system system /sys/bus/spi/devices/spi0.1/navigation_event
+	chmod 0664 /dev/teei_fp
+	chmod 0664 /dev/teei_client
+	chmod 0664 /dev/teei_config
+	chmod 0664 /sys/bus/spi/devices/spi0.1/pinctl_set
+	chmod 0664 /sys/bus/spi/devices/spi0.1/spi_owner
+	chmod 0664 /sys/bus/spi/devices/spi0.1/spi_prepare
+	chmod 0664 /sys/bus/spi/devices/spi0.1/fabric_vote
+	chmod 0664 /sys/bus/spi/devices/spi0.1/regulator_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/bus_lock
+	chmod 0664 /sys/bus/spi/devices/spi0.1/hw_reset
+	chmod 0664 /sys/bus/spi/devices/spi0.1/wakeup_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/clk_enable
+	chmod 0664 /sys/bus/spi/devices/spi0.1/irq
+    chmod 0664 /sys/bus/spi/devices/spi0.1/navigation_event
+# lenovo-sw, chenzz3, TEEI-P2, end
+    chmod 0666 /sys/bus/spi/devices/spi1.0/clk_enable
+    chown system system /sys/bus/spi/devices/spi1.0/clk_enable
+    chmod 0666 /sys/bus/spi/devices/spi1.0/wakeup_enable
+    chown system system /sys/bus/spi/devices/spi1.0/wakeup_enable
+    chmod 0666 /sys/bus/spi/devices/spi1.0/irq
+    chown system system /sys/bus/spi/devices/spi1.0/irq
+# For test mode
+	mkdir /data/fpc
+	chmod 0775 /data/fpc
+	chown system system /data/fpc
+# lenovo-sw, chenzz3, configure permission for perftags device, begin
+    chown system system /dev/perftags
+    chmod 0664 /dev/perftags
+# lenovo-sw, chenzz3, configure permission for perftags device, end
+
+# Lenovo-sw weimh1 add 2016-2-2 begin:add for Sensor calibration
+    chown system system /persist/gsensor_cali_val_x
+    chown system system /persist/gsensor_cali_val_y
+    chown system system /persist/gsensor_cali_val_z
+    chmod 0664 /persist/gsensor_cali_val_x
+    chmod 0664 /persist/gsensor_cali_val_y
+    chmod 0664 /persist/gsensor_cali_val_z
+    restorecon /persist/gsensor_cali_val_x
+    restorecon /persist/gsensor_cali_val_y
+    restorecon /persist/gsensor_cali_val_z
+
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    chown system system /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    chmod 0664 /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_x
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_y
+    restorecon /sys/bus/platform/drivers/gsensor/gsensor_cali_val_z
+# Lenovo-sw weimh1 add 2016-2-2 end
+
+# lenovo-sw, chenzz3, add permissions for sensor gyro-sensor calibration, begin
+    chown system system /persist/gyroscope_cali_val_x
+    chown system system /persist/gyroscope_cali_val_y
+    chown system system /persist/gyroscope_cali_val_z
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_x
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_y
+    chown system system /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_z
+    chmod 0660 /persist/gyroscope_cali_val_x
+    chmod 0660 /persist/gyroscope_cali_val_y
+    chmod 0660 /persist/gyroscope_cali_val_z
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_x
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_y
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/gyroscope_cali_val_z
+# lenovo-sw, chenzz3, add permissions for gyro-sensor calibration, end
+
+# lenovo-sw, chenzz3, add permissions for p-sensor calibration, begin
+    chown system system /persist/prox_threshold_hi
+    chown system system /persist/prox_threshold_lo
+    chown system system /sys/bus/platform/drivers/als_ps/cali_param_1
+    chown system system /sys/bus/platform/drivers/als_ps/cali_param_2
+    chmod 0660 /persist/prox_threshold_hi
+    chmod 0660 /persist/prox_threshold_lo
+    chmod 0660 /sys/bus/platform/drivers/als_ps/cali_param_1
+    chmod 0660 /sys/bus/platform/drivers/als_ps/cali_param_2
+# lenovo-sw, chenzz3, add permissions for p-sensor calibration, end
+#
+# Connectivity related device nodes & configuration (end)
+#
+
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled

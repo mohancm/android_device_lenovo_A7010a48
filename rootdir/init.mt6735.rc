@@ -1,4 +1,6 @@
+import init.project.rc
 import init.mt6735.usb.rc
+import init.microtrust.rc
 import init.modem.rc
 
 on init
