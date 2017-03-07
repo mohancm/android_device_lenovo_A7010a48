@@ -45,6 +45,26 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
     user system
     group system
 
+# For WiFi High Speed calibration
+service autokd /system/bin/autokd
+ class core
+ user system
+ group system
+
+on post-fs-data 
+
+    #autok
+    chown root system /sys/autok/debug
+    chown root system /sys/autok/param_count
+    chown root system /sys/autok/ready
+    chown root system /sys/autok/ss_corner
+    chown root system /sys/autok/suggest_vol
+    chown root system /sys/autok/stage1/2/DONE
+    chown root system /sys/autok/stage1/2/PARAMS
+    chown root system /sys/autok/stage1/2/VOLTAGE
+    chown root system /sys/autok/stage1/2/LOG
+    chown root system /sys/autok/stage2/2
+#End, lenovo-sw lumy1 add for SP META
 #
 # Connectivity related services (End)
 #

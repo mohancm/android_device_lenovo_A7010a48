@@ -17,7 +17,7 @@ on init
     chmod 0660 /dev/kmsg
 
 on charger
-    mkdir /dev/block/platform/mtk-msdc.0/by-name 0755 root system
+    mkdir /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name 0755 root system
     symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo /dev/block/platform/mtk-msdc.0/by-name/logo
 
     mount ext4 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system /system ro wait
@@ -48,7 +48,7 @@ on post-fs
     restorecon_recursive /nvdata
 
     # Workaround for old nvram blobs
-    mkdir /dev/block/platform/mtk-msdc.0/by-name 0755 root system
+    mkdir /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name 0755 root system
     symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram /dev/block/platform/mtk-msdc.0/by-name/nvram
     symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo /dev/block/platform/mtk-msdc.0/by-name/proinfo
 
@@ -61,6 +61,18 @@ on post-fs
     mknod /dev/stpgps c 191 0
     mknod /dev/stpbt  c 192 0
 
+# WiFi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi	
+	
+#For WiFi High Speed calibration 
+       service autokd /system/bin/autokd 
+       class core 
+       user system 
+       group system
+	
     # BT
     chmod 0660 /dev/stpbt
     chown radio bluetooth /dev/stpbt
