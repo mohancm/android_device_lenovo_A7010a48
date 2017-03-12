@@ -36,11 +36,11 @@ on init
     #create mountpoint for persist partition
     mkdir /persist 0771 system system
 #Create nvdata mount point
-    mkdir /nvdata 0771 system system
-    mkdir /nvdata/md     0771 system radio
-    mkdir /nvdata/md_cmn 0771 system radio
-    mkdir /nvdata/media  0771 media audio
-    restorecon_recursive /nvdata/
+    #mkdir /nvdata 0771 system system
+    #mkdir /nvdata/md     0771 system radio
+    #mkdir /nvdata/md_cmn 0771 system radio
+    #mkdir /nvdata/media  0771 media audio
+    #restorecon_recursive /nvdata/
 # Create CIP mount point
     mkdir /custom
 
@@ -71,10 +71,12 @@ on property:persist.mediatek.fg.log.enable=1
     write /proc/sys/kernel/printk 8
 
 on charger
+    mkdir /dev/block/platform/mtk-msdc.0/by-name 0755 root system
+    symlink /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo /dev/block/platform/mtk-msdc.0/by-name/logo
     mount ext4 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system /system ro wait
-	chmod 0666 /dev/kmsg
-	write /sys/devices/platform/battery_meter/FG_daemon_log_level 7
-    start fuelgauged
+    chmod 0666 /dev/kmsg
+    exec /system/bin/setprop sys.usb.config adb
+	start fuelgauged
     start kpoc_charger
     start servicemanager
 
@@ -137,13 +139,13 @@ on post-fs-data
     # create basic filesystem structure
     mkdir /data/nvram 2771 root system
     # We chown/chmod /nvdata again so because mount is run as root + defaults
-    chown root system /nvdata
-    chmod 0771 /nvdata
-    symlink /nvdata /data/nvram
-    mkdir /nvdata/media 0771 media audio
+    #chown root system /nvdata
+    #chmod 0771 /nvdata
+    #symlink /nvdata /data/nvram
+    #mkdir /nvdata/media 0771 media audio
 
     # Set SELinux security contexts on upgrade or policy update.
-    restorecon_recursive /nvdata
+    #restorecon_recursive /nvdata
 
     # rfkill
     chmod 0660 /dev/rfkill
@@ -160,6 +162,10 @@ on post-fs-data
     # NFC
     mkdir /data/nfc_socket 0771 nfc radio
 
+    # sRGB   
+	chmod 0660 /sys/devices/platform/mtk_disp_mgr.0/rgb
+    chown system system /sys/devices/platform/mtk_disp_mgr.0/rgb
+	
 # -----------------------
 # Add by MTK
     # md32 boot
@@ -470,6 +476,8 @@ chmod 0660 /sys/class/misc/m_mag_misc/magactive
     #EM eint
     chown root diag /sys/bus/platform/drivers/eint/current_eint
 
+    # for ppp options file
+    mkdir /data/misc/ppp 0770 bluetooth net_bt
 
     # Android SEC related device nodes
     chmod 0660 /dev/sec
@@ -747,6 +755,8 @@ on boot
     chown system /dev/ttyGS1
 
 # BT relayer mode USB VCOM
+    chmod 0660 /dev/ttyGS2
+    chown bluetooth radio /dev/ttyGS2
  
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2

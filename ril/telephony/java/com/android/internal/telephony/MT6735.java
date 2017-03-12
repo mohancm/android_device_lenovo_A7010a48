@@ -40,7 +40,7 @@ import com.android.internal.telephony.MtkEccList;
  *
  * {@hide}
  */
-public class MT6753 extends RIL implements CommandsInterface {
+public class MT6735 extends RIL implements CommandsInterface {
 
     private static final int RIL_UNSOL_RESPONSE_PS_NETWORK_STATE_CHANGED = 3015;
     private static final int RIL_UNSOL_RESPONSE_REGISTRATION_SUSPENDED = 3024;
@@ -64,11 +64,11 @@ public class MT6753 extends RIL implements CommandsInterface {
     private TelephonyManager mTelephonyManager;
     private MtkEccList mEccList;
 
-    public MT6753(Context context, int preferredNetworkType, int cdmaSubscription) {
+    public MT6735(Context context, int preferredNetworkType, int cdmaSubscription) {
         super(context, preferredNetworkType, cdmaSubscription, null);
     }
 
-    public MT6753(Context context, int preferredNetworkType,
+    public MT6735(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
         mContext = context;

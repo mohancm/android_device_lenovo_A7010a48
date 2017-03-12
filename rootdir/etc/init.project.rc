@@ -166,6 +166,16 @@ on post-fs-data
 	chmod 0664 /sys/bus/spi/devices/spi0.1/irq
     chmod 0664 /sys/bus/spi/devices/spi0.1/navigation_event
 # lenovo-sw, chenzz3, TEEI-P2, end
+    chmod 0666 /sys/bus/spi/devices/spi1.0/clk_enable
+    chown system system /sys/bus/spi/devices/spi1.0/clk_enable
+    chmod 0666 /sys/bus/spi/devices/spi1.0/wakeup_enable
+    chown system system /sys/bus/spi/devices/spi1.0/wakeup_enable
+    chmod 0666 /sys/bus/spi/devices/spi1.0/irq
+    chown system system /sys/bus/spi/devices/spi1.0/irq
+# For test mode
+	mkdir /data/fpc
+	chmod 0775 /data/fpc
+	chown system system /data/fpc
 	
 # lenovo-sw, chenzz3, configure permission for perftags device, begin
     chown system system /dev/perftags

@@ -118,4 +118,3 @@ service terservice /system/bin/terservice
     user radio
     group radio cache inet misc
     oneshot
-

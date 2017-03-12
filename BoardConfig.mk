@@ -59,3 +59,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := sys/class/android_usb/android0/f_mass_storage
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := A7010a48
+
+# Engineer Mode
+PRODUCT_PACKAGES += \
+        EngineerMode

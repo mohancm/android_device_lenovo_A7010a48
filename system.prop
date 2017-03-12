@@ -7,7 +7,21 @@
 # RIL
 rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-ro.telephony.ril_class=MT6753
+ro.telephony.ril_class=MT6735
+ril.specific.sm_cause=0
+ril.external.md
+ril.current.share_modem=2
+ril.flightmode.poweroffMD=1
+ril.telephony.mode=0
+ril.radiooff.poweroffMD=0
+ro.mtk_enable_md1=1
+persist.radio.default.sim=0
+persist.radio.multisim.config=dsds
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
+
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -65,7 +79,7 @@ ro.kernel.zio=38,108,105,16
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=true
 
-ro.sf.lcd_density=420
+ro.sf.lcd_density=380
 
 # button jack mode & switch
 persist.sys.button_jack_profile=volume
@@ -75,37 +89,15 @@ persist.tone_relative_volume=100
 ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=alps-mp-m0.mp1-V2.39.1_A7010a48_P16
 ro.mediatek.platform=MT6753
-ro.telephony.sim.count=2
-ro.telephony.ril_class=MediaTekRIL
-ro.telephony.ril.config=fakeiccid
-persist.radio.default.sim=0
-persist.radio.multisim.config=dsds
-#ro.telephony.default_network=0,1
-ro.telephony.default_network=9
-#persist.md.perm.checked=to_upgrade
-persist.gemini.sim_num=2
-ro.gemini.smart_sim_switch=false
-ril.specific.sm_cause=0
-bgw.current3gband=0
-ril.external.md=0
-ro.mtk_cam_lomo_support=1
-ro.btstack=blueangel
 ro.sf.hwrotation=0
-ril.current.share_modem=2
 curlockscreen=1
 ro.mediatek.gemini_support=true
-persist.radio.fd.counter=15
-persist.radio.fd.off.counter=5
-persist.radio.fd.r8.counter=15
 persist.radio.fd.off.r8.counter=5
 persist.mtk.wcn.combo.chipid=-1
 persist.mtk.combo.coredump=no
 drm.service.enabled=true
 fmradio.driver.enable=1
 ro.mtk_fm_short_antenna_support=1
-ril.first.md=1
-ril.flightmode.poweroffMD=1
-ril.telephony.mode=0
 mediatek.wlan.chip=CONSYS_MT6735
 mediatek.wlan.module.postfix=_consys_mt6735
 ril.read.imsi=1
@@ -179,8 +171,6 @@ ro.mtk_cam_mfb_support=1
 ro.mtk_cam_mav_support=0
 ro.mtk_cam_vfb=0
 ro.mtk_live_photo_support=0
-ro.mtk_slidevideo_support=0
-
 
 # Hardware Info
 ro.device.chipset= MediaTek MT6753
