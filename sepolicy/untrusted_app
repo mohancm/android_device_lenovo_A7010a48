@@ -1,0 +1,2 @@
+allow untrusted_app debugfs:file { getattr open read };
+allow untrusted_app rootfs:dir { open read };
