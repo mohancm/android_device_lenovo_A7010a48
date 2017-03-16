@@ -48,7 +48,6 @@
     <item name="cpu.idle">3</item>
 	<item name="cpu.awake">30</item>
     <array name="cpu.active">
-        <value>82.4</value>
 		<value>80</value>
 		<value>100</value>
 		<value>130</value>
@@ -56,7 +55,7 @@
 		<value>180</value>
 		<value>200</value>
 		<value>220</value>
-	        <value>250</value>
+	        <value>280</value>
     </array>
     <item name="battery.capacity">3300</item>
     <array name="wifi.batchedscan"> <!-- mA -->
