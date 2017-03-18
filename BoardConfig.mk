@@ -58,4 +58,4 @@ TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Block based ota
 # see http://review.cyanogenmod.org/#/c/78849/1/core/Makefile
-BLOCK_BASED_OTA := false
+# BLOCK_BASED_OTA := false
