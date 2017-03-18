@@ -19,7 +19,7 @@ index 3e93d41..a352391 100644
      <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
      <string name="device_info_default">Unknown</string>
 +    <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
-+    <string name="author_info_default">Mohancm | Jonny</string>
++    <string name="author_info_default">MohanCm | A.M.T</string>
      <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
      <plurals name="show_dev_countdown">
          <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from being a developer.</item>
