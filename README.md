@@ -17,9 +17,9 @@ Component Type | Details
 CPU     | 1.3GHz Octa-Core MT6753
 GPU     | Mali-T720
 Memory  | 3GB RAM
-Shipped Android Version | 6.0.1
+Shipped Android Version | 5.1.1
 Storage | 16GB
-Battery | 3050 mAh
+Battery | 3300 mAh
 Display | 5.5" 1920 x 1080 px DPI 480
 Rear Camera | 13MP, Int.13MP (Sony IMX149 Exmor RS)
 Front Camera | 5MP, Int. 5MP (OV)
@@ -30,6 +30,8 @@ Front Camera | 5MP, Int. 5MP (OV)
 
 ### Working
  * Hardware acceleration
+ * Wifi
+ * Bluetooth
  * Vibration
  * Audio
  * Flashlight (statusbar and camera)
@@ -45,20 +47,19 @@ Front Camera | 5MP, Int. 5MP (OV)
  * Operator name
  * Auto brightness
  * Adjustable brightness
-
-## Broken/Bugs
+ * Screen Recording
  * Camera rear/front (video)
  * Fingerprint scanner
- * Wifi
- * Bluetooth
- * Hotspot
- * Screen Recording
- 
-## To be checked
- * Audio over Bluetooth (music, calls .etc)
  * OTG
- * Enforcing SELinux
  * GPS
+ * Audio over Bluetooth (music, calls .etc)
+ 
+## Broken/Bugs
+ * Hotspot
+
+
+## To be checked
+ * Enforcing SELinux
 
 
 ### Thanks to:
@@ -66,11 +67,13 @@ Front Camera | 5MP, Int. 5MP (OV)
  * JonnyXDA
  * Deepflex
  * Leskal
- * JonnyXDA
+ * DeckerSU
  * Team M.A.D
  * Lucky76
  * Mohancm100
  * VisiOnary
  * danielhk
  * AdrianoMartins
- > A.M.T
+ * A.M.T
+ * ganeshi4u
+ 
