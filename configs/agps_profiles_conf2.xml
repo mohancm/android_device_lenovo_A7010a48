@@ -18,7 +18,7 @@
 
     ===== load SLP profile automatically based on PLMN =====
     mcc (optional):
-        auto configure the supl_profile if the current MCC on DUT are the same as mcc parameter you specified and auto_profile_enable is enabled
+		auto configure the supl_profile if the current MCC on DUT are the same as mcc parameter you specified and auto_profile_enable is enabled
 
     mcc_mnc (optional):
         auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified and auto_profile_enable is enabled
@@ -39,14 +39,6 @@
         available value: 0 -> SHA1 for SUPL1.0 and SHA256 for SUPL2.0 (default)
         available value: 1 -> SHA1 for SUPL1.0 and SUPL2.0
         available value: 2 -> SHA256 for SUPL1.0 and SUPL2.0
-
-    supl_ver_minor (optional):
-        auto configure the minor of supl_version if above mcc_mnc condition is met
-        available value: 0~255, default value is 0
-
-    supl_ver_ser_ind (optional):
-        auto configure the service indicator of supl_version if above mcc_mnc condition is met
-        available value: 0~255, default value is 0
 
     ===== other parameters are used for DM =====
     app_id (optional):
@@ -136,7 +128,7 @@
       port="7275"
       tls="true"
   />
-
+  
   <!-- Ericsson  Lab FQDN 2 -->
   <supl_profile name="Ericsson FQDN 2"
       addr="mvtv-broadcom.naladmz.ericsson.ca"
@@ -205,8 +197,6 @@
       supl_version="1"
       tls_version="0"
       sha_version="2"
-      supl_ver_minor="4"
-      supl_ver_ser_ind="2"
   />
 
   <!-- Test 2 -->
@@ -271,15 +261,15 @@
 
   <!-- CDMA profile template -->
   <cdma_profile name="CDMA1"
-    mcp_enable="true"
-    mcp_addr="10.199.22.165"
-    mcp_port="6066"
-    pde_addr_valid="false"
-    pde_ip_type="0"
-    pde_addr="11.11.11.11"
-    pde_port="1111"
-    pde_url_valid="false"
-    pde_url_addr="www.mediatek.com"
+  	mcp_enable="true"
+  	mcp_addr="10.199.22.165"
+  	mcp_port="6066"
+  	pde_addr_valid="false"
+  	pde_ip_type="0"
+  	pde_addr="11.11.11.11"
+  	pde_port="1111"
+  	pde_url_valid="false"
+  	pde_url_addr="www.mediatek.com"
   />
 
 
@@ -297,53 +287,13 @@
     gpevt:
         enable/disable GPEVT report
         available value: true, false (default)
-
-    e911_gps_icon_enable:
-        enable/disable showing GPS icon during E911 location
-        available value: true (default), false
-
-    e911_open_gps:
-        enable/disable opening GPS earlier when E911 call is dialed
   -->
   <agps_setting
     agps_enable="true"
     agps_protocol="0"
     gpevt="false"
-    e911_gps_icon_enable="false"
-    e911_open_gps="false"
   />
 
-
-  <!-- gnss_setting
-
-    sib8_16_enable:
-        enable/disable SIB8/SIB16
-        available value: true (default), false
-
-    glonass_satellite_enable:
-        enable/disable Glonass Satellite if hardware can support Glonass
-        available value: true (default), false
-
-    beidou_satellite_enable:
-        enable/disable Beidou Satellite if hardware can support Beidou
-        available value: true (default), false
-
-    galileo__satellite_enable:
-        enable/disable Galileo Satellite if hardware can support Galileo
-        available value: true (default), false
-
-    a_glonass_satellite_enable:
-        enable/disable Glonass aiding if hardware can support A-Glonass
-        available value: true (default), false
-
-  -->
-  <gnss_setting
-    sib8_16_enable="true"
-    glonass_satellite_enable="true"
-    beidou_satellite_enable="true"
-    galileo_satellite_enable="true"
-    a_glonass_satellite_enable="true"
-  />
 
   <!-- cp_setting
 
@@ -370,16 +320,12 @@
         available value: true, false (default)
 
     epc_molr_lpp_payload_enable:
-        enable/disable to send LPP payload in the EPC-MOLR message
+    	enable/disable to send LPP payload in the EPC-MOLR message
         available value: true, false (default)
 
     epc_molr_lpp_payload:
         specify the LPP payload in the EPC-MOLR message in hexString format (ex: "010203ff" = { 0x01, 0x02, 0x03, 0xff }
         the purpose of this parameter is used for LAB testing only, please do not change it.
-
-    reject_non911_nilr_enable:
-        enable/disable to reject non911 NILR request
-        available value: true, false (default)
 
   -->
   <cp_setting
@@ -391,7 +337,6 @@
     cp_auto_reset="false"
     epc_molr_lpp_payload_enable="false"
     epc_molr_lpp_payload="D2000010237B2026404FB8007202BFFFFFFFF80000000020C0000100940FB9001202B7FFFFF8000000000061800002018A00"
-    reject_non911_nilr_enable="false"
   />
 
   <!-- up_setting
@@ -420,7 +365,7 @@
         available value: 2 -> no Preference
 
     supl_version:
-        Major of SUPL version for ULP
+        SUPL version for ULP
         available value: 1 -> SUPL1.0 (default)
         available value: 2 -> SUPL2.0
 
@@ -456,14 +401,6 @@
         enable/disable the OTDOA capability
         available value: true, false (default)
 
-    autonomous_enable:
-        enable/disable the Autonomous capability
-        available value: true (default), false
-
-    aflt_enable:
-        enable/disable the AFLT capability
-        available value: true, false (default)
-
     udp_port_enable:
         enable/disable the UDP 7275 port by default, if you enable it, you may cause Android/CTS failure for checking netstat
         available value: true, false (default)
@@ -494,30 +431,12 @@
         customize the SUPL UT2 timer
         available value: 1~60, default value is 11 (OMA spec)
 
-    ut3:
+	ut3:
         customize the SUPL UT3 timer
         available value: 1~60, default value is 10 (OMA spec)
 
     sync_to_slp:
         sync the AGPS setting (ex: SUPL profile, SUPL version, TLS version) from AGPSD to SLPD in runtime
-        available value: true, false (default)
-
-    imsi_enable:
-        enable/disable the valid IMSI in SUPL messages
-        available value: true (default), false
-    no_sensitive_log:
-        remove/allow agps daemon's log with sensitive info (e.g., the current location)
-        available value: true, false (default)
-    supl_ver_minor:
-        Minor of SUPL version for ULP
-        available value: 0~255, default value is 0
-        choosable value in LocationEM: 0~5
-    supl_ver_ser_ind:
-        Service Indicator of SUPL version for ULP
-        available value: 0~255, default value is 0
-        choosable value in LocationEM: 0~5
-    tls_reuse_enable:
-        enable/disable tls session reuse mode
         available value: true, false (default)
   -->
   <up_setting
@@ -526,16 +445,14 @@
     roaming="true"
     cdma_preferred="0"
     pref_method="1"
-    supl_version="2"
-    tls_version="1"
+    supl_version="1"
+    tls_version="0"
     sha_version="0"
     supl_log="false"
     msa_enable="true"
     msb_enable="true"
     ecid_enable="true"
     otdoa_enable="false"
-    autonomous_enable="true"
-    aflt_enable="false"
     qop_hacc="22"
     qop_vacc="0"
     qop_loc_age="0"
@@ -549,11 +466,6 @@
     ut2="11"
     ut3="10"
     sync_to_slp="false"
-    imsi_enable="true"
-    no_sensitive_log="false"
-    supl_ver_minor="0"
-    supl_ver_ser_ind="0"
-    tls_reuse_enable="false"
   />
 
 </mtk_agps_profiles>
