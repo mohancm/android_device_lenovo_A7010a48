@@ -105,3 +105,5 @@ allow init debugfs:file { write };
 allow init surfaceflinger:process { noatsecure };
 allow init mtk_agpsd:process { noatsecure };
 allow init mediaserver:process { noatsecure };
+
+allow init teei_vfs_device:chr_file write;

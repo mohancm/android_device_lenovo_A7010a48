@@ -276,3 +276,5 @@ allow system_server debugfs:dir { read open };
 allow system_server unlabeled:file unlink;
 allow system_server wmt_prop:file { read open getattr };
 allow system_server wifi_data_file:sock_file { unlink };
+
+allow system_server persist_data_file:file { open read write };

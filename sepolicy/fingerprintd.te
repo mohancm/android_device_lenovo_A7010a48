@@ -12,3 +12,6 @@ allow fingerprintd fuse:file create_file_perms;
 
 #ET310 etsd
 allow fingerprintd etsd:binder { call transfer };
+
+allow fingerprintd device:chr_file { getattr ioctl open write };
+allow fingerprintd teei_fp_device:chr_file ioctl;
