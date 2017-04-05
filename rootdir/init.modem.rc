@@ -1,6 +1,10 @@
 on post-fs-data
+
+    write /proc/bootprof "post-fs-data: on modem start"
+
     # Modem related device nodes
-    mkdir /data/nvram/md 0770 root system
+    mkdir /data/nvram/md  0770 root system
+
     chown radio radio /sys/kernel/ccci/boot
     chown radio radio /dev/ccci_fs
     chown radio radio /dev/ccci_ioctl0
@@ -8,23 +12,16 @@ on post-fs-data
     chown radio radio /dev/ccci_ipc_1220_0
     chown radio radio /dev/ccci_monitor
     chown media audio /dev/ccci_aud
+    chmod 660 /dev/ccci_aud
 
     # SELinux
     mkdir /data/ccci_cfg 0770 system radio
-    mkdir /data/nvram/md3 0770 root system
-    mkdir /data/md3 0770 root system
     restorecon /data/ccci_cfg
     restorecon_recursive /protect_f
     restorecon_recursive /protect_s
-
-    # ignore permission check
-    write /data/ccci_cfg/md_new_ver.1 "flag"
-    chmod 0660 /data/ccci_cfg/md_new_ver.1
-
+    
+    # Encrypt phone function
     setprop vold.post_fs_data_done 1
-
-    # Clear the sim switch flag
-    setprop persist.radio.simswitch ""
 
 service gsm0710muxd /system/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
     class core
@@ -39,7 +36,7 @@ service gsm0710muxdmd2 /system/bin/gsm0710muxdmd2 -s /dev/ccci2_tty0 -f 512 -n 8
     group radio cache inet misc
     disabled
     oneshot
-
+    
 service muxreport-daemon /system/bin/muxreport
     class core
     user radio
@@ -60,10 +57,7 @@ service ril-daemon-mtk /system/bin/mtkrild
     socket rild-mtk-ut-2 stream 660 radio net_bt
     socket rild-mtk-modem stream 660 radio system
     socket rild-atci stream 660 root radio
-    socket rild-mal stream 660 radio system
-    socket rild-mal-at stream 660 radio system
-    socket rild-vsim stream 660 root radio
-    socket rild-mbim stream 660 root radio
+
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket sap_uim_socket2 stream 660 bluetooth bluetooth
     socket sap_uim_socket3 stream 660 bluetooth bluetooth
@@ -85,10 +79,14 @@ service ril-daemon-mtkmd2 /system/bin/mtkrildmd2
     socket rild-atci-md2 stream 660 root radio
     socket rild-vsim-md2 stream 660 root radio
     socket rild-mal-md2 stream 660 radio system
-    socket rild-vsim-md2 stream 660 root radio
-    socket rild-mbim-md2 stream 660 root radio
+    socket rild-mal-at-md2 stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
+    disabled
+    oneshot
+
+service md_minilog_util /system/bin/md_minilog_util
+    user radio
     disabled
     oneshot
 
@@ -96,34 +94,40 @@ service ril-daemon-mtkmd2 /system/bin/mtkrildmd2
 #  Modem related services (Begin)
 #
 
+service permission_check /system/bin/permission_check
+    class main
+    user root
+    group system radio
+    oneshot
+
 service ccci_fsd /system/bin/ccci_fsd 0
-    user radio
+    user root
     group radio system
     class core
     oneshot
 
 service ccci_mdinit /system/bin/ccci_mdinit 0
-    user system
-    group radio system
-    class core
-    oneshot
-
-service ccci3_fsd /system/bin/ccci_fsd 2
-    user radio
-    group  radio system
-    class core
-    oneshot
-
-service ccci3_mdinit /system/bin/ccci_mdinit 2
-    user system
+    user root
     group radio system
     class core
     oneshot
 
 service ccci_rpcd /system/bin/ccci_rpcd 0
-    user radio
+    user root
     group radio cache inet misc
     class core
+    oneshot
+
+service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
+    user root
+    group radio cache inet misc
+    disabled
+    oneshot
+
+#Add by T.Zh for ppp daemon
+service pppd /system/bin/pppd file /data/misc/ppp/ppp_options
+    user root
+    disabled 
     oneshot
 
 #

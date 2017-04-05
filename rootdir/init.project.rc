@@ -1,3 +1,119 @@
+# MTK project .rc configure
+
+import init.mt6735.usb.rc
+import init.c2k.rc
+
+#lenovo-sw, chenzz3, integrate log enhancement mechanism, begin
+import init.lenovo.crash.check.rc
+#lenovo-sw, chenzz3, integrate log enhancement mechanism, end
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+    mkdir /preload
+
+on post-fs-data
+#autok 
+       chown root system /sys/autok/debug 
+       chown root system /sys/autok/param_count 
+       chown root system /sys/autok/ready 
+       chown root system /sys/autok/ss_corner 
+       chown root system /sys/autok/suggest_vol 
+       chown root system /sys/autok/stage1/2/DONE 
+       chown root system /sys/autok/stage1/2/PARAMS 
+       chown root system /sys/autok/stage1/2/VOLTAGE 
+       chown root system /sys/autok/stage1/2/LOG 
+       chown root system /sys/autok/stage2/2
+#
+# Connectivity related device nodes & configuration (begin)
+#
+
+#/dev/ttyMT2 for Connectivity BT/FM/GPS usage
+    chmod 0660 /dev/ttyMT2
+    chown system system /dev/ttyMT2
+
+
+
+
+
+# Create char device file for WMT, GPS, BT, FM, WIFI
+#    mknod /dev/stpwmt c 190 0;
+#    mknod /dev/stpgps c 191 0;
+#    mknod /dev/stpbt  c 192 0;
+
+#    chmod 0660 /dev/stpwmt
+#    chown system system /dev/stpwmt
+
+#    chmod 0660 /dev/wmtdetect
+#    chown system system /dev/wmtdetect
+
+    mknod /dev/wmtWifi c 153 0
+    chmod 0660 /dev/wmtWifi
+    chown system system /dev/wmtWifi
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+ #lenovo-sw wuyt3 add 20150526 begin
+	chmod 0660 /dev/S5K3M2_CAM_CAL_DRV
+	chown system camera /dev/S5K3M2_CAM_CAL_DRV 
+  #lenovo-sw wuyt3 add 20150526 end   
+
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
+
+	chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+# BT
+#    chmod 0660 /dev/stpbt
+#    chown bluetooth radio /dev/stpbt
+
+# GPS
+#    chown gps gps /dev/stpgps
+    chown gps gps /sys/class/gpsdrv/gps/pwrctl
+    chown gps gps /sys/class/gpsdrv/gps/suspend
+    chown gps gps /sys/class/gpsdrv/gps/state
+    chown gps gps /sys/class/gpsdrv/gps/pwrsave
+    chown gps gps /sys/class/gpsdrv/gps/status
+#    chmod 0660 /dev/stpgps
+
+# WiFi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system /dev/ttyGS0
+    chmod 660 /dev/ttyGS1
+    chown system /dev/ttyGS1
+
+#Disable for one Single loader
+# Load WiFi Driver
+#   insmod /system/lib/modules/wlan_mt.ko
+
+# Char device for BT 3.0 HS
+    mknod /dev/ampc0 c 151 0
+    chown bluetooth bluetooth /dev/ampc0
+    chmod 0660 /dev/ampc0
 
 #lenovo-sw wuwl10 add 20160226 begin
     chown system system /sys/lenovo_tp_gestures/tpd_suspend_status
@@ -46,16 +162,7 @@
 	chmod 0664 /sys/bus/spi/devices/spi0.1/irq
     chmod 0664 /sys/bus/spi/devices/spi0.1/navigation_event
 # lenovo-sw, chenzz3, TEEI-P2, end
-    chmod 0666 /sys/bus/spi/devices/spi1.0/clk_enable
-    chown system system /sys/bus/spi/devices/spi1.0/clk_enable
-    chmod 0666 /sys/bus/spi/devices/spi1.0/wakeup_enable
-    chown system system /sys/bus/spi/devices/spi1.0/wakeup_enable
-    chmod 0666 /sys/bus/spi/devices/spi1.0/irq
-    chown system system /sys/bus/spi/devices/spi1.0/irq
-# For test mode
-	mkdir /data/fpc
-	chmod 0775 /data/fpc
-	chown system system /data/fpc
+
 # lenovo-sw, chenzz3, configure permission for perftags device, begin
     chown system system /dev/perftags
     chmod 0664 /dev/perftags
@@ -126,3 +233,66 @@ on init
 service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
     class late_start
     disabled
+
+#
+# Connectivity related services (Begin)
+#
+
+service atci_service /system/bin/atci_service
+	socket atci-service stream 660 radio system
+	socket atci-serv-fw stream 660 radio system
+	user root
+        disabled
+	group radio system
+service atcid-daemon-u /system/bin/atcid
+	user system
+	group radio system media
+	disabled
+	oneshot
+
+service atcid-daemon-e /system/bin/atcid
+	user root
+	group radio system
+	disabled
+	oneshot
+
+on early_property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+
+on property:persist.service.atci.autostart=1
+start atci_service
+start atcid-daemon-u
+
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 media system
+    user media
+    group nvram media system sdcard_rw
+    disabled
+    oneshot
+
+#lenovo_sw  chengx2 wcn
+service wmtLoader /system/bin/wmt_loader
+    class core
+    user root
+    group root
+    oneshot
+
+#lenovo_sw chengx2 modify for wcn
+service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
+    user system
+    group system
+    class core
+
+#
+# Connectivity related services (End)
+#
+
+
+#For WiFi High Speed calibration 
+       service autokd /system/bin/autokd 
+       class core 
+       user system 
+       group system
+

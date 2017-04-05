@@ -1,0 +1,28 @@
+# MTK project .rc configure 
+
+on post-fs-data
+#
+# SHARED_SDCARD related directory & configuration (begin)
+#
+
+# we will remap this as /mnt/sdcard with the sdcard fuse tool
+		mkdir /data/media 0770 media_rw media_rw
+		chown media_rw media_rw /data/media
+		
+#
+# SHARED_SDCARD related directory & configuration (end)
+#
+
+on init
+    mount tmpfs tmpfs /storage/emulated mode=0755,uid=1023,gid=1023
+
+    symlink /sdcard /storage/sdcard0
+
+on post-fs
+    # mount shared so changes propagate into child namespaces
+    mount rootfs rootfs / shared rec
+    mount tmpfs tmpfs /mnt/secure private rec
+
+service asec_helper /system/bin/asec_helper
+	class late_start
+	oneshot

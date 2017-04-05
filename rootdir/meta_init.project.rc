@@ -6,6 +6,8 @@ on post-fs
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
 
+    insmod /system/lib/modules/mtk_wmt_detect.ko
+    
     # Create char device file for WMT, GPS, BT, FM, WIFI
     mknod /dev/stpwmt c 190 0;
     mknod /dev/stpgps c 191 0;
@@ -41,7 +43,8 @@ service wmtLoader /system/bin/wmt_loader
     group root
     oneshot
     
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+#lenovo_sw chengx2 modify for wcn
+service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
     user system
     group system
 
@@ -68,3 +71,14 @@ on post-fs-data
 #
 # Connectivity related services (End)
 #
+
+#lenovo-sw sunyue5 add for check wifi nvram begin
+service override_nvram /system/bin/override_nvram
+    user root
+    group system
+    disabled
+    oneshot
+
+on property:service.nvram_init=Ready
+    start override_nvram
+#lenovo-sw sunyue5 add for check wifi nvram end

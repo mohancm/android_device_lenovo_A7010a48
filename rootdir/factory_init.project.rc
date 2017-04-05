@@ -1,15 +1,6 @@
-mkdir /data/misc/sensors 0664 system system
-
-service msensord /system/bin/msensord
-    user system
-    group system
-    oneshot
-
-service akmd8963 /system/bin/akmd8963
-    disabled
-    user system
-    group system
-
+on fs
+	setprop factory.composite.usb.pid 2035
+	setprop factory.composite.usb.func via_ets,adb,acm
 
 on post-fs
 #
@@ -55,7 +46,8 @@ service wmtLoader /system/bin/wmt_loader
     group root
     oneshot
     
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+#lenovo_sw chengx2 wcn
+service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
     user system
     group system
     
@@ -64,3 +56,6 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 # Connectivity related services (End)
 #
 
+#via_ets,adb,acm
+on property:ro.boot.usbconfig=0
+    write /sys/class/usb_rawbulk/ets/enable 1
