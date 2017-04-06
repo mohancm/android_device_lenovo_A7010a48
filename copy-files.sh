@@ -6,8 +6,8 @@ echo "You must specify system directory as first argument";
 exit
 fi
 
-VENDOR=ulefone
-DEVICE=metal
+VENDOR=lenovo
+DEVICE=A7010a48
 
 BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
 
