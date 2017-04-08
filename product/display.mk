@@ -1,3 +1,4 @@
 # Display
 PRODUCT_PACKAGES += \
-    libion
+    libion \
+    lights.mt6753
