@@ -660,3 +660,10 @@ service etsd /system/bin/etsd
 service fingerprintd /system/bin/fingerprintd
     class late_start
     user root
+
+	
+SPM - Service Power Manager
+service spm_script /system/bin/spm_loader
+    class core
+    user root
+    group root
