@@ -12,3 +12,7 @@ PRODUCT_PACKAGES += \
 # Camera Legacy
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# libhalsensor
+PRODUCT_PACKAGES += \
+    libcam.halsensor 
