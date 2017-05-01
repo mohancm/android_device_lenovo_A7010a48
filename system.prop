@@ -86,3 +86,10 @@ ro.mtk_clearmotion_support=1
 keyguard.no_require_sim=true
 camera.disable_zsl_mode=1
 persist.debug.wfd.enable=1
+
+# Volte
+ro.mtk_ims_support=1
+ro.mtk_volte_support=1
+persist.mtk.volte.enable=1
+persist.radio.mtk_dsbp_support=1
+persist.mtk_dynamic_ims_switch=1

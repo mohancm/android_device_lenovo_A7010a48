@@ -2,6 +2,7 @@ import init.project.rc
 import init.mt6735.usb.rc
 import init.microtrust.rc
 import init.modem.rc
+import init.volte.rc
 
 on init
     export LD_PRELOAD "libmtk_symbols.so"
@@ -667,3 +668,14 @@ service spm_script /system/bin/spm_loader
     class core
     user root
     group root
+# Initiate vt service
+service vtservice /system/bin/vtservice
+    class main
+    socket soc_vt_tcv dgram 660 radio system
+    socket soc_vt_stk dgram 660 radio system
+    socket soc_vt_svc dgram 660 radio system
+    socket volte_vt stream 660 root system
+    user system
+    group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
+    ioprio rt 4
+	
