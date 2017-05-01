@@ -5,4 +5,4 @@ USE_CAMERA_STUB := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 #Camera Wrappers
-USE_MTK_CAMERA_WRAPPER := true
+#USE_MTK_CAMERA_WRAPPER := true
