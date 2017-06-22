@@ -75,6 +75,6 @@ Front Camera | 5MP, Int. 5MP (OV)
  * VisiOnary
  * danielhk
  * AdrianoMartins
- * A.M.T
+ * Team Zero
  * ganeshi4u
- 
+ *
