@@ -12,12 +12,6 @@ for dir in $dirs ; do
 	echo " "
 done
 
-#cd $rootdirectory
-#cd packages/apps/SetupWizard
-#echo "Applying packages/apps/SetupWizard patches..."
-#git reset cd34a5865fc0799ddd222b9871b4fd3f08b9d5cf --hard
-#echo " "
-
 # -----------------------------------
 echo "Changing to build directory..."
 cd $rootdirectory
