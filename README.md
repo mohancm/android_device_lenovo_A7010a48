@@ -15,14 +15,14 @@ Lenovo K4 Note(A7010a48)
 Component Type | Details
 -------:|:-------------------------
 CPU     | 1.3GHz Octa-Core MT6753
-GPU     | Mali-T720
+GPU     | Mali-T720 (3 Cores)
 Memory  | 3GB RAM
 Shipped Android Version | 5.1.1
 Storage | 16GB
 Battery | 3300 mAh
-Display | 5.5" 1920 x 1080 px DPI 480
-Rear Camera | 13MP, Int.13MP (Sony IMX149 Exmor RS)
-Front Camera | 5MP, Int. 5MP (OV)
+Display | 5.5" 1920 x 1080 px DPI 403
+Rear Camera | 13MP, Int.13MP (Samsung S5K3M2)
+Front Camera | 5MP, Int. 5MP (OV5693)
 
 ---
 
