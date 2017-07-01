@@ -77,4 +77,4 @@ Front Camera | 5MP, Int. 5MP (OV5693)
  * AdrianoMartins
  * Team Zero
  * ganeshi4u
- *
+ * Zormax
