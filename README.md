@@ -1,4 +1,4 @@
-# Lenovo K4 Note - LineageOS 14.1 / AOSP 7.1.1
+# Lenovo K4 Note - LineageOS 15.0 / AOSP 8.0
 ==============
 
 This branch is device for building of the LineageOS 14.1 and Android Nougat 7.1.1 AOSP ROMs. For more information about building the ROM, read our [build manual](manual).
@@ -8,7 +8,7 @@ This branch is device for building of the LineageOS 14.1 and Android Nougat 7.1.
 # About Device
 
 Lenovo K4 Note(A7010a48)
-![Lenovo K4 Note](http://cdn2.gsmarena.com/vv/pics/lenovo/lenovo-a7010.jpg "Lenovo K4 Note")
+![Lenovo K4 Note](http://images.fonearena.com/blog/wp-content/uploads/2016/01/Lenovo-Vibe-K4-Note.jpg "Lenovo K4 Note")
 
 ### Specifications
 
@@ -28,7 +28,7 @@ Front Camera | 5MP, Int. 5MP (OV5693)
 
 # Build Information
 
-### Working
+### Testing...
  * Hardware acceleration
  * Wifi
  * Bluetooth
@@ -54,9 +54,10 @@ Front Camera | 5MP, Int. 5MP (OV5693)
  * GPS
  * Audio over Bluetooth (music, calls .etc)
  * Hotspot
+ * Video_Camera
 
  ## Broken/Bugs
- * Video_Camera
+ -------------
 
 
 ## To be checked
@@ -78,3 +79,4 @@ Front Camera | 5MP, Int. 5MP (OV5693)
  * Team Zero
  * ganeshi4u
  * Zormax
+ * Moyster
