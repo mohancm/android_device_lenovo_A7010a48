@@ -13,7 +13,6 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
-    export LD_PRELOAD "libmtk_symbols.so"
 	
     # Temp Backward compatibility
 # Support legacy paths
