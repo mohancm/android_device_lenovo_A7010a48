@@ -13,6 +13,7 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+	export LD_SHIM_LIBS "/system/lib/libshowlogo.so|libshim_asc.so:/system/lib/libmedia.so|libshim_snd.so:/system/lib64/libmedia.so|libshim_snd.so:/system/lib/liblog.so|libshim_xlog.so:/system/lib64/liblog.so|libshim_xlog.so:/system/lib/libui.so|libshim_ui.so:/system/lib64/libui.so|libshim_ui.so:/system/lib/libgui.so|libshim_gui.so:/system/lib64/libgui.so|libshim_gui.so"
 	
     # Temp Backward compatibility
 # Support legacy paths
