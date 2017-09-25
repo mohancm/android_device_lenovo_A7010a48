@@ -41,7 +41,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Vendor product configurations
 $(call inherit-product-if-exists, vendor/lenovo/A7010a48/A7010a48-vendor.mk)
 
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \
 	ro.allow.mock.location=1 \
 	ro.debuggable=1 \
