@@ -39,7 +39,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Vendor product configurations
-$(call inherit-product-if-exists, vendor/lenovo/A7010a48/A7010a48-vendor.mk)
+$(call inherit-product-if-exists, vendor/lenovo/k5fpr/k5fpr-vendor.mk)
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \

@@ -8,7 +8,7 @@ for dir in $dirs ; do
 	cd $rootdirectory
 	cd $dir
 	echo "Reverting $dir patches..."
-	#git apply --reverse $rootdirectory/device/lenovo/A7010a48/patches/$dir/*.patch
+	#git apply --reverse $rootdirectory/device/lenovo/k5fpr/patches/$dir/*.patch
 	git reset --hard
 	git clean -f -d
 	echo " "

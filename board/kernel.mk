@@ -12,7 +12,7 @@ TARGET_IS_64_BIT := true
 MTK_K64_SUPPORT := yes
 
 # Kernel properties
-TARGET_KERNEL_SOURCE := kernel/lenovo/A7010a48
+TARGET_KERNEL_SOURCE := kernel/lenovo/k5fpr
 TARGET_KERNEL_CONFIG := k5fpr_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 MTK_APPENDED_DTB_SUPPORT := yes
