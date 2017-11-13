@@ -24,6 +24,9 @@ $(call inherit-product, $(LOCAL_PATH)/device_k5fpr.mk)
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+# GMS Base
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo
+
 # Device identifier
 PRODUCT_BRAND := lenovo
 PRODUCT_DEVICE := k5fpr
@@ -32,3 +35,8 @@ PRODUCT_MODEL := Lenovo K4 Note
 PRODUCT_NAME := lineage_k5fpr
 PRODUCT_RELEASE_NAME := k5fpr
 PRODUCT_RESTRICT_VENDOR_FILES := false
+
+# Fingerprints
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT=Lenovo/k5fpr/A7010a48:6.0/MRA58K/RA7010a48_S232_161227_ROW.12271429:user/release-keys \
+    PRIVATE_BUILD_DESC="k5fpr-user 6.0 MRA58K A7010a48_S232_161227_ROW release-keys"
