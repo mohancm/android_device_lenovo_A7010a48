@@ -3,4 +3,4 @@
 sched_getparam: 1
 sched_getscheduler: 1
 sched_setaffinity: 1
-_llseek: 1
+sysinfo: 1
