@@ -1,4 +1,4 @@
-#
+!#
 # Copyright (C) 2015-2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,7 +39,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Vendor product configurations
-$(call inherit-product-if-exists, vendor/lenovo/k5fpr/k5fpr-vendor.mk)
+$(call inherit-product, vendor/lenovo/k5fpr/k5fpr-vendor.mk)
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \
