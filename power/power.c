@@ -27,6 +27,7 @@
 
 #define MT_RUSH_BOOST_PATH "/proc/hps/rush_boost_enabled"
 #define MT_FPS_UPPER_BOUND_PATH "/d/ged/hal/fps_upper_bound"
+#define MT_DYNAMIC_BOOST "/sys/devices/platform/dynamic_boost/dynamic_boost"
 
 
 #define POWER_HINT_POWER_SAVING 0x00000101
@@ -77,10 +78,11 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             }
             ALOGI("POWER_HINT_LOW_POWER");
             break;
+        case POWER_HINT_LAUNCH:
+            power_fwrite(MT_DYNAMIC_BOOST, "9 2000");
         case POWER_HINT_VSYNC:
         case POWER_HINT_INTERACTION:
         case POWER_HINT_CPU_BOOST:
-        case POWER_HINT_LAUNCH_BOOST:
         case POWER_HINT_AUDIO:
         case POWER_HINT_SET_PROFILE:
         case POWER_HINT_VIDEO_ENCODE:
@@ -103,8 +105,40 @@ void set_feature(struct power_module *module, feature_t feature, int state)
 #endif
 }
 
+static int power_open(const hw_module_t* __unused module, const char* name,
+                    hw_device_t** device)
+{
+    int retval = 0; /* 0 is ok; -1 is error */
+    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+
+    if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
+        power_module_t *dev = (power_module_t *)calloc(1,
+                sizeof(power_module_t));
+
+        if (dev) {
+            /* Common hw_device_t fields */
+            dev->common.tag = HARDWARE_DEVICE_TAG;
+            dev->common.module_api_version = POWER_MODULE_API_VERSION_0_3;
+            dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
+
+            dev->init = power_init;
+            dev->powerHint = power_hint;
+            dev->setInteractive = power_set_interactive;
+            dev->setFeature = set_feature;
+
+            *device = (hw_device_t*)dev;
+        } else
+            retval = -ENOMEM;
+    } else {
+        retval = -EINVAL;
+    }
+
+    ALOGD("%s: exit %d", __FUNCTION__, retval);
+    return retval;
+}
+
 static struct hw_module_methods_t power_module_methods = {
-    .open = NULL,
+    .open = power_open,
 };
 
 struct power_module HAL_MODULE_INFO_SYM = {
