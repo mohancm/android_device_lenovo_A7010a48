@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+# Date : W17.39
+# Boot Animation
+allow shell mtkbootanimation_exec:file rx_file_perms;

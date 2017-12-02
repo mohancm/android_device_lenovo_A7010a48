@@ -1,0 +1,3 @@
+# allow processes register buffer queue information to gui_ext
+# TODO:: Due to vendor_app defined in non_plat, so keep this policy in non_plat.
+allow {appdomain binderservicedomain -isolated_app -vendor_app} guiext-server_service:service_manager find;
