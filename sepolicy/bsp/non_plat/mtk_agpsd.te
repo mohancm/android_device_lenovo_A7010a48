@@ -1,0 +1,5 @@
+# ==============================================
+# Policy File of /system/bin/mtk_agpsd Executable File
+
+# Request CDMA network info for CDMA A-GPS
+allow mtk_agpsd rild:unix_dgram_socket sendto;

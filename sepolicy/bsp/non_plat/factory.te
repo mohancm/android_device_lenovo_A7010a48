@@ -1,0 +1,15 @@
+# ==============================================
+# Policy File of /system/binfactory Executable File 
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#============= factory ==============
+allow factory mnld_exec:file rx_file_perms;
+
+#Date: WK15.31
+#Purpose: define factory_data_file instead of system_data_file
+# because system_data_file is sensitive partition from M
+allow resize block_device:dir search;
+

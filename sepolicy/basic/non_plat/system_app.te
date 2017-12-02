@@ -1,0 +1,23 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+typeattribute system_app mlstrustedsubject;
+
+# Date : 2017/07/21
+# Purpose :[CdsInfo] read/ write WI-FI MAC address by NVRAM API
+# Package Name: com.mediatek.connectivity
+hal_client_domain(system_app, hal_nvramagent);
+
+hal_client_domain(system_app, mtk_hal_lbs)
+
+#Dat: 2017/02/14
+#Purpose: allow set telephony Sensitive property
+set_prop(system_app, mtk_telephony_sensitive_prop)
+
+
+# Date : WK17.12
+# Operation : MT6799 SQC
+# Purpose : Change thermal config
+allow system_app mtk_thermal_config_prop:file { getattr open read };
+allow system_app mtk_thermal_config_prop:property_service set;
