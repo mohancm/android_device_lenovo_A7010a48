@@ -5,9 +5,12 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
+    android.hardware.wifi@1.0-service \
+	dhcpcd.conf \
     hostapd \
     libwpa_client \
+	wificond \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf \
 	PRODUCT_PACKAGES += \

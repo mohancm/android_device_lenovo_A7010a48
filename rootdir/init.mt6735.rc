@@ -454,7 +454,7 @@ on post-fs-data
     chown root diag /sys/bus/platform/drivers/eint/current_eint
 
     # for ppp options file
-    mkdir /data/misc/ppp 0770 bluetooth net_bt
+    mkdir /data/misc/ppp 0770 bluetooth bluetooth
 
     # Android SEC related device nodes
     chmod 0660 /dev/sec
@@ -475,7 +475,7 @@ on post-fs-data
     
 
     # bluetooth
-    mkdir /data/@btmtk 0770 bluetooth net_bt
+    mkdir /data/@btmtk 0770 bluetooth bluetooth
     chown bluetooth bluetooth /data/@btmtk/host_cache
     chown bluetooth bluetooth /data/@btmtk/dev_cache
     chown bluetooth bluetooth /dev/hid-keyboard
@@ -557,7 +557,7 @@ on post-fs-data
     chmod 0640 /mtd@recovery
     chown root system /mtd@recovery
 
-    chmod 0660 /mtd@nvram
+    chmod 0666 /mtd@nvram
     chown root system /mtd@nvram
 
     chmod 0660 /mtd@seccfg
@@ -566,7 +566,7 @@ on post-fs-data
     chmod 0660 /mtd@misc
     chown root system /mtd@misc
 
-    chmod 0664 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chmod 0666 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     chown system media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     #mtk_sched
     chmod 0660 /dev/mtk_sched
@@ -871,7 +871,7 @@ service rbfota /system/bin/fota1
     oneshot
 
 
-service p2p_supplicant /system/bin/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
@@ -881,20 +881,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     #   after setting up the capabilities required for WEXT
     #   user wifi
     #   group wifi inet keystore
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-service wpa_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
-    class main
+	class late_start
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
@@ -1017,25 +1004,19 @@ on property:service.pppoe_wlan0.enable=1
 
 service DMAgent /system/bin/dm_agent_binder
     class main
-    user system
-    group system cache
+	user root
+    group root system cache
+
 
 service PPLAgent /system/bin/ppl_agent
     class main
-    user system
-    group system cache
-
-
-service cmmb /system/bin/cmmbsp
-    class main
     user root
-    group system audio camera graphics inet net_bt net_bt_admin net_bw_acct media
-    ioprio rt 4
+    group root system cache
 
-service enableswap /system/bin/sh /enableswap.sh
-    class late_start
-    oneshot
-    seclabel u:r:enableswap:s0
+#service enableswap /system/bin/sh /enableswap.sh
+#    class late_start
+#    oneshot
+#    seclabel u:r:enableswap:s0
 
 service swapoff_action /system/bin/sh /disableswap.sh
     class main
@@ -1043,24 +1024,6 @@ service swapoff_action /system/bin/sh /disableswap.sh
     oneshot
     seclabel u:r:disableswap:s0
 
-service dbus /system/bin/dbus-daemon --system --nofork
-    class main
-    socket dbus stream 660 bluetooth bluetooth
-    user bluetooth
-    group bluetooth net_bt_admin
-
-service bluetoothd /system/bin/bluetoothd -n
-    class main
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
-
-#service dpfd /system/bin/dpfd
-#	user root
-#	group system media
 
 #
 #  External Modme control related services
@@ -1080,9 +1043,7 @@ service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepe
 #  Modem related services (End)
 #
 
-#service agpsdcainit /system/bin/agpscacertinit
-#    class main
-#    oneshot
+
 
 service agpsd /system/bin/mtk_agpsd
     class main
@@ -1113,10 +1074,6 @@ service ipod /system/bin/ipod
     group root
     disabled
 
-service extmdlogger /system/bin/extmdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet sdcard_r media_rw
 
 service GoogleOtaAgent /system/bin/GoogleOtaBinder
     class main
@@ -1285,12 +1242,12 @@ on property:ro.build.type=userdebug
 service emsvr_user /system/bin/em_svr
     disabled
     user system
-    group system radio diag net_bt_stack
+    group system radio diag bluetooth
 
 service emsvr /system/bin/em_svr
     disabled
     user root
-    group net_bt_stack
+    group bluetooth
 
 #
 # emsvr service (end)
@@ -1298,7 +1255,7 @@ service emsvr /system/bin/em_svr
 
 service NvRAMAgent /system/bin/nvram_agent_binder
     class main
-    user system
+    user root
     group system
 
 service thermal_manager /system/bin/thermal_manager
@@ -1319,8 +1276,8 @@ service thermald /system/bin/thermald
 
 service fuelgauged /system/bin/fuelgauged
     class main
-    user system
-    group system
+    user root
+    group root
 
 service sn /system/bin/sn
     class late_start

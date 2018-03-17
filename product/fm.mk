@@ -2,5 +2,6 @@
 MTK_FM_SUPPORT := true
 
 PRODUCT_PACKAGES += \
-    libfmjni \
+    android.hardware.broadcastradio@1.0-impl \
+	libfmjni \
     FMRadio

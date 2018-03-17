@@ -19,17 +19,17 @@
 
 <device name="Android">
     <item name="none">0</item>
-    <item name="screen.on">110</item>
-    <item name="screen.full">260</item>
-    <item name="bluetooth.active">80</item>
-    <item name="bluetooth.on">1</item>
+    <item name="screen.on">202</item> <!-- From lenovo sources -->
+    <item name="screen.full">281</item> <!-- From lenovo sources -->
+    <item name="bluetooth.active">126</item>  <!-- From lenovo sources -->
+    <item name="bluetooth.on">3.7</item>  <!-- From lenovo sources -->
     <item name="wifi.on">5</item>
     <item name="wifi.active">125</item>
     <item name="wifi.scan">30</item>
     <item name="dsp.audio">50</item>
     <item name="dsp.video">80</item>
-    <item name="radio.active">150</item>
-    <item name="radio.scanning">10</item>
+    <item name="radio.active">117</item>  <!-- From lenovo sources -->
+    <item name="radio.scanning">21</item>  <!-- From lenovo sources -->
     <item name="gps.on">30</item>
     <array name="radio.on">
         <value>2</value>
@@ -41,12 +41,12 @@
         <value>598000</value>
         <value>819000</value>
         <value>1040000</value>
-        <value>1170000</value>
+        <value>1144000</value>
         <value>1235000</value>
         <value>1300000</value>
     </array>
-    <item name="cpu.idle">3</item>
-	<item name="cpu.awake">30</item>
+    <item name="cpu.idle">3.9</item>
+	<item name="cpu.awake">62</item>
     <array name="cpu.active">
         <value>82.4</value>
 		<value>80</value>
@@ -60,10 +60,10 @@
     </array>
     <item name="battery.capacity">3300</item>
     <array name="wifi.batchedscan"> <!-- mA -->
-      <value>.0002</value> <!-- 1-8/hr -->
-      <value>.002</value>  <!-- 9-64/hr -->
-      <value>.02</value>   <!-- 65-512/hr -->
-      <value>.2</value>    <!-- 513-4,096/hr -->
-      <value>2</value>    <!-- 4097-/hr -->
+      <value>.2</value> <!-- 1-8/hr -->
+      <value>2</value>  <!-- 9-64/hr -->
+      <value>20</value>   <!-- 65-512/hr -->
+      <value>200</value>    <!-- 513-4,096/hr -->
+      <value>500</value>    <!-- 4097-/hr -->
   </array>
 </device>
